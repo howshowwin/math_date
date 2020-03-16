@@ -1,0 +1,2943 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <style>
+        .calendar {
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            text-align: center;
+        }
+
+        .body-list ul {
+            width: 100%;
+            font-family: arial;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .body-list ul li {
+            width: 14.28%;
+            height: 36px;
+            line-height: 36px;
+            list-style-type: none;
+            display: block;
+            box-sizing: border-box;
+            float: left;
+            text-align: center;
+        }
+
+        .lightgrey {
+            color: #a8a8a8;
+            /*浅灰色*/
+        }
+
+        .darkgrey {
+            color: #565656;
+            /*深灰色*/
+        }
+
+        .green {
+            color: #6ac13c;
+            /*绿色*/
+        }
+
+        .greenbox {
+            border: 1px solid #6ac13c;
+            background: #e9f8df;
+            /*浅绿色背景*/
+        }
+
+        select {
+            border: 0px;
+
+        }
+
+        .title {
+            display: flex;
+            justify-content: space-between
+        }
+
+        .title_double {
+            display: flex;
+            justify-content: space-between
+        }
+
+        .title_half_year {
+            display: flex;
+            justify-content: space-between
+        }
+
+        .display_none {
+            display: none !important;
+        }
+
+        .frame {
+            height: 200px;
+            width: 150px;
+            background: #ccc;
+        }
+
+        .box_top {
+            background: rgb(137, 137, 175);
+            height: 20%;
+            text-align: center;
+            font-family: "微軟正黑體";
+            cursor: pointer;
+
+        }
+
+        .box_top::before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            width: 0;
+            vertical-align: middle;
+        }
+
+        .box_mid {
+            height: 50%;
+            text-align: center;
+            font-size: 72px;
+            font-family: "微軟正黑體";
+            background: #b9b794;
+
+
+        }
+
+        .box_mid::before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            width: 0;
+            vertical-align: middle;
+        }
+
+        .box_bottom {
+            height: 30%;
+            background: rgb(157, 177, 138);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+        }
+
+        .box_bottom img {
+            height: 40px;
+            cursor: pointer;
+
+        }
+
+        .close {
+            display: none;
+        }
+
+        .pick {
+            background: #565656;
+            color: #fff;
+        }
+
+        .cannotuse {
+            opacity: 0.1;
+        }
+
+        .shadowbox {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #565656;
+            width: 20px;
+        }
+
+        ul li {
+            position: relative;
+        }
+
+        .btn {
+            position: fixed;
+            height: 60px;
+            width: 120px;
+            background: #6ac13c;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 24px;
+            font-family: "微軟正黑體";
+            cursor: pointer;
+            right: 10px;
+
+
+        }
+
+        .btn::before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            width: 0;
+            vertical-align: middle;
+
+        }
+
+        .btn_day {
+            top: 180px;
+        }
+
+        .btn_month {
+            top: 250px;
+        }
+
+        .btn_double_month {
+            top: 320px
+        }
+
+        .btn_half_year {
+            top: 390px
+        }
+
+        .btn_year {
+            top: 460px
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .btn_circle {
+            border-radius: 50%;
+            background: #879798;
+            height: 30px;
+            width: 30px;
+            color: #fff;
+            font-weight: 900;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .btn_circle::before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            width: 0;
+            vertical-align: middle;
+
+        }
+
+        .on_selected {
+            background: #777;
+            color: aquamarine;
+        }
+
+        .font_bigger {
+            font-size: 30px;
+        }
+
+        .flex_frame_year {
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20%;
+            grid-row-gap: 40px;
+            /* 每列會有15px的間格 */
+            grid-column-gap: 40px;
+            /* 每行會有10px的間格 */
+        }
+
+        .flex_frame_half_year {
+            display: grid;
+            grid-template-columns: 25% 25% 25%;
+            grid-row-gap: 40px;
+            /* 每列會有15px的間格 */
+            grid-column-gap: 40px;
+            /* 每行會有10px的間格 */
+        }
+
+        .flex_frame_double_month {
+            display: grid;
+            grid-template-columns: 30% 30%;
+            /* 每列會有15px的間格 */
+            grid-column-gap: 40px;
+            /* 每行會有10px的間格 */
+        }
+
+        .flex_frame_month {
+            display: grid;
+            grid-template-columns: 30%;
+            grid-row-gap: 40px;
+            /* 每列會有15px的間格 */
+            grid-column-gap: 40px;
+            /* 每行會有10px的間格 */
+        }
+
+        .function_area {
+            position: fixed;
+            bottom: 0;
+        }
+
+        a {
+            width: 120px;
+            display: block;
+            float: left;
+            background: #565656;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .frame {
+            position: fixed;
+            right: 10px;
+            bottom: 0;
+
+        }
+
+        .month_style_all {
+            display: block;
+            margin-left: 25%;
+            font-family: "微軟正黑體";
+            font-size: 24px;
+            color: rgb(194, 54, 54);
+        }
+
+        .btn img {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 40%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        .btn_image {
+            width: 60px;
+            top: 60%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btn btn_day ">日曆</div>
+
+    <div class="btn btn_month ">月曆</div>
+
+    <div class="btn btn_double_month ">雙月曆</div>
+
+    <div class="btn btn_half_year ">半年曆</div>
+
+    <div class="btn btn_year on_selected">年曆</div>
+
+
+
+
+    <div class="day_calendar close">
+        <div class="day_year_output">1992</div>
+
+
+        <div class="year_box flex">
+            <div class="btn_circle prev_year_day">-</div>
+            <div class="day_year font_bigger">1992</div>
+            <div class="btn_circle next_year_day">+</div>
+
+        </div>
+
+
+        <div class="month_box flex">
+            <div class="btn_circle prev_month_day">-</div>
+            <div class="day_month font_bigger">12</div>
+            <div class="btn_circle next_month_day">+</div>
+        </div>
+        <div class="day_box flex">
+            <div class="btn_circle prev_day_day">-</div>
+            <div class="day_date font_bigger">5</div>
+            <div class="btn_circle next_day_day">+</div>
+        </div>
+
+
+
+
+        <div class="day_of_the_week">星期幾</div>
+
+
+
+
+    </div>
+
+    <div class="month_calendar close">
+        <div class="title">
+            <select id='myYear'></select>
+            <select id='myMonth'></select>
+            <h2 class="green small" id="calendar-year">Year</h2>
+
+
+        </div>
+        <div class="flex_frame_month">
+
+            <div class="calendar">
+                <div id="month_month_1" class="month_style_all">
+                    1
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="function_area">
+            <a href="" id="today">今天</a>
+
+            <a href="" id="prev_week">前一週</a>
+            <a href="" id="next_week">下一週</a>
+            <a href="" id="prev">前一個月</a>
+            <a href="" id="next">下一個月</a>
+            <a href="" id="prev_year">前一年</a>
+            <a href="" id="next_year">下一年</a>
+
+
+        </div>
+
+
+        <div class="frame">
+
+            <div class="box_top">記數日期</div>
+
+            <div class="box_mid cannotuse"></div>
+
+            <div class="box_bottom cannotuse">
+                <img src="trash-alt-solid.svg" alt="">
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="double_month_calendar close">
+
+
+        <div class="title_double">
+            <select id='myYear_double'></select>
+            <select id='myMonth_double'></select>
+            <h2 class="green small" id="calendar-year_double">Year</h2>
+
+
+        </div>
+
+        <div class="flex_frame_double_month">
+            <div class="calendar">
+                <div id="month_double_1" class="month_style_all">
+                    1
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_double_1">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calendar">
+                <div id="month_double_2" class="month_style_all">
+                    1
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_double_2">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+        <div class="function_area">
+            <a href="" id="today_double">今天</a>
+
+
+            <a href="" id="prev_double">前一個月</a>
+            <a href="" id="next_double">下一個月</a>
+            <a href="" id="prev_year_double">前一年</a>
+            <a href="" id="next_year_double">下一年</a>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="half_year_calendar close">
+        <div class="title_half_year">
+            <select id='myYear_half_year'></select>
+            <select id='myMonth_half_year'></select>
+            <h2 class="green small" id="calendar-year_half_year">Year</h2>
+
+
+        </div>
+
+        <div class="flex_frame_half_year">
+            <div class="btn btn_image">
+                <img src="search-solid.svg" alt="">
+            </div>
+            <div class="calendar">
+                <div id="month_half_years_1" class="month_style_all">
+                    1
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_half_year_1">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calendar">
+                <div id="month_half_years_2" class="month_style_all">
+                    1
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_half_year_2">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar">
+                <div id="month_half_years_3" class="month_style_all">
+                    1
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_half_year_3">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar">
+                <div id="month_half_years_4" class="month_style_all">
+                    1
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_half_year_4">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar">
+                <div id="month_half_years_5" class="month_style_all">
+                    1
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_half_year_5">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar">
+                <div id="month_half_years_6" class="month_style_all">
+                    1
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_half_year_6">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <div class="function_area">
+
+            <a href="" id="today_half_year">今天</a>
+
+            <a href="" id="prev_half_year">前一個月</a>
+            <a href="" id="next_half_year">下一個月</a>
+            <a href="" id="prev_year_half_year">前一年</a>
+            <a href="" id="next_year_half_year">下一年</a>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <div class="years_calendar ">
+        <div class="btn btn_image">
+            <img src="search-solid.svg" alt="">
+        </div>
+        <div class="title_years">
+            <select id='myYear_years'></select>
+            <h2 class="green small" id="calendar-year_years">Year</h2>
+
+
+        </div>
+        <div class="flex_frame_year">
+            <div class="calendar">
+                <div id="month_years_1" class="month_style_all">
+                    1
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_years_1">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calendar">
+                <div id="month_years_2" class="month_style_all">
+                    2
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_years_2">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar">
+                <div id="month_years_3" class="month_style_all">
+                    3
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_years_3">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar">
+                <div id="month_years_4" class="month_style_all">
+                    4
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_years_4">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar">
+                <div id="month_years_5" class="month_style_all">
+                    5
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_years_5">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar">
+                <div id="month_years_6" class="month_style_all">
+                    6
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_years_6">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar">
+                <div id="month_years_7" class="month_style_all">
+                    7
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_years_7">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar">
+                <div id="month_years_8" class="month_style_all">
+                    8
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_years_8">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar">
+                <div id="month_years_9" class="month_style_all">
+                    9
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_years_9">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar">
+                <div id="month_years_10" class="month_style_all">
+                    10
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_years_10">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar">
+                <div id="month_years_11" class="month_style_all">
+                    11
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_years_11">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar">
+                <div id="month_years_12" class="month_style_all">
+                    12
+                </div>
+                <div class="body">
+                    <div class="lightgrey body-list">
+                        <ul>
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                    </div>
+                    <div class="darkgrey body-list">
+                        <ul id="days_years_12">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="function_area">
+
+
+            <a href="" id="today_years">今天</a>
+
+            <a href="" id="prev_year_years">前一年</a>
+            <a href="" id="next_year_years">下一年</a>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        var month_olympic = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        var month_normal = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        var month_name = ["January", "Febrary", "March", "April", "May", "June", "July", "Auguest", "September", "October", "November", "December"];
+        var week_day = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"];
+        var today_double = document.getElementById("today_double");
+
+        var today = document.getElementById("today");
+        var holder = document.getElementById("days");
+        var holder_double_1 = document.getElementById("days_double_1");
+        var holder_double_2 = document.getElementById("days_double_2");
+
+        var today_half_year = document.getElementById("today_half_year");
+
+        var today_years = document.getElementById("today_years");
+
+
+        var holder_half_year_1 = document.getElementById("days_half_year_1");
+        var holder_half_year_2 = document.getElementById("days_half_year_2");
+        var holder_half_year_3 = document.getElementById("days_half_year_3");
+        var holder_half_year_4 = document.getElementById("days_half_year_4");
+
+        var holder_half_year_5 = document.getElementById("days_half_year_5");
+        var holder_half_year_6 = document.getElementById("days_half_year_6");
+
+        var holder_years_1 = document.getElementById("days_years_1");
+        var holder_years_2 = document.getElementById("days_years_2");
+        var holder_years_3 = document.getElementById("days_years_3");
+        var holder_years_4 = document.getElementById("days_years_4");
+        var holder_years_5 = document.getElementById("days_years_5");
+        var holder_years_6 = document.getElementById("days_years_6");
+        var holder_years_7 = document.getElementById("days_years_7");
+        var holder_years_8 = document.getElementById("days_years_8");
+        var holder_years_9 = document.getElementById("days_years_9");
+        var holder_years_10 = document.getElementById("days_years_10");
+        var holder_years_11 = document.getElementById("days_years_11");
+        var holder_years_12 = document.getElementById("days_years_12");
+
+
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+        var next_year = document.getElementById("next_year");
+        var prev_year = document.getElementById("prev_year");
+
+        var prev_double = document.getElementById("prev_double");
+        var next_double = document.getElementById("next_double");
+        var next_year_double = document.getElementById("next_year_double");
+        var prev_year_double = document.getElementById("prev_year_double");
+
+
+
+        var prev_half_year = document.getElementById("prev_half_year");
+        var next_half_year = document.getElementById("next_half_year");
+        var next_year_half_year = document.getElementById("next_year_half_year");
+        var prev_year_half_year = document.getElementById("prev_year_half_year");
+
+        var next_year_years = document.getElementById("next_year_years");
+        var prev_year_years = document.getElementById("prev_year_years");
+        var array = []
+
+
+        cyear_years
+        var prev_week = document.getElementById("prev_week");
+        var next_week = document.getElementById("next_week");
+        var ctitle = document.getElementById("calendar-title");
+
+        var cyear_double = document.getElementById("calendar-year_double");
+        var cyear_years = document.getElementById("calendar-year_years");
+        var cyear_half_year = document.getElementById("calendar-year_half_year");
+        var cyear = document.getElementById("calendar-year");
+        var firstDay = 0
+        var totalDay_1 = 0
+        var click_cut_prev = 70
+        var click_cut_next = 111
+        var calculation_function = false
+        var my_date = new Date();
+        var my_year = my_date.getFullYear();
+        var my_month = my_date.getMonth();
+        var my_day = my_date.getDate();
+        var stage_val = 0
+
+
+
+        Array.prototype.indexOf = function (val) {
+            for (var i = 0; i < this.length; i++) {
+                if (this[i] == val) return i;
+            }
+            return -1;
+        };
+        Array.prototype.remove = function (val) {
+            var index = this.indexOf(val);
+            if (index > -1) {
+                this.splice(index, 1);
+            }
+        };
+
+        $(".box_top").click(function () {
+            if (calculation_function != true) {
+                calculation_function = true
+                $(".box_bottom").removeClass('cannotuse')
+                $(".box_mid").removeClass('cannotuse')
+
+
+            } else if (calculation_function) {
+                calculation_function = false
+                array = []
+                $('.box_mid').text("")
+                refreshDate();
+                $(".box_bottom,.box_mid").addClass('cannotuse')
+
+
+            }
+            console.log(calculation_function)
+        })
+
+
+        var jiji = 0
+        $("#days").on("click", ".uuu", function (e) {
+            if (calculation_function == true) {
+                console.log(e)
+                console.log($("li").index(this))
+                jiji = $("li").index(this) - 7
+                array.push(jiji)
+                console.log(array)
+                refreshDate();
+                for (i = 0; i < array.length; i++) {
+                    $(`#days li:eq(${array[i]})`).addClass("pick")
+                    $(`#days li:eq(${array[i]})`).append(`<div class="shadowbox">${i + 1}</div>`)
+
+                    $(`#days li:eq(${array[i]})`).removeClass("uuu")
+
+                }
+                $('.box_mid').text(array.length)
+                console.log(array)
+
+
+
+
+            } else {
+                console.log("nothings")
+            }
+
+        })
+
+        $("#days").on("click", ".pick", function (e) {
+            if (calculation_function == true) {
+
+                console.log(e)
+                console.log($("li").index(this))
+                let jiji = $("li").index(this) - 7
+                array.remove(jiji)
+
+                console.log(array)
+                $(this).addClass("uuu")
+                $(this).removeClass('pick')
+                $(this).children(".shadowbox").remove()
+                for (i = 0; i < array.length; i++) {
+                    $(`#days li:eq(${array[i]})`).append(`<div class="shadowbox">${i + 1}</div>`)
+
+                }
+
+                $('.box_mid').text(array.length)
+
+                $(this).children(".shadowbox").remove()
+                console.log(array)
+
+
+
+
+            } else {
+                console.log("nothings")
+            }
+
+        })
+
+
+
+        $(".box_bottom").click(function () {
+            if (calculation_function == true) {
+                array = []
+                $('.box_mid').text("0")
+                refreshDate();
+
+
+            } else {
+                console.log("nothings")
+            }
+        })
+
+
+
+
+
+        function dayStart(month, year) {
+            var tmpDate = new Date(year, month, 1);
+            return (tmpDate.getDay());
+        }
+        //獲取某年某月第一天星期幾
+        function daysMonth(month, year) {
+            var tmp = year % 4;
+            if (tmp == 0) {
+                return (month_olympic[month]);
+            } else {
+                return (month_normal[month]);
+            }
+        }
+        //計算是否為閏年
+
+        function refreshDate() {
+            var str = "";
+            var lastDay = ""
+            if (my_month == 0) {
+                lastDay = daysMonth(11, my_year - 1)
+            } else {
+                lastDay = daysMonth(my_month - 1, my_year)
+            }
+            var lastDay_week = ""
+            if (my_month == 0) {
+                lastDay_week = dayStart(11, my_year - 1)
+            } else {
+                lastDay_week = dayStart(my_month - 1, my_year)
+            }
+
+
+            var NextDay = ""
+            if (my_month == 11) {
+                NextDay = dayStart(0, my_year + 1)
+            } else {
+                NextDay = dayStart(my_month + 1, my_year)
+            }
+            var NextDay_week = ""
+            if (my_month == 11) {
+                NextDay_week = daysMonth(11, my_year + 1)
+            } else {
+                NextDay_week = daysMonth(my_month + 1, my_year)
+            }
+
+
+            $("#month_month_1").text(my_month + 1)
+
+            console.log(NextDay)
+            var totalDay = daysMonth(my_month, my_year); //獲得該月總天數
+            firstDay = dayStart(my_month, my_year); //獲得該月第一天星期幾
+            var myclass;
+            console.log(firstDay)
+            for (var i = 0; i < 42; i++) {
+                str += "<li class='lightgrey uuu'>" + "</li>"
+            }
+            for (var i = 0; i < lastDay_week; i++) {
+                str += "<li class='lightgrey uuu'  >" + "</li>"
+            }
+            for (var i = 0; i < lastDay; i++) {
+                str += "<li class='lightgrey uuu' >" + (i + 1) + "</li>"; //在起始日之前塞入日期
+            }
+            for (var i = 1; i <= totalDay; i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey green greenbox uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+            holder.innerHTML = str; //設置日期顯示
+            lis = document.getElementById('days').getElementsByTagName('li').length;
+
+            for (var i = 0; i < NextDay_week; i++) {
+                str += "<li class='lightgrey uuu' >" + (i + 1) + "</li>"; //在起始日之前塞入日期
+            }
+
+            holder.innerHTML = str;
+            console.log(lis)
+            // ctitle.innerHTML = month_name[my_month]; //設置英文月份顯示
+            cyear.innerHTML = my_year; //設置年分顯示
+            $(`#days li:lt(${click_cut_prev})`).addClass("display_none")
+
+            $(`#days li:gt(${click_cut_next})`).addClass("display_none")
+
+
+        }
+        refreshDate(); //執行函數
+
+
+        $("ul").on("click", "li", function () {
+            $(this).addClass('green greenbox')
+            $("li").not(this).removeClass("green greenbox")
+            console.log($(this).text() + "裊裊")
+            stage_val = $(this).text()
+        })
+
+
+        console.log(my_year)
+
+
+        today.onclick = function (e) {
+            e.preventDefault();
+            click_cut_prev = 70
+            click_cut_next = 111
+            my_date = new Date();
+            my_year = my_date.getFullYear();
+            my_month = my_date.getMonth();
+            my_day = my_date.getDate();
+            stage_val = my_day
+            refreshDate();
+            obj_myYear.options[my_year - 1970].selected = true;
+            obj_myMonth.options[my_month].selected = true;
+            array = []
+            $('.box_mid').text("0")
+
+
+        }
+
+        prev_year.onclick = function (e) {
+            e.preventDefault();
+            click_cut_prev = 70
+            click_cut_next = 111
+            my_year--;
+            array = []
+            $('.box_mid').text("0")
+
+
+
+            refreshDate();
+            obj_myYear.options[my_year - 1970].selected = true;
+            obj_myMonth.options[my_month].selected = true;
+
+
+        }
+        next_year.onclick = function (e) {
+            e.preventDefault();
+            click_cut_prev = 70
+            click_cut_next = 111
+            my_year++;
+            array = []
+            $('.box_mid').text("0")
+
+            refreshDate();
+            obj_myYear.options[my_year - 1970].selected = true;
+            obj_myMonth.options[my_month].selected = true;
+        }
+
+        prev.onclick = function (e) {
+            e.preventDefault();
+            click_cut_prev = 70
+            click_cut_next = 111
+            my_month--;
+            if (my_month < 0) {
+                my_year--;
+                my_month = 11;
+            }
+            array = []
+            $('.box_mid').text("0")
+            refreshDate();
+            obj_myYear.options[my_year - 1970].selected = true;
+            obj_myMonth.options[my_month].selected = true;
+
+
+        }
+        next.onclick = function (e) {
+            e.preventDefault();
+            click_cut_prev = 70
+            click_cut_next = 111
+            my_month++;
+
+            if (my_month > 11) {
+                my_year++;
+                my_month = 0;
+            }
+            array = []
+            $('.box_mid').text("0")
+            refreshDate();
+            obj_myYear.options[my_year - 1970].selected = true;
+            obj_myMonth.options[my_month].selected = true;
+        }
+
+        prev_week.onclick = function (e) {
+            e.preventDefault();
+            if (click_cut_prev - 7 <= 0) {
+                click_cut_prev = 0
+                click_cut_next = 41
+            } else {
+                click_cut_prev -= 7
+                click_cut_next -= 7
+            }
+
+            console.log(click_cut_prev)
+            console.log(click_cut_next)
+
+            refreshDate();
+            for (i = 0; i < array.length; i++) {
+                $(`#days li:eq(${array[i]})`).addClass("pick")
+                $(`#days li:eq(${array[i]})`).removeClass("uuu")
+                $(`#days li:eq(${array[i]})`).append(`<div class="shadowbox">${i + 1}</div>`)
+
+
+            }
+
+
+        }
+        next_week.onclick = function (e) {
+
+
+            e.preventDefault();
+            if (click_cut_next + 7 > 174) {
+                click_cut_prev
+                click_cut_next = 174
+            } else {
+                click_cut_prev += 7
+                click_cut_next += 7
+            }
+
+
+            console.log(click_cut_prev)
+            console.log(click_cut_next)
+
+            refreshDate();
+            for (i = 0; i < array.length; i++) {
+                $(`#days li:eq(${array[i]})`).addClass("pick")
+                $(`#days li:eq(${array[i]})`).removeClass("uuu")
+                $(`#days li:eq(${array[i]})`).append(`<div class="shadowbox">${i + 1}</div>`)
+
+
+            }
+
+
+
+
+
+
+        }
+
+
+        //設定年份的選擇
+        var myDate = new Date();
+        var startYear = myDate.getFullYear() - 1911 - 50;//起始年份
+        var endYear = myDate.getFullYear() - 1911 + 50;//結束年份
+        var myMonth = myDate.get
+        var obj_myYear = document.getElementById('myYear')
+        for (var i = startYear; i <= endYear; i++) {
+            obj_myYear.options.add(new Option("民國" + i));
+        }
+        obj_myYear.options[my_year - 1970].selected = true;
+
+        var obj_myMonth = document.getElementById('myMonth')
+        for (var i = 1; i < 13; i++) {
+            obj_myMonth.options.add(new Option(i))
+        }
+        obj_myMonth.options[my_month].selected = true;
+
+
+
+        $(".title").on("change", "#myYear", function () {
+            my_year = parseInt($("#myYear").val().replace("民國", "")) + 1911
+            console.log(my_year)
+            click_cut_prev = 70
+            click_cut_next = 111
+            refreshDate();
+        })
+        $(".title").on("change", "#myMonth", function () {
+            my_month = parseInt($("#myMonth").val()) - 1
+            console.log("月" + my_month)
+            click_cut_prev = 70
+            click_cut_next = 111
+            refreshDate();
+        })
+
+
+
+
+        $(".btn_day").click(function () {
+            $(this).addClass('on_selected')
+            $(".btn").not(this).removeClass('on_selected')
+
+            $(".day_calendar").removeClass('close')
+            $(".month_calendar").addClass('close')
+            $('.double_month_calendar').addClass('close')
+            $(".half_year_calendar").addClass('close')
+            $('.years_calendar').addClass('close')
+
+            my_month = parseInt($("#myMonth").val()) - 1
+            my_year = parseInt($("#myYear").val().replace("民國", "")) + 1911
+            if (stage_val == 0) {
+                my_day
+            } else {
+                my_day = stage_val
+
+            }
+            refreshDateDay()
+            $('.day_year').text("民國" + (my_year - 1911) + "年")
+            $('.day_month').text(my_month + 1)
+            $('.day_date').text(my_day)
+        })
+
+        $(".btn_month").click(function () {
+            $(this).addClass('on_selected')
+            $(".btn").not(this).removeClass('on_selected')
+            $(".day_calendar").addClass('close')
+            $('.double_month_calendar').addClass('close')
+            $(".month_calendar").removeClass('close')
+            $(".half_year_calendar").addClass('close')
+            $('.years_calendar').addClass('close')
+
+            refreshDate(); //執行函數
+
+        })
+
+        $(".btn_double_month").click(function () {
+            $(this).addClass('on_selected')
+            $(".btn").not(this).removeClass('on_selected')
+            $(".day_calendar").addClass('close')
+            $('.double_month_calendar').removeClass('close')
+            $(".month_calendar").addClass('close')
+            $('.years_calendar').addClass('close')
+
+            $(".half_year_calendar").addClass('close')
+
+        })
+        $('.btn_half_year').click(function () {
+            $(this).addClass('on_selected')
+            $(".btn").not(this).removeClass('on_selected')
+            $(".day_calendar").addClass('close')
+            $('.half_year_calendar').removeClass('close')
+            $(".month_calendar").addClass('close')
+            $('.double_month_calendar').addClass('close')
+            $('.years_calendar').addClass('close')
+
+
+            $(".btn_image img").attr("src", "search-solid.svg")
+            $('.flex_frame_half_year ').css("gridTemplateColumns", "25% 25% 25%")
+            $(".btn_image").removeClass("on_selected")
+
+
+            setTimeout(function () {
+                $(".btn_image").removeClass('undo')
+
+            }, 200)
+
+
+        })
+        $(".btn_year").click(function () {
+            $(this).addClass('on_selected')
+            $(".btn").not(this).removeClass('on_selected')
+            $(".day_calendar").addClass('close')
+            $('.years_calendar').removeClass('close')
+            $(".month_calendar").addClass('close')
+            $('.double_month_calendar').addClass('close')
+            $('.half_year_calendar').addClass('close')
+
+
+
+
+
+
+            $(".years_calendar .btn_image img").attr("src", "search-solid.svg")
+            $('.flex_frame_year ').css("gridTemplateColumns", "20% 20% 20% 20%")
+            $('.flex_frame_year').css("gridTemplateRows", "40% 40%")
+
+            $(".years_calendar .btn_image").removeClass("on_selected")
+
+
+            setTimeout(function () {
+                $(".years_calendar .btn_image").removeClass('undo')
+
+            }, 200)
+
+
+
+
+
+        })
+
+        $('.years_calendar .btn_image').click(
+            function () {
+                $(".years_calendar .btn_image img").attr("src", "undo-alt-solid.svg")
+                $('.flex_frame_year').css("gridTemplateColumns", "30% 30%")
+                $('.flex_frame_year').css("gridTemplateRows", "20% 20%")
+                $(".years_calendar .btn_image").addClass("on_selected")
+                setTimeout(function () {
+                    $(".years_calendar .btn_image").addClass('undo')
+
+                }, 200)
+            })
+        $('.flex_frame_half_year .btn_image').click(
+            function () {
+                $(".flex_frame_half_year .btn_image img").attr("src", "undo-alt-solid.svg")
+                $('.flex_frame_half_year ').css("gridTemplateColumns", "30% 30%")
+                $('.flex_frame_half_year ').css("gridTemplateRows", "40% 40%")
+                $(".flex_frame_half_year .btn_image").addClass("on_selected")
+                setTimeout(function () {
+                    $(".btn_image").addClass('undo')
+
+                }, 200)
+            })
+
+
+
+        $('.flex_frame_half_year').on("click", ".undo", function () {
+            $(".btn_image img").attr("src", "search-solid.svg")
+            $('.flex_frame_half_year ').css("gridTemplateColumns", "25% 25% 25%")
+            $(".btn_image").removeClass("on_selected")
+
+
+            setTimeout(function () {
+                $(".btn_image").removeClass('undo')
+
+            }, 200)
+        })
+        $('.years_calendar').on("click", ".undo", function () {
+            $(".years_calendar .btn_image img").attr("src", "search-solid.svg")
+            $('.flex_frame_year ').css("gridTemplateColumns", "20% 20% 20% 20%")
+            $('.flex_frame_year').css("gridTemplateRows", "40% 40%")
+
+            $(".years_calendar .btn_image").removeClass("on_selected")
+
+
+            setTimeout(function () {
+                $(".years_calendar .btn_image").removeClass('undo')
+
+            }, 200)
+        })
+        // grid-template-columns: 25% 25% 25%;
+
+
+        $('.day_year').text("民國" + (my_year - 1911) + "年")
+        $('.day_month').text(my_month + 1)
+        $('.day_date').text(my_day)
+
+
+
+
+
+
+
+
+        function refreshDateDay() {
+            var str_day = "";
+
+
+
+            totalDay_1 = daysMonth(my_month, my_year); //獲得該月總天數
+            var firstDay_1 = dayStart(my_month, my_year); //獲得該月第一天星期幾
+            console.log(firstDay_1 + "jijji")
+
+            var what_day = 31
+
+            my_day = parseInt(my_day)
+            console.log((what_day - 1) % 7 + firstDay_1)
+
+
+            // for (var i = 1; i <= totalDay_1; i++) {
+            //     if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+            what_day = my_day + (firstDay_1 - 2)
+            //     }
+            //     ; //創建日期截點
+            // }
+            // console.log(what_day%7)
+            console.log(my_day + "kokokokokoo")
+            holder.innerHTML = str_day; //設置日期顯示
+
+            if (my_day > totalDay_1) {
+                console.log("fkfkfkfk")
+                my_day = totalDay_1
+                what_day = my_day + (firstDay_1 - 2)
+
+            }
+            console.log(what_day)
+
+            $(".day_year_output").text(my_year)
+            $(".day_of_the_week").text(week_day[(what_day) % 7])
+
+        }
+        refreshDateDay(); //執行函數
+
+        //年
+
+        $(".prev_year_day").click(function () {
+            my_year--
+            refreshDateDay(); //執行函數
+            $('.day_year').text("民國" + (my_year - 1911) + "年")
+            $('.day_month').text(my_month + 1)
+            $('.day_date').text(my_day)
+
+        })
+        $(".next_year_day").click(function () {
+            my_year++
+            refreshDateDay(); //執行函數
+            $('.day_year').text("民國" + (my_year - 1911) + "年")
+            $('.day_month').text(my_month + 1)
+            $('.day_date').text(my_day)
+        })
+
+
+        //月
+
+
+        $('.prev_month_day').click(function () {
+            my_month--
+            if (my_month < 0) {
+                my_year--;
+                my_month = 11;
+            }
+
+            refreshDateDay(); //執行函數
+
+            console.log(my_day + "猜猜我4誰")
+            console.log(totalDay_1 + "猜猜我4誰")
+
+            $('.day_year').text("民國" + (my_year - 1911) + "年")
+            $('.day_month').text(my_month + 1)
+            $('.day_date').text(my_day)
+        })
+        $('.next_month_day').click(function () {
+            my_month++
+            if (my_month > 11) {
+                my_year++;
+                my_month = 0;
+            }
+            refreshDateDay(); //執行函數
+            if (my_day > totalDay_1) {
+                console.log("fkfkfkfk")
+            }
+            $('.day_year').text("民國" + (my_year - 1911) + "年")
+            $('.day_month').text(my_month + 1)
+            $('.day_date').text(my_day)
+        })
+
+
+        //日
+
+        $('.prev_day_day').click(function () {
+            my_day--
+
+            if (my_day < 1) {
+                my_month--
+
+                if (my_month < 0) {
+                    my_year--;
+                    my_month = 11;
+                }
+                var totalDay_2 = daysMonth(my_month, my_year); //獲得該月總天數
+                my_day = totalDay_2
+            }
+            refreshDateDay(); //執行函數
+
+            $('.day_year').text("民國" + (my_year - 1911) + "年")
+            $('.day_month').text(my_month + 1)
+            $('.day_date').text(my_day)
+
+        })
+        $('.next_day_day').click(function () {
+            my_day++
+            if (my_day > totalDay_1) {
+                my_month++
+                if (my_month > 11) {
+                    my_year++;
+                    my_month = 0;
+                }
+                my_day = 1
+                console.log("true")
+            }
+            refreshDateDay(); //執行函數
+
+            $('.day_year').text("民國" + (my_year - 1911) + "年")
+            $('.day_month').text(my_month + 1)
+            $('.day_date').text(my_day)
+
+        })
+
+
+
+
+
+
+
+
+        //雙月曆
+
+
+
+
+
+        var month_select_double = ["1-2月", "2-3月", "3-4月", "4-5月", "5-6月", "6-7月", "7-8月", "8-9月", "9-10月", "10-11月", "11-12月", "12-1月"]
+
+
+
+
+        var myDate = new Date();
+        var startYear_double = myDate.getFullYear() - 1911 - 50;//起始年份
+        var endYear_double = myDate.getFullYear() - 1911 + 50;//結束年份
+        var obj_myYear_double = document.getElementById('myYear_double')
+        for (var i = startYear; i <= endYear; i++) {
+            obj_myYear_double.options.add(new Option("民國" + i));
+        }
+        obj_myYear_double.options[my_year - 1970].selected = true;
+
+        var obj_myMonth_double = document.getElementById('myMonth_double')
+        for (var i = 0; i < 12; i++) {
+            obj_myMonth_double.options.add(new Option(month_select_double[i]))
+        }
+        obj_myMonth_double.options[my_month].selected = true;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        function refreshDateDouble() {
+            var str_double_1 = "";
+            var str_double_2 = "";
+
+            var lastDay = ""
+            if (my_month == 0) {
+                lastDay = daysMonth(11, my_year - 1)
+            } else {
+                lastDay = daysMonth(my_month - 1, my_year)
+            }
+            var lastDay_week = ""
+            if (my_month == 0) {
+                lastDay_week = dayStart(11, my_year - 1)
+            } else {
+                lastDay_week = dayStart(my_month - 1, my_year)
+            }
+
+
+            var NextDay_double = ""
+            if (my_month == 11) {
+                NextDay_double = dayStart(0, my_year + 1)
+                $('#month_double_2').text(1)
+
+            } else {
+                NextDay_double = dayStart(my_month + 1, my_year)
+                $('#month_double_2').text(my_month + 2)
+
+            }
+            var NextDay_double_month = ""
+            if (my_month == 11) {
+                NextDay_double_month = daysMonth(11, my_year + 1)
+            } else {
+                NextDay_double_month = daysMonth(my_month + 1, my_year)
+            }
+
+
+            $('#month_double_1').text(my_month + 1)
+
+            var totalDay_double = daysMonth(my_month, my_year); //獲得該月總天數
+            firstDay_double = dayStart(my_month, my_year); //獲得該月第一天星期幾
+            for (var i = 0; i < firstDay_double; i++) {
+                str_double_1 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= totalDay_double; i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey green greenbox uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_double_1 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+
+
+            for (var i = 0; i < NextDay_double; i++) {
+                str_double_2 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= NextDay_double_month; i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_double_2 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+
+
+
+
+
+            cyear_double.innerHTML = my_year
+
+
+
+
+
+            holder_double_1.innerHTML = str_double_1; //設置日期顯示
+            holder_double_2.innerHTML = str_double_2; //設置日期顯示
+
+            // ctitle.innerHTML = month_name[my_month]; //設置英文月份顯示
+
+
+        }
+        refreshDateDouble(); //執行函數
+
+
+
+
+        $(".title_double").on("change", "#myYear_double", function () {
+            my_year = parseInt($("#myYear_double").val().replace("民國", "")) + 1911
+            console.log(my_year)
+            refreshDateDouble();
+        })
+        $(".title_double").on("change", "#myMonth_double", function () {
+            my_month = parseInt($("#myMonth_double").val()) - 1
+            console.log("月" + my_month)
+
+            refreshDateDouble();
+        })
+
+
+
+        today_double.onclick = function (e) {
+            e.preventDefault();
+
+            my_date = new Date();
+            my_year = my_date.getFullYear();
+            my_month = my_date.getMonth();
+            my_day = my_date.getDate();
+            stage_val = my_day
+            refreshDateDouble();
+
+            obj_myYear_double.options[my_year - 1970].selected = true;
+            obj_myMonth_double.options[my_month].selected = true;
+
+
+        }
+
+        prev_year_double.onclick = function (e) {
+            e.preventDefault();
+
+            my_year--;
+
+            refreshDateDouble();
+
+            obj_myYear_double.options[my_year - 1970].selected = true;
+            obj_myMonth_double.options[my_month].selected = true;
+
+
+        }
+        next_year_double.onclick = function (e) {
+            e.preventDefault();
+
+            my_year++;
+
+
+            refreshDateDouble();
+
+            obj_myYear_double.options[my_year - 1970].selected = true;
+            obj_myMonth_double.options[my_month].selected = true;
+        }
+
+        prev_double.onclick = function (e) {
+            e.preventDefault();
+
+            my_month--;
+            if (my_month < 0) {
+                my_year--;
+                my_month = 11;
+            }
+            refreshDateDouble();
+
+            obj_myYear_double.options[my_year - 1970].selected = true;
+            obj_myMonth_double.options[my_month].selected = true;
+
+
+        }
+        next_double.onclick = function (e) {
+            e.preventDefault();
+
+            my_month++;
+
+            if (my_month > 11) {
+                my_year++;
+                my_month = 0;
+            }
+            refreshDateDouble();
+
+            obj_myYear_double.options[my_year - 1970].selected = true;
+            obj_myMonth_double.options[my_month].selected = true;
+        }
+
+
+
+        //以下為半年曆
+
+
+
+
+        function refreshDatehalf_year() {
+            var str_half_year_1 = "";
+            var str_half_year_2 = "";
+            var str_half_year_3 = "";
+            var str_half_year_4 = "";
+            var str_half_year_5 = "";
+            var str_half_year_6 = "";
+
+
+            var str_half_year_month_1 = "";
+            var str_half_year_month_2 = "";
+            var str_half_year_month_3 = "";
+            var str_half_year_month_4 = "";
+            var str_half_year_month_5 = "";
+            var str_half_year_month_6 = "";
+
+            var lastDay = ""
+            if (my_month == 0) {
+                lastDay = daysMonth(11, my_year - 1)
+            } else {
+                lastDay = daysMonth(my_month - 1, my_year)
+            }
+            var lastDay_week = ""
+            if (my_month == 0) {
+                lastDay_week = dayStart(11, my_year - 1)
+            } else {
+                lastDay_week = dayStart(my_month - 1, my_year)
+            }
+
+
+            var NextDay_half_year = ""
+            if (my_month == 11) {
+                str_half_year_month_1 = 1
+
+                NextDay_half_year = dayStart(0, my_year + 1)
+            } else {
+                str_half_year_month_1 = my_month + 2
+                NextDay_half_year = dayStart(my_month + 1, my_year)
+            }
+            var NextDay_half_year_month = ""
+            if (my_month == 11) {
+
+                NextDay_half_year_month = daysMonth(0, my_year + 1)
+            } else {
+                NextDay_half_year_month = daysMonth(my_month + 1, my_year)
+            }
+
+
+
+            //FIX月數跳躍問題
+
+
+            var Next_2_Day_half_year = ""
+
+            if (my_month == 11) {
+                str_half_year_month_2 = 2
+                Next_2_Day_half_year = dayStart(1, my_year + 1)
+            } else if (my_month == 10) {
+                str_half_year_month_2 = 1
+                Next_2_Day_half_year = dayStart(0, my_year + 1)
+            } else {
+                str_half_year_month_2 = my_month + 3
+                Next_2_Day_half_year = dayStart(my_month + 2, my_year)
+            }
+            var NextDay_2_Day_half_year_month = ""
+            if (my_month == 11) {
+                NextDay_2_Day_half_year_month = daysMonth(1, my_year + 1)
+            } else if (my_month == 10) {
+                NextDay_2_Day_half_year_month = daysMonth(0, my_year + 1)
+            }
+            else {
+                NextDay_2_Day_half_year_month = daysMonth(my_month + 2, my_year)
+            }
+
+
+
+
+
+
+
+
+
+
+            var Next_3_Day_half_year = ""
+            if (my_month == 11) {
+                str_half_year_month_3 = 3
+                Next_3_Day_half_year = dayStart(2, my_year + 1)
+            } else if (my_month == 9) {
+                str_half_year_month_3 = 1
+                Next_3_Day_half_year = dayStart(0, my_year + 1)
+            } else if (my_month == 10) {
+                str_half_year_month_3 = 2
+
+                Next_3_Day_half_year = dayStart(1, my_year + 1)
+            } else {
+                str_half_year_month_3 = my_month + 4
+
+                Next_3_Day_half_year = dayStart(my_month + 3, my_year)
+            }
+            var NextDay_3_Day_half_year_month = ""
+            if (my_month == 11) {
+                NextDay_3_Day_half_year_month = daysMonth(2, my_year + 1)
+            } else if (my_month == 9) {
+                NextDay_3_Day_half_year_month = daysMonth(0, my_year + 1)
+
+            } else if (my_month == 10) {
+                NextDay_3_Day_half_year_month = daysMonth(1, my_year + 1)
+
+            } else {
+                NextDay_3_Day_half_year_month = daysMonth(my_month + 3, my_year)
+            }
+
+
+
+            var Next_4_Day_half_year = ""
+            if (my_month == 11) {
+                str_half_year_month_4 = 4
+
+                Next_4_Day_half_year = dayStart(3, my_year + 1)
+            } else if (my_month == 8) {
+                Next_4_Day_half_year = dayStart(0, my_year + 1)
+                str_half_year_month_4 = 1
+
+            } else if (my_month == 9) {
+                Next_4_Day_half_year = dayStart(1, my_year + 1)
+                str_half_year_month_4 = 2
+
+            } else if (my_month == 10) {
+                Next_4_Day_half_year = dayStart(2, my_year + 1)
+                str_half_year_month_4 = 3
+
+            }
+            else {
+                str_half_year_month_4 = my_month + 5
+
+                Next_4_Day_half_year = dayStart(my_month + 4, my_year)
+            }
+            var NextDay_4_Day_half_year_month = ""
+            if (my_month == 11) {
+
+
+                NextDay_4_Day_half_year_month = daysMonth(3, my_year + 1)
+            } else if (my_month == 8) {
+                NextDay_4_Day_half_year_month = daysMonth(0, my_year + 1)
+
+            } else if (my_month == 9) {
+                NextDay_4_Day_half_year_month = daysMonth(1, my_year + 1)
+
+            } else if (my_month == 10) {
+                NextDay_4_Day_half_year_month = daysMonth(2, my_year + 1)
+
+            } else {
+                NextDay_4_Day_half_year_month = daysMonth(my_month + 4, my_year)
+            }
+
+
+
+
+
+
+            var Next_5_Day_half_year = ""
+            if (my_month == 11) {
+                str_half_year_month_5 = 5
+
+                Next_5_Day_half_year = dayStart(4, my_year + 1)
+            } else if (my_month == 7) {
+                Next_5_Day_half_year = dayStart(0, my_year + 1)
+                str_half_year_month_5 = 1
+
+            } else if (my_month == 8) {
+                Next_5_Day_half_year = dayStart(1, my_year + 1)
+                str_half_year_month_5 = 2
+
+            } else if (my_month == 9) {
+                Next_5_Day_half_year = dayStart(2, my_year + 1)
+                str_half_year_month_5 = 3
+
+            } else if (my_month == 10) {
+                Next_5_Day_half_year = dayStart(3, my_year + 1)
+                str_half_year_month_5 = 4
+
+
+            } else {
+                str_half_year_month_5 = my_month + 6
+
+                Next_5_Day_half_year = dayStart(my_month + 5, my_year)
+            }
+            var NextDay_5_Day_half_year_month = ""
+            if (my_month == 11) {
+
+                NextDay_5_Day_half_year_month = daysMonth(4, my_year + 1)
+            } else if (my_month == 7) {
+                NextDay_5_Day_half_year_month = daysMonth(0, my_year + 1)
+
+            } else if (my_month == 8) {
+                NextDay_5_Day_half_year_month = daysMonth(1, my_year + 1)
+
+            } else if (my_month == 9) {
+                NextDay_5_Day_half_year_month = daysMonth(2, my_year + 1)
+
+            } else if (my_month == 10) {
+                NextDay_5_Day_half_year_month = daysMonth(3, my_year + 1)
+
+            } else {
+                NextDay_5_Day_half_year_month = daysMonth(my_month + 5, my_year)
+            }
+
+
+
+
+
+
+
+
+
+            var totalDay_half_year = daysMonth(my_month, my_year); //獲得該月總天數
+            firstDay_half_year = dayStart(my_month, my_year); //獲得該月第一天星期幾
+            for (var i = 0; i < firstDay_half_year; i++) {
+                str_half_year_1 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= totalDay_half_year; i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey green greenbox uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_half_year_1 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+
+
+            for (var i = 0; i < NextDay_half_year; i++) {
+                str_half_year_2 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= NextDay_half_year_month; i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_half_year_2 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+
+
+
+
+            for (var i = 0; i < Next_2_Day_half_year; i++) {
+                str_half_year_3 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= NextDay_2_Day_half_year_month; i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_half_year_3 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+
+
+
+            for (var i = 0; i < Next_3_Day_half_year; i++) {
+                str_half_year_4 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= NextDay_3_Day_half_year_month; i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_half_year_4 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+
+
+            for (var i = 0; i < Next_4_Day_half_year; i++) {
+                str_half_year_5 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= NextDay_4_Day_half_year_month; i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_half_year_5 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+
+
+
+
+            for (var i = 0; i < Next_5_Day_half_year; i++) {
+                str_half_year_6 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= NextDay_5_Day_half_year_month; i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_half_year_6 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+
+            cyear_half_year.innerHTML = my_year
+
+
+
+
+
+            holder_half_year_1.innerHTML = str_half_year_1; //設置日期顯示
+            holder_half_year_2.innerHTML = str_half_year_2; //設置日期顯示
+            holder_half_year_3.innerHTML = str_half_year_3; //設置日期顯示
+            holder_half_year_4.innerHTML = str_half_year_4; //設置日期顯示
+            holder_half_year_5.innerHTML = str_half_year_5; //設置日期顯示
+            holder_half_year_6.innerHTML = str_half_year_6; //設置日期顯示
+
+
+
+            $("#month_half_years_1").text(my_month + 1)
+
+            $("#month_half_years_2").text(str_half_year_month_1)
+
+            $("#month_half_years_3").text(str_half_year_month_2)
+
+            $("#month_half_years_4").text(str_half_year_month_3)
+
+            $("#month_half_years_5").text(str_half_year_month_4)
+
+            $("#month_half_years_6").text(str_half_year_month_5)
+
+            // ctitle.innerHTML = month_name[my_month]; //設置英文月份顯示
+
+
+        }
+        refreshDatehalf_year(); //執行函數
+        var month_select_half_year = ["1-6", '2-7', '3-8', '4-9', '5-10', '6-11', '7-12', '8-1', '9-2', '10-3', '11-4', '12-5']
+        var myDate = new Date();
+        var startYear_half_year = myDate.getFullYear() - 1911 - 50;//起始年份
+        var endYear_half_year = myDate.getFullYear() - 1911 + 50;//結束年份
+        var obj_myYear_half_year = document.getElementById('myYear_half_year')
+        for (var i = startYear; i <= endYear; i++) {
+            obj_myYear_half_year.options.add(new Option("民國" + i));
+        }
+        obj_myYear_half_year.options[my_year - 1970].selected = true;
+
+        var obj_myMonth_half_year = document.getElementById('myMonth_half_year')
+        for (var i = 0; i < 12; i++) {
+            obj_myMonth_half_year.options.add(new Option(month_select_half_year[i]))
+        }
+        obj_myMonth_half_year.options[my_month].selected = true;
+
+
+
+
+        $(".title_half_year").on("change", "#myYear_half_year", function () {
+            my_year = parseInt($("#myYear_half_year").val().replace("民國", "")) + 1911
+            console.log(my_year)
+            refreshDatehalf_year(); //執行函數
+
+        })
+        $(".title_half_year").on("change", "#myMonth_half_year", function () {
+            my_month = parseInt($("#myMonth_half_year").val()) - 1
+            console.log("月" + my_month)
+
+            refreshDatehalf_year(); //執行函數
+
+        })
+
+
+        prev_year_half_year.onclick = function (e) {
+            e.preventDefault();
+
+            my_year--;
+
+            refreshDatehalf_year();
+
+            obj_myYear_half_year.options[my_year - 1970].selected = true;
+            obj_myMonth_half_year.options[my_month].selected = true;
+
+
+        }
+        next_year_half_year.onclick = function (e) {
+            e.preventDefault();
+
+            my_year++;
+
+
+            refreshDatehalf_year();
+
+            obj_myYear_half_year.options[my_year - 1970].selected = true;
+            obj_myMonth_half_year.options[my_month].selected = true;
+        }
+
+        prev_half_year.onclick = function (e) {
+            e.preventDefault();
+
+            my_month--;
+            if (my_month < 0) {
+                my_year--;
+                my_month = 11;
+            }
+            refreshDatehalf_year();
+
+            obj_myYear_half_year.options[my_year - 1970].selected = true;
+            obj_myMonth_half_year.options[my_month].selected = true;
+
+
+        }
+        next_half_year.onclick = function (e) {
+            e.preventDefault();
+
+            my_month++;
+
+            if (my_month > 11) {
+                my_year++;
+                my_month = 0;
+            }
+            refreshDatehalf_year();
+
+            obj_myYear_half_year.options[my_year - 1970].selected = true;
+            obj_myMonth_half_year.options[my_month].selected = true;
+        }
+
+
+
+        today_half_year.onclick = function (e) {
+            e.preventDefault();
+
+            my_date = new Date();
+            my_year = my_date.getFullYear();
+            my_month = my_date.getMonth();
+            my_day = my_date.getDate();
+            stage_val = my_day
+
+            refreshDatehalf_year();
+
+            obj_myYear_half_year.options[my_year - 1970].selected = true;
+            obj_myMonth_half_year.options[my_month].selected = true;
+
+
+        }
+
+
+
+        //以下為年曆
+
+
+
+        function refreshDate_years() {
+            var str_years_1 = "";
+            var str_years_2 = "";
+            var str_years_3 = "";
+            var str_years_4 = "";
+            var str_years_5 = "";
+            var str_years_6 = "";
+            var str_years_7 = "";
+            var str_years_8 = "";
+            var str_years_9 = "";
+            var str_years_10 = "";
+            var str_years_11 = "";
+            var str_years_12 = "";
+
+
+            var lastDay = ""
+            if (my_month == 0) {
+                lastDay = daysMonth(11, my_year - 1)
+            } else {
+                lastDay = daysMonth(my_month - 1, my_year)
+            }
+            var lastDay_week = ""
+            if (my_month == 0) {
+                lastDay_week = dayStart(11, my_year - 1)
+            } else {
+                lastDay_week = dayStart(my_month - 1, my_year)
+            }
+
+
+            var NextDay_years = ""
+            if (my_month == 11) {
+                NextDay_years = dayStart(0, my_year + 1)
+            } else {
+                NextDay_years = dayStart(my_month + 1, my_year)
+            }
+            var NextDay_years_month = ""
+            if (my_month == 11) {
+                NextDay_years_month = daysMonth(0, my_year + 1)
+            } else {
+                NextDay_years_month = daysMonth(my_month + 1, my_year)
+            }
+
+
+
+            //FIX月數跳躍問題
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            var totalDay_years = daysMonth(0, my_year); //獲得該月總天數
+
+            for (var i = 0; i < dayStart(0, my_year); i++) {
+                str_years_1 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= daysMonth(0, my_year); i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey green greenbox uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_years_1 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+
+            }
+
+
+
+            for (var i = 0; i < dayStart(1, my_year); i++) {
+                str_years_2 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= daysMonth(1, my_year); i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_years_2 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+
+
+
+
+            for (var i = 0; i < dayStart(2, my_year); i++) {
+                str_years_3 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= daysMonth(2, my_year); i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_years_3 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+
+
+
+            for (var i = 0; i < dayStart(3, my_year); i++) {
+                str_years_4 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= daysMonth(3, my_year); i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_years_4 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+
+
+            for (var i = 0; i < dayStart(4, my_year); i++) {
+                str_years_5 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= daysMonth(4, my_year); i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_years_5 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+
+
+
+            for (var i = 0; i < dayStart(5, my_year); i++) {
+                str_years_6 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= daysMonth(5, my_year); i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_years_6 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+
+
+
+
+            for (var i = 0; i < dayStart(6, my_year); i++) {
+                str_years_7 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= daysMonth(6, my_year); i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_years_7 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+
+
+
+            for (var i = 0; i < dayStart(7, my_year); i++) {
+                str_years_8 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= daysMonth(7, my_year); i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_years_8 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+
+            for (var i = 0; i < dayStart(8, my_year); i++) {
+                str_years_9 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= daysMonth(8, my_year); i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_years_9 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+
+
+
+            for (var i = 0; i < dayStart(9, my_year); i++) {
+                str_years_10 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= daysMonth(9, my_year); i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_years_10 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+            for (var i = 0; i < dayStart(10, my_year); i++) {
+                str_years_11 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= daysMonth(10, my_year); i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_years_11 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+
+            for (var i = 0; i < dayStart(11, my_year); i++) {
+                str_years_12 += "<li class='lightgrey uuu' >" + "</li>"; //在起始日之前塞入日期
+            }
+
+            for (var i = 1; i <= daysMonth(11, my_year); i++) {
+                if ((i < my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) ||
+                    my_year < my_date.getFullYear() || (my_year == my_date.getFullYear() && my_month < my_date.getMonth())) {
+                    myclass = " class='darkgrey uuu'  "; //該日期在當日之前為淺灰色
+                } else if (i == my_day && my_year == my_date.getFullYear() && my_month == my_date.getMonth()) {
+                    myclass = " class='darkgrey uuu'  "; //當天日期框起來
+                } else {
+                    myclass = " class='darkgrey uuu' "; //當日期在今天之後實體顯示
+                }
+                str_years_12 += "<li" + myclass + ">" + i + "</li>"; //創建日期截點
+            }
+
+
+
+            cyear_years.innerHTML = my_year
+
+
+
+
+
+            holder_years_1.innerHTML = str_years_1; //設置日期顯示
+            holder_years_2.innerHTML = str_years_2; //設置日期顯示
+            holder_years_3.innerHTML = str_years_3; //設置日期顯示
+            holder_years_4.innerHTML = str_years_4; //設置日期顯示
+            holder_years_5.innerHTML = str_years_5; //設置日期顯示
+            holder_years_6.innerHTML = str_years_6; //設置日期顯示
+
+            holder_years_7.innerHTML = str_years_7; //設置日期顯示
+            holder_years_8.innerHTML = str_years_8; //設置日期顯示
+            holder_years_9.innerHTML = str_years_9; //設置日期顯示
+            holder_years_10.innerHTML = str_years_10; //設置日期顯示
+            holder_years_11.innerHTML = str_years_11; //設置日期顯示
+            holder_years_12.innerHTML = str_years_12; //設置日期顯示
+            // ctitle.innerHTML = month_name[my_month]; //設置英文月份顯示
+
+
+
+
+
+        }
+
+        refreshDate_years()
+
+
+
+        var myDate = new Date();
+        var startYear_years = myDate.getFullYear() - 1911 - 50;//起始年份
+        var endYear_years = myDate.getFullYear() - 1911 + 50;//結束年份
+        var obj_myYear_years = document.getElementById('myYear_years')
+        for (var i = startYear; i <= endYear; i++) {
+            obj_myYear_years.options.add(new Option("民國" + i));
+        }
+        obj_myYear_years.options[my_year - 1970].selected = true;
+
+
+
+
+
+        $(".title_years").on("change", "#myYear_years", function () {
+            my_year = parseInt($("#myYear_years").val().replace("民國", "")) + 1911
+            console.log(my_year)
+            refreshDate_years(); //執行函數
+
+        })
+
+
+
+        prev_year_years.onclick = function (e) {
+            e.preventDefault();
+
+            my_year--;
+
+            refreshDate_years(); //執行函數
+
+
+            obj_myYear_years.options[my_year - 1970].selected = true;
+
+
+        }
+        next_year_years.onclick = function (e) {
+            e.preventDefault();
+
+            my_year++;
+
+
+            refreshDate_years(); //執行函數
+
+
+            obj_myYear_years.options[my_year - 1970].selected = true;
+        }
+
+
+        today_years.onclick = function (e) {
+            e.preventDefault();
+
+            my_date = new Date();
+            my_year = my_date.getFullYear();
+            my_month = my_date.getMonth();
+            my_day = my_date.getDate();
+            stage_val = my_day
+
+            refreshDate_years();
+
+            obj_myYear_years.options[my_year - 1970].selected = true;
+            obj_myMonth_years.options[my_month].selected = true;
+
+
+        }
+        //顯示年
+        // $(".btn").removeClass('on_selected')
+        // $(".btn_year").addClass('on_selected')
+
+
+        // //顯示月
+        // $(".day_calendar").addClass('close')
+        // $('.double_month_calendar').addClass('close')
+        // $(".month_calendar").removeClass('close')
+        // $(".half_year_calendar").addClass('close')
+        // $('.years_calendar').addClass('close')
+        // refreshDate(); //執行函數
+        // $(".btn").removeClass('on_selected')
+        // $(".btn_month").addClass('on_selected')
+
+        //顯示日
+        $(".day_calendar").removeClass('close')
+        $(".month_calendar").addClass('close')
+        $('.double_month_calendar').addClass('close')
+        $(".half_year_calendar").addClass('close')
+        $('.years_calendar').addClass('close')
+
+        my_month = parseInt($("#myMonth").val()) - 1
+        my_year = parseInt($("#myYear").val().replace("民國", "")) + 1911
+        if (stage_val == 0) {
+            my_day
+        } else {
+            my_day = stage_val
+
+        }
+        refreshDateDay()
+        $('.day_year').text("民國" + (my_year - 1911) + "年")
+        $('.day_month').text(my_month + 1)
+        $('.day_date').text(my_day)
+        $(".btn").removeClass('on_selected')
+        $(".btn_day").addClass('on_selected')
+
+
+    </script>
+</body>
+
+</html>
