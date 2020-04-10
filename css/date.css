@@ -1,0 +1,623 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "微軟正黑體";
+    font-weight: 300;
+}
+
+body {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    position: relative;
+}
+
+.display_none {
+    display: none;
+}
+
+.background1 {
+    background: url(../img/page1.jpg);
+    background-size: cover;
+    opacity: 0.5;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+}
+
+.background-img {
+    background: url(../img/bg.svg);
+    background-size: cover;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+}
+
+/* 434A54 67FE73 */
+
+.background {
+    position: relative;
+}
+
+/* leftbtn */
+
+.leftbtn {
+    background: url(../img/bt1.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.leftbtn p {
+    color: #fff;
+    font-weight: 600;
+    position: absolute;
+    left: 12%;
+    top: 12%;
+}
+
+.today_btn p {
+    left: 32%;
+    top: 12%;
+}
+
+.today_btn {
+    top: 8%;
+    left: 2.8%;
+}
+
+.preweek_btn {
+    top: 27.2%;
+    left: 2.8%;
+}
+
+.nextweek_btn {
+    top: 37.1%;
+    left: 2.8%;
+}
+
+.premonth_btn {
+    top: 50.3%;
+    left: 2.8%;
+}
+
+.nextmonth_btn {
+    top: 60%;
+    left: 2.8%;
+}
+
+.preyear_btn {
+    top: 73.4%;
+    left: 2.8%;
+}
+
+.nextyear_btn {
+    top: 83.1%;
+    left: 2.8%;
+}
+
+.pre .arrow {
+    background: url(../img/btU.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.next .arrow {
+    background: url(../img/btD.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.arrow {
+    left: 75%;
+    top: 40%;
+}
+
+/* rightbtn */
+
+.rightbtn {
+    position: absolute;
+    top: 7.9%;
+    left: 79%;
+    color: #1E99A9;
+    font-weight: 600;
+}
+
+.rightbtn p {
+    font-weight: 600;
+    position: absolute;
+    left: 31%;
+    top: 16%;
+}
+
+.day_btn {
+    top: 17.2%;
+}
+
+.month_btn {
+    top: 26.9%;
+}
+
+.halfyear_btn {
+    top: 46.4%;
+}
+
+.halfyear_btn p {
+    left: 21%;
+}
+
+.doublemonth_btn {
+    top: 36.6%;
+}
+
+.doublemonth_btn p {
+    left: 21%;
+}
+
+.year_btn {
+    top: 56.3%;
+}
+
+.howtouse_btn {
+    background: url(../img/bt1.svg);
+    background-size: cover;
+    position: absolute;
+    top: 7.9%;
+    left: 79%;
+}
+
+.howtouse_btn p {
+    position: absolute;
+    color: #fff;
+    font-weight: 600;
+    left: 14.5%;
+    top: 14%;
+}
+
+.circle {
+    background: url(../img/f1.svg);
+    background-size: cover;
+    position: absolute;
+    top: 0%;
+    left: 13%;
+}
+
+/* 右下角 */
+
+.display_date {
+    background: url(../img/tb3.svg);
+    background-size: cover;
+    position: absolute;
+    top: 71%;
+    left: 79.69%;
+}
+
+.countday_btn {
+    background: url(../img/tb2.svg);
+    background-size: cover;
+    position: absolute;
+    top: 66%;
+    left: 79.4%;
+}
+
+.return_btn {
+    background: url(../img/tb5.svg);
+    background-size: cover;
+    position: absolute;
+    top: 88%;
+    left: 89.2%;
+}
+
+.countnum {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    font-weight: 700;
+}
+
+.close_btn {
+    background: url(../img/btX.svg);
+    background-size: cover;
+    position: absolute;
+    top: 91.3%;
+    left: 96%;
+}
+
+/* 中央部分 */
+
+.main {
+    background: url(../img/box1.svg);
+    background-size: cover;
+    position: absolute;
+    top: 15.5%;
+    left: 19%;
+}
+
+.rocyear {
+    background: url(../img/bn1.svg);
+    background-size: cover;
+    position: absolute;
+    top: 5.75%;
+    left: 22.6%;
+}
+
+.month {
+    background: url(../img/bn3.svg);
+    background-size: cover;
+    position: absolute;
+    top: 5.7%;
+    left: 42.9%;
+}
+
+.moremonth {
+    background: url(../img/bn3-1.svg);
+    background-size: cover;
+    position: absolute;
+    top: 15.78%;
+    left: 42.9%;
+    transform: scaleY(0);
+    transition: 0.2s;
+    transform-origin: 50% 0;
+}
+
+.vids {
+    background: url(../img/bn4.svg);
+    background-size: cover;
+    position: absolute;
+    top: 5.7%;
+    left: 55%;
+}
+
+.morerocyear {
+    background: url(../img/bn1-1.svg);
+    background-size: cover;
+    position: absolute;
+    top: 15.78%;
+    left: 22.6%;
+    transform: scaleY(0);
+    transition: 0.2s;
+    transform-origin: 50% 0;
+}
+
+.rocyear p {
+    font-weight: 600;
+    position: absolute;
+    color: #F6FFE4;
+}
+
+.rocyear .word1 {
+    top: 22%;
+    left: 10.5%;
+}
+
+.rocyear .word2 {
+    top: 22%;
+    left: 64.7%;
+}
+
+.rocyear .arrowdown {
+    background: url(../img/bnBtD.svg);
+    background-size: cover;
+    position: absolute;
+    top: 52%;
+    left: 82.6%;
+}
+
+.selectedyear {
+    text-align: right;
+    font-weight: 400 !important;
+    top: 29%;
+    left: 30%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.month p {
+    font-weight: 600;
+    position: absolute;
+    color: #F6FFE4;
+}
+
+.month .arrowdown {
+    background: url(../img/bnBtD.svg);
+    background-size: cover;
+    position: absolute;
+    top: 52%;
+    left: 72.5%;
+}
+
+.month .word1 {
+    top: 22%;
+    left: 41%;
+}
+
+.selectedmonth {
+    text-align: right;
+    font-weight: 400 !important;
+    top: 29%;
+    left: 2%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.vids p {
+    font-weight: 600;
+    position: absolute;
+    color: #F6FFE4;
+}
+
+.vids .word1 {
+    top: 22%;
+    left: 13%;
+}
+
+.vids .word2 {
+    top: 22%;
+    left: 73.5%;
+}
+
+.showvidsnow {
+    text-align: right;
+    font-weight: 400 !important;
+    top: 29%;
+    left: 31.5%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.insideboxframe {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.insideboxframeoverhide {
+    position: absolute;
+    left: 2.9%;
+    top: 4%;
+    overflow: hidden;
+}
+
+.insideboxframe::-webkit-scrollbar-thumb {
+    width: 8px;
+    border-radius: 50px;
+    border: 5px solid #FFBA6B;
+}
+
+.insideboxframe::-webkit-scrollbar-thumb {
+    background: #EE5E07;
+}
+
+.insideboxframe::-webkit-scrollbar {
+    width: 0px;
+}
+
+.insidebox {
+    position: relative;
+}
+
+.insidebox p {
+    text-align: right;
+    font-weight: 400 !important;
+    position: absolute;
+    top: 10%;
+    left: 26%;
+    color: #ec5f07;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.brid {
+    background: url(../img/bnBtU.svg);
+    background-size: cover;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+
+.scrollbarmyself {
+    position: absolute;
+    /* background: #777; */
+    left: 40.2%;
+    top: 17%;
+    z-index: 99;
+    cursor: pointer;
+    transform: scaleY(0);
+    transition: 0.2s;
+    transform-origin: 50% 0;
+}
+
+.bar {
+    position: absolute;
+    background: #EE5E07;
+    left: 35%;
+    border-radius: 10px;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+/* month selected*/
+
+.monthboxframe {
+    /* background: #d88; */
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.monthboxframeoverhide {
+    position: absolute;
+    left: 5%;
+    top: 4%;
+    overflow: hidden;
+}
+
+.monthboxframe::-webkit-scrollbar {
+    width: 0px;
+}
+
+.monthinsidebox {
+    position: relative;
+}
+
+.monthinsidebox p {
+    text-align: center;
+    font-weight: 400 !important;
+    position: absolute;
+    top: 10%;
+    left: 33%;
+    color: #f09c06;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.scrollbarmymonth {
+    position: absolute;
+    /* background: #777; */
+    left: 52.3%;
+    top: 17%;
+    z-index: 99;
+    cursor: pointer;
+    transform: scaleY(0);
+    transition: 0.2s;
+    transform-origin: 50% 0;
+}
+
+.monthbar {
+    position: absolute;
+    background: #ED9D08;
+    left: 35%;
+    border-radius: 10px;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.monthinsidebox .brid {
+    background: url(../img/bnBtU.svg);
+    background-size: cover;
+    position: absolute;
+    top: 25%;
+    left: 15%;
+}
+
+/* gird */
+
+.gird {
+    background: url(../img/grid.png);
+    background-size: cover;
+    position: absolute;
+    top: 22%;
+    left: 21%;
+}
+
+/* month */
+
+.displaymonth {
+    position: absolute;
+    left: 21%;
+    top: 19%;
+    /* background: #EE5E07; */
+    /* opacity: 0.2; */
+}
+
+.setmonthheight {
+    display: flex;
+    
+}
+
+.dayoftheweek {
+    height: 100%;
+    flex: 1;
+}
+
+.dayoftheweek {
+    position: relative;
+}
+
+.dayoftheweek p {
+    position: absolute;
+    top: 12%;
+    left: 29%;
+    font-weight: 700;
+    color: #1B9AA9;
+}
+
+.dayoftheweek1 p, .dayoftheweek7 p {
+    color: #ee486e;
+}
+.daysnow{
+    position: relative;
+}
+.daysnow p {
+    position: absolute;
+    font-weight: 700;
+    color: #1B9AA9;
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 90px;
+    color: #000;
+}
+.daysnow1 p, .daysnow7 p {
+    color: #ee486e;
+}
+
+.displaymonthex {
+    position: absolute;
+    left: 21%;
+    top: 29%;
+    /* background: #EE5E07; */
+    /* opacity: 0.2; */
+    display: flex;
+    flex-wrap: wrap;
+}
+.box1{
+    width: 147.58px;
+    height: 89.5px;
+    position: relative;
+}
+.box1 p {
+    position: absolute;
+    font-weight: 700;
+    color: #1B9AA9;
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: 100%;
+  
+    color: rgb(0, 0, 0);
+}
+.box1:nth-child(7n) p{
+    color: #ee486e;
+
+}
+.box1:nth-child(7n+1) p{
+    color: #ee486e;
+
+}
+.colordark p{
+    color: rgba(0, 0, 0, 0.349);
+}
+.countnumber{
+    position: absolute;
+    /* background: red; */
+    /* opacity: 0.5; */
+    text-align: center;
+    left: 81%;
+    top: 77%;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.countimg{
+    background: url(../img/i1.svg);
+    width: 35px;
+    height: 37px;
+    background-size: cover;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+.countimg p {
+    color: #fff !important;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 32px;
+
+}

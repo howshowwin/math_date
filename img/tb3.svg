@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="252.258px" height="218.338px" viewBox="0 0 252.258 218.338" enable-background="new 0 0 252.258 218.338"
+	 xml:space="preserve">
+<g id="圖層_1" display="none">
+</g>
+<g id="BG">
+</g>
+<g id="日期">
+</g>
+<g id="表格">
+</g>
+<g id="UI">
+	<g>
+		<path opacity="0.2" fill-rule="evenodd" clip-rule="evenodd" fill="#231815" d="M234.231,218.338H21.246
+			c-9.956,0-18.026-8.071-18.026-18.027V21.028c0-9.956,8.071-18.026,18.026-18.026h212.985c9.956,0,18.027,8.07,18.027,18.026
+			v179.283C252.258,210.267,244.187,218.338,234.231,218.338z"/>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M231.011,215.336H18.026C8.071,215.336,0,207.265,0,197.309
+			V18.026C0,8.07,8.071,0,18.026,0h212.985c9.956,0,18.026,8.07,18.026,18.026v179.283
+			C249.038,207.265,240.967,215.336,231.011,215.336z"/>
+	</g>
+</g>
+</svg>
