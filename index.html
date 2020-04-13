@@ -6,166 +6,235 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>數學小工具積木</title>
     <link rel="stylesheet" href="css/date.css">
+    <link rel="stylesheet" href="css/day.css">
 </head>
 
 <body>
     <div class="background-img"></div>
-    <div class="background">
-
-        <!-- leftbutton -->
-        <div class="today_btn leftbtn">
-            <p>今日</p>
-        </div>
-        <div class="preweek_btn leftbtn pre">
-            <p>上星期</p>
-            <div class="arrow"></div>
-        </div>
-        <div class="nextweek_btn leftbtn next">
-            <p>下星期</p>
-            <div class="arrow"></div>
-        </div>
-        <div class="premonth_btn leftbtn pre">
-            <p>上個月</p>
-            <div class="arrow"></div>
-        </div>
-        <div class="nextmonth_btn leftbtn next">
-            <p>下個月</p>
-            <div class="arrow"></div>
-        </div>
-        <div class="preyear_btn leftbtn pre">
-            <p>上一年</p>
-            <div class="arrow"></div>
-        </div>
-        <div class="nextyear_btn leftbtn next">
-            <p>下一年</p>
-            <div class="arrow"></div>
-        </div>
+    <div class="bigwrapper">
 
 
+        <div class="background-day ooo">
+            <div class="D1_main"></div>
 
+            <div class="D1_today_btn">
+                <p>今日</p>
+            </div>
 
-        <!-- rightbtn -->
-        <div class="howtouse_btn">
-            <p>使用說明</p>
-        </div>
-        <div class="rightbtn day_btn">
+            <div class="D1_week">星期四</div>
 
-            <p>日曆</p>
-            <div class="circle display_none"></div>
+            <div class="D1_roc">民國</div>
 
-        </div>
-        <div class="rightbtn month_btn">
-            <p>月曆</p>
-            <div class="circle display_none"></div>
+            <div class="D1_rocyear">109</div>
 
-        </div>
-        <div class="rightbtn doublemonth_btn">
-            <p>雙月曆</p>
-            <div class="circle display_none"></div>
+            <div class="D1_roc_word">年</div>
 
-        </div>
-        <div class="rightbtn halfyear_btn">
-            <p>半年曆</p>
-            <div class="circle display_none"></div>
+            <div class="D1_day">16</div>
 
-        </div>
-        <div class="rightbtn year_btn">
-            <p>年曆</p>
-            <div class="circle display_none"></div>
+            <div class="D1_ac_year">2020</div>
 
+            <div class="D1_month">1</div>
+
+            <div class="D1_mobth_word">月</div>
+
+            <div class="D1_lunar">農</div>
+
+            <div class="D1_lunar_month">臘月</div>
+
+            <div class="D1_lunar_day">二十二日</div>
+
+            <div class="D1_year_pre D1_pre"></div>
+
+            <div class="D1_year_next D1_next"></div>
+
+            <div class="D1_month_pre D1_pre"></div>
+
+            <div class="D1_month_next D1_next"></div>
+
+            <div class="D1_day_pre D1_pre"></div>
+
+            <div class="D1_day_next D1_next"></div>
         </div>
 
-        <!-- countday -->
-        <div class="display_date">
-            <div class="countnum"></div>
-        </div>
-        <div class="countday_btn"></div>
-        <div class="return_btn"></div>
+
+        <div class="background-month ooo display_none">
+
+            <!-- leftbutton -->
+            <div class="today_btn leftbtn">
+                <p>今日</p>
+            </div>
+            <div class="preweek_btn leftbtn pre">
+                <p>上星期</p>
+                <div class="arrow"></div>
+            </div>
+            <div class="nextweek_btn leftbtn next">
+                <p>下星期</p>
+                <div class="arrow"></div>
+            </div>
+            <div class="premonth_btn leftbtn pre">
+                <p>上個月</p>
+                <div class="arrow"></div>
+            </div>
+            <div class="nextmonth_btn leftbtn next">
+                <p>下個月</p>
+                <div class="arrow"></div>
+            </div>
+            <div class="preyear_btn leftbtn pre">
+                <p>上一年</p>
+                <div class="arrow"></div>
+            </div>
+            <div class="nextyear_btn leftbtn next">
+                <p>下一年</p>
+                <div class="arrow"></div>
+            </div>
 
 
-        <!-- 關閉按鈕 -->
-        <div class="close_btn"></div>
-
-        <!-- 中間區域 -->
-        <div class="main"></div>
-        <!-- gird  -->
-
-        <div class="gird"> </div>
 
 
+            <!-- countday -->
+            <div class="display_date">
+                <div class="countnum"></div>
+            </div>
+            <div class="countday_btn"></div>
 
-        
+
+            <!-- 關閉按鈕 -->
+            <div class="close_btn"></div>
+
+            <!-- 中間區域 -->
+            <div class="main"></div>
+            <!-- gird  -->
+
+            <div class="gird"> </div>
 
 
 
 
 
-       <div class="displaymonth">
-            <div class="setmonthheight month_1"></div>
-            <!-- <div class="setmonthheight month_2"></div>
+
+
+
+
+            <div class="displaymonth">
+                <div class="setmonthheight month_1"></div>
+                <!-- <div class="setmonthheight month_2"></div>
             <div class="setmonthheight month_3"></div>
             <div class="setmonthheight month_4"></div>
             <div class="setmonthheight month_5"></div>
             <div class="setmonthheight month_6"></div>
             <div class="setmonthheight month_7"></div> -->
-        </div> 
-
-        <div class="displaymonthex">
-          
-        </div>
-
-        <!-- bar -->
-
-        <div class="scrollbarmyself">
-            <div class="bar"></div>
-        </div>
-
-        <div class="scrollbarmymonth">
-            <div class="monthbar"></div>
-        </div>
-
-
-        <!-- countnumber -->
-        <div class="countnumber"></div>
-        <!-- selected -->
-
-        <div class="rocyear">
-            <p class="word1">民國</p>
-            <p class="selectedyear">109</p>
-            <p class="word2">年</p>
-            <div class="arrowdown"></div>
-        </div>
-
-        <div class="morerocyear">
-            <div class="insideboxframeoverhide">
-                <div class="insideboxframe">
-                </div>
             </div>
-        </div>
 
-        <div class="month">
-            <p class="selectedmonth">1</p>
-            <p class="word1">月</p>
-            <div class="arrowdown"></div>
-        </div>
-        <div class="moremonth">
-            <div class="monthboxframeoverhide">
-                <div class="monthboxframe">
+            <div class="displaymonthex">
+
+            </div>
+
+            <!-- bar -->
+
+            <div class="scrollbarmyself">
+                <div class="bar"></div>
+            </div>
+
+            <div class="scrollbarmymonth">
+                <div class="monthbar"></div>
+            </div>
+
+
+            <!-- countnumber -->
+            <div class="countnumber display_none"></div>
+            <!-- selected -->
+
+            <div class="rocyear">
+                <p class="word1">民國</p>
+                <p class="selectedyear">109</p>
+                <p class="word2">年</p>
+                <div class="arrowdown"></div>
+            </div>
+
+            <div class="morerocyear">
+                <div class="insideboxframeoverhide">
+                    <div class="insideboxframe">
+                    </div>
                 </div>
             </div>
 
-        </div>
+            <div class="month">
+                <p class="selectedmonth">1</p>
+                <p class="word1">月</p>
+                <div class="arrowdown"></div>
+            </div>
+            <div class="moremonth">
+                <div class="monthboxframeoverhide">
+                    <div class="monthboxframe">
+                    </div>
+                </div>
 
-        <div class="vids">
-            <p class="word1">西元</p>
-            <p class="showvidsnow">2020</p>
-            <p class="word2">年</p>
+            </div>
+
+            <div class="vids">
+                <p class="word1">西元</p>
+                <p class="showvidsnow">2020</p>
+                <p class="word2">年</p>
+            </div>
+            <div class="return_btn"></div>
+
         </div>
+        <div class="background-doublemonth ooo display_none"></div>
+        <div class="background-halfyear ooo display_none"></div>
+        <div class="background-year ooo display_none"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="howtouse_btn">
+
+            <p>使用說明</p>
+        </div>
+        <div class="rightbtn day_btn" data-linkto="day">
+
+            <p>日曆</p>
+            <div class="circle display_none"></div>
+
+        </div>
+        <div class="rightbtn month_btn" data-linkto="month">
+            <p>月曆</p>
+            <div class="circle display_none"></div>
+
+        </div>
+        <div class="rightbtn doublemonth_btn" data-linkto="doublemonth">
+            <p>雙月曆</p>
+            <div class="circle display_none"></div>
+
+        </div>
+        <div class="rightbtn halfyear_btn" data-linkto="halfyear">
+            <p>半年曆</p>
+            <div class="circle display_none"></div>
+
+        </div>
+        <div class="rightbtn year_btn" data-linkto="year">
+            <p>年曆</p>
+            <div class="circle display_none"></div>
+
+        </div>
+        <div class="rightline line1"></div>
+        <div class="rightline line2"></div>
+        <div class="rightline line3"></div>
+        <div class="rightline line4"></div>
+
+
     </div>
-
-
-
-
     <!-- <div class="background1"> </div> -->
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script src="js/resize.js"></script>

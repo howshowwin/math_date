@@ -15,4 +15,16 @@ var monthappend= [1,2,3,4,5,6,7,8,9,10,11,12]
 for (i = 0; i < 12; i++) {
   $('.monthboxframe').append(`<div class="monthinsidebox"><p>${monthappend[i]}</p></div>`)
 }
+function addlistenmonth(){
+  $('.D1_day').text(displaydate)
+  $('.D1_rocyear').text(displayyearnow-1911)
+  $('.D1_ac_year').text(displayyearnow)
+  $('.D1_month').text(displaymonthnow+1)
+}
+function setweeknow() {
+  let weeknow = findaynow(displaymonthnow, displayyearnow, displaydate)
+  $('.D1_week').text(`${weekwords[weeknow]}`)
+}
 
+
+addlistenmonth()

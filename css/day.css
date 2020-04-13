@@ -1,0 +1,160 @@
+.D1_main {
+    background: url(../img/box2.svg);
+    background-size: cover;
+    position: absolute;
+    top: 1.2%;
+    left: 13.6%;
+}
+
+.D1_today_btn {
+    background: url(../img/bt1.svg);
+    background-size: cover;
+    position: absolute;
+    top: 67%;
+    left: 79.1%;
+}
+
+.D1_today_btn p {
+    font-weight: 600;
+    color: #fff;
+    position: absolute;
+    top: 15%;
+    left: 31.8%;
+}
+
+.D1_week {
+    color: #1B9AA9;
+    position: absolute;
+    font-weight: 700;
+    top: 73.5%;
+    left: 35.3%;
+   
+}
+.D1_roc{
+    color: #1B9AA9;
+    position: absolute;
+    font-weight: 700;
+    top: 25%;
+    left: 18.3%;
+    text-align: right;
+}
+.D1_rocyear{
+    color: #1B9AA9;
+    position: absolute;
+    font-weight: 400;
+    top: 25.8%;
+    left: 31.1%;
+    font-family: Arial, Helvetica, sans-serif;
+   
+    text-align: right;
+
+}
+.D1_roc_word{
+    color: #1B9AA9;
+    position: absolute;
+    font-weight: 700;
+    top: 25.1%;
+    left: 37.1%;
+}
+.D1_day{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 38.1%;
+    left: 33.8%;
+
+}
+.D1_ac_year{
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 26.7%;
+    left: 62.2%;
+    color: #1B9AA9;
+    font-weight: 400;
+
+
+}
+.D1_month{
+    
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 41.3%;
+    color: #1B9AA9;
+    left: 62%;
+    font-weight: 900;
+    text-align: center;
+
+}
+.D1_mobth_word{
+    position: absolute;
+    top: 54.2%;
+    color: #1B9AA9;
+    left: 61.8%;
+    font-weight: 900;
+    font-size: 110px;
+}
+.D1_lunar{
+
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 50%;
+    background: #1B9AA9;
+    position: absolute;
+    top: 39%;
+    left: 19.3%;
+}
+
+.D1_lunar_month{
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+    font-weight: 700;
+    font-size:45px;
+    position: absolute;
+    top: 49.5%;
+    left: 19.8%;
+}
+.D1_lunar_day{
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+    font-weight: 700;
+    font-size:45px;
+    position: absolute;
+    top: 60.1%;
+    left: 19.8%;
+}
+.D1_pre{
+    background: url(../img/btL.svg);
+    background-size: cover;
+    position: absolute;
+
+}
+.D1_next{
+    background: url(../img/btR.svg);
+    background-size: cover;
+    position: absolute;
+}
+.D1_year_pre{
+    top: 26.2%;
+    left: 27%;
+}
+.D1_year_next{
+    top: 26.2%;
+    left: 41.1%;
+}
+.D1_month_pre{
+    top: 37%;
+    left: 61.1%;
+}
+.D1_month_next{
+    top: 37%;
+    left: 65.3%;
+}
+.D1_day_pre{
+    top: 78.1% ;
+    left: 31.3%;
+}
+.D1_day_next{
+    top: 78.1% ;
+    left: 53.1%;
+}

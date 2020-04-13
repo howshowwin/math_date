@@ -28,8 +28,8 @@ function convertSizeALL(className) {
     sRSS = sRatio
     $('.background-img').css({ width: Math.round(w * sRatio), height: Math.round(h * sRatio) });
     $(".background1").css({ width: Math.round(w * sRatio), height: Math.round(h * sRatio) });
-    $(".background").css({ width: Math.round(w * sRatio), height: Math.round(h * sRatio) });
-
+    $(".background,.background-day,.background-month,.background-doublemonth,.background-halfyear,.background-year").css({ width: Math.round(w * sRatio), height: Math.round(h * sRatio) });
+    $('.bigwrapper').css({ width: Math.round(w * sRatio), height: Math.round(h * sRatio) });
     $(".leftbtn").css({ width: Math.round(270 * sRatio), height: Math.round(84 * sRatio) });
     $('.leftbtn p').css({ fontSize: Math.round(45 * sRatio), letterSpacing: Math.round(5 * sRatio) });
     $(".leftbtn .arrow").css({ width: Math.round(34 * sRatio), height: Math.round(19 * sRatio) });
@@ -64,26 +64,46 @@ function convertSizeALL(className) {
 
 
     $('.insideboxframe,.insideboxframeoverhide').css({ width: Math.round(360 * sRatio), height: Math.round(291 * sRatio) })
-    $('.insidebox').css({ width: Math.round(400 * sRatio), height: Math.round(59 * sRatio), margin: `${ Math.round(11 * sRatio)}px 0` })
+    $('.insidebox').css({ width: Math.round(400 * sRatio), height: Math.round(59 * sRatio), margin: `${Math.round(11 * sRatio)}px 0` })
     $('.insidebox p').css({ width: Math.round(120 * sRatio), fontSize: Math.round(45 * sRatio) })
 
-    $('.brid').css({ width: Math.round(27 * sRatio),  height: Math.round(30 * sRatio) })
-    $('.scrollbarmyself').css({ width: Math.round(30 * sRatio),  height: Math.round(300 * sRatio) })
-    $('.bar').css({ width: Math.round(10 * sRatio),  height: Math.round(100 * sRatio) })
+    $('.brid').css({ width: Math.round(27 * sRatio), height: Math.round(30 * sRatio) })
+    $('.scrollbarmyself').css({ width: Math.round(30 * sRatio), height: Math.round(300 * sRatio) })
+    $('.bar').css({ width: Math.round(10 * sRatio), height: Math.round(100 * sRatio) })
     $('.monthboxframe p').css({ width: Math.round(60 * sRatio), fontSize: Math.round(45 * sRatio) })
-    $('.monthinsidebox').css({ width: Math.round(200 * sRatio), height: Math.round(59 * sRatio), margin: `${ Math.round(11 * sRatio)}px 0` })
+    $('.monthinsidebox').css({ width: Math.round(200 * sRatio), height: Math.round(59 * sRatio), margin: `${Math.round(11 * sRatio)}px 0` })
     $('.monthboxframe,.monthboxframeoverhide').css({ width: Math.round(200 * sRatio), height: Math.round(291 * sRatio) })
-    $('.scrollbarmymonth').css({ width: Math.round(30 * sRatio),  height: Math.round(300 * sRatio) })
-    $('.monthbar').css({ width: Math.round(10 * sRatio),  height: Math.round(100 * sRatio) })
-    $('.gird').css({ width: Math.round(1035 * sRatio),  height: Math.round(602 * sRatio) })
-    $('.displaymonth').css({ width: Math.round(1035 * sRatio),  height: Math.round(630 * sRatio) })
-    $('.setmonthheight').css({ width: "100%",  height: Math.round(90 * sRatio) })
+    $('.scrollbarmymonth').css({ width: Math.round(30 * sRatio), height: Math.round(300 * sRatio) })
+    $('.monthbar').css({ width: Math.round(10 * sRatio), height: Math.round(100 * sRatio) })
+    $('.gird').css({ width: Math.round(1035 * sRatio), height: Math.round(602 * sRatio) })
+    $('.displaymonth').css({ width: Math.round(1035 * sRatio), height: Math.round(630 * sRatio) })
+    $('.setmonthheight').css({ width: "100%", height: Math.round(90 * sRatio) })
     $('.setmonthheight p').css({ fontSize: Math.round(60 * sRatio) });
-    $('.daysnow').css({ width: "100%",  height: Math.round(90 * sRatio) })
+    $('.daysnow').css({ width: "100%", height: Math.round(90 * sRatio) })
     $('.daysnow p').css({ fontSize: Math.round(40 * sRatio) });
-    $('.box1 p').css({ fontSize: Math.round(40 * sRatio),  lineHeight: `${Math.round(90 * sRatio)}px` });
-    $('.box1').css({ width: 147.5 * sRatio,  height: Math.round(89.5 * sRatio) })
-    $('.displaymonthex').css({ width: Math.round(1035 * sRatio)})
-    $('.countnumber').css({ width:Math.round(200* sRatio),  height: Math.round(150 * sRatio),fontSize: Math.round(120 * sRatio) })
+    $('.box1 p').css({ fontSize: Math.round(40 * sRatio), lineHeight: `${Math.round(90 * sRatio)}px` });
+    $('.box1').css({ width: 147.5 * sRatio, height: Math.round(89.5 * sRatio) })
+    $('.displaymonthex').css({ width: Math.round(1035 * sRatio) })
+    $('.countnumber').css({ width: Math.round(200 * sRatio), height: Math.round(150 * sRatio), fontSize: Math.round(120 * sRatio) })
+    $('.rightline').css({ width: Math.round(268 * sRatio), height: Math.round(5 * sRatio) })
+
+
+    $('.D1_main').css({ width: Math.round(1141 * sRatio), height: Math.round(854 * sRatio) })
+    $(".D1_today_btn").css({ width: Math.round(270 * sRatio), height: Math.round(84 * sRatio) });
+    $('.D1_today_btn p').css({ fontSize: Math.round(45 * sRatio), letterSpacing: Math.round(5 * sRatio) });
+    $('.D1_week').css({ fontSize: Math.round(102 * sRatio), letterSpacing: Math.round(10 * sRatio) });
+    $('.D1_roc').css({ fontSize: Math.round(60 * sRatio) });
+    $('.D1_day').css({ fontSize: Math.round(320 * sRatio), width: Math.round(320 * sRatio), height: Math.round(320 * sRatio) });
+    $('.D1_roc_word,.D1_rocyear').css({ fontSize: Math.round(60 * sRatio) });
+    $('.D1_rocyear').css({ width: Math.round(100 * sRatio) })
+    $('.D1_ac_year').css({ fontSize: Math.round(46 * sRatio) });
+    $('.D1_month').css({ width: Math.round(100 * sRatio), height: Math.round(100 * sRatio), fontSize: Math.round(110 * sRatio) })
+    $('.D1_mobth_word').css({ fontSize: Math.round(110 * sRatio) });
+    $('.D1_lunar').css({ width: Math.round(83 * sRatio), height: Math.round(83 * sRatio),fontSize: Math.round(55 * sRatio),lineHeight: `${Math.round(80 * sRatio)}px` })
+    
+    $('.D1_pre,.D1_next').css({ width: Math.round(61 * sRatio), height: Math.round(60* sRatio) })
+
+
+
 }
 
