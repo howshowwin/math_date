@@ -66,10 +66,10 @@ function convertSizeALL(className) {
     $('.insideboxframe,.insideboxframeoverhide').css({ width: Math.round(360 * sRatio), height: Math.round(291 * sRatio) })
     $('.insidebox').css({ width: Math.round(400 * sRatio), height: Math.round(59 * sRatio), margin: `${Math.round(11 * sRatio)}px 0` })
     $('.insidebox p').css({ width: Math.round(120 * sRatio), fontSize: Math.round(45 * sRatio) })
-
-    $('.brid').css({ width: Math.round(27 * sRatio), height: Math.round(30 * sRatio) })
     $('.scrollbarmyself').css({ width: Math.round(30 * sRatio), height: Math.round(300 * sRatio) })
     $('.bar').css({ width: Math.round(10 * sRatio), height: Math.round(100 * sRatio) })
+    $('.brid').css({ width: Math.round(27 * sRatio), height: Math.round(30 * sRatio) })
+
     $('.monthboxframe p').css({ width: Math.round(60 * sRatio), fontSize: Math.round(45 * sRatio) })
     $('.monthinsidebox').css({ width: Math.round(200 * sRatio), height: Math.round(59 * sRatio), margin: `${Math.round(11 * sRatio)}px 0` })
     $('.monthboxframe,.monthboxframeoverhide').css({ width: Math.round(200 * sRatio), height: Math.round(291 * sRatio) })
@@ -99,9 +99,121 @@ function convertSizeALL(className) {
     $('.D1_ac_year').css({ fontSize: Math.round(46 * sRatio) });
     $('.D1_month').css({ width: Math.round(100 * sRatio), height: Math.round(100 * sRatio), fontSize: Math.round(110 * sRatio) })
     $('.D1_mobth_word').css({ fontSize: Math.round(110 * sRatio) });
-    $('.D1_lunar').css({ width: Math.round(83 * sRatio), height: Math.round(83 * sRatio),fontSize: Math.round(55 * sRatio),lineHeight: `${Math.round(80 * sRatio)}px` })
-    
-    $('.D1_pre,.D1_next').css({ width: Math.round(61 * sRatio), height: Math.round(60* sRatio) })
+    $('.D1_lunar').css({ width: Math.round(83 * sRatio), height: Math.round(83 * sRatio), fontSize: Math.round(55 * sRatio), lineHeight: `${Math.round(80 * sRatio)}px` })
+
+    $('.D1_pre,.D1_next').css({ width: Math.round(61 * sRatio), height: Math.round(60 * sRatio) })
+
+
+    $(".D2_leftbtn").css({ width: Math.round(270 * sRatio), height: Math.round(84 * sRatio) });
+    $('.D2_leftbtn p').css({ fontSize: Math.round(45 * sRatio), letterSpacing: Math.round(5 * sRatio) });
+    $(".D2_leftbtn .D2_arrow").css({ width: Math.round(34 * sRatio), height: Math.round(19 * sRatio) });
+    $('.D2_month').css({ width: Math.round(276 * sRatio), height: Math.round(90 * sRatio) })
+    $('.D2_moremonth').css({ width: Math.round(276 * sRatio), height: Math.round(356 * sRatio) })
+    $('.D2_monthboxframe p').css({ width: Math.round(60 * sRatio), fontSize: Math.round(45 * sRatio) })
+    $('.D2_monthinsidebox').css({ width: Math.round(242 * sRatio), height: Math.round(59 * sRatio), margin: `${Math.round(11 * sRatio)}px 0` })
+    $('.D2_monthboxframe,.D2_monthboxframeoverhide').css({ width: Math.round(242 * sRatio), height: Math.round(291 * sRatio) })
+    $('.D2_scrollbarmymonth').css({ width: Math.round(30 * sRatio), height: Math.round(300 * sRatio) })
+    $('.D2_monthbar').css({ width: Math.round(10 * sRatio), height: Math.round(100 * sRatio) })
+    $('.D2_month p').css({ fontSize: Math.round(45 * sRatio) });
+    $('.D2_selectedmonth').css({ width: Math.round(120 * sRatio), fontSize: Math.round(45 * sRatio) })
+    $('.D2_arrowdown').css({ width: Math.round(24 * sRatio), height: Math.round(13 * sRatio) });
+    $('.D2_rocyear').css({ width: Math.round(384 * sRatio), height: Math.round(91 * sRatio) })
+    $('.D2_morerocyear').css({ width: Math.round(385 * sRatio), height: Math.round(356 * sRatio) })
+    $('.D2_insideboxframe,.D2_insideboxframeoverhide').css({ width: Math.round(360 * sRatio), height: Math.round(291 * sRatio) })
+    $('.D2_insidebox').css({ width: Math.round(400 * sRatio), height: Math.round(59 * sRatio), margin: `${Math.round(11 * sRatio)}px 0` })
+    $('.D2_insidebox p').css({ width: Math.round(120 * sRatio), fontSize: Math.round(45 * sRatio) })
+    $('.D2_scrollbarmyself').css({ width: Math.round(30 * sRatio), height: Math.round(300 * sRatio) })
+    $('.D2_bar').css({ width: Math.round(10 * sRatio), height: Math.round(100 * sRatio) })
+    $('.D2_rocyear p').css({ fontSize: Math.round(45 * sRatio) });
+    $('.D2_selectedyear').css({ width: Math.round(120 * sRatio), fontSize: Math.round(45 * sRatio) })
+    $('.D2_arrowdown').css({ width: Math.round(24 * sRatio), height: Math.round(13 * sRatio) });
+    $('.D2_monthbox').css({ width: Math.round(516 * sRatio), height: Math.round(590 * sRatio) })
+    $('.D2_month_display').css({ width: Math.round(200 * sRatio), height: Math.round(200 * sRatio), fontSize: Math.round(160 * sRatio) })
+    $('.D2_dayoftheweek').css({ fontSize: Math.round(28 * sRatio) });
+    $('.D2_box1').css({ width: Math.round(71 * sRatio), height: Math.round(44 * sRatio), fontSize: Math.round(26 * sRatio) })
+
+
+
+    $(".D3_leftbtn").css({ width: Math.round(270 * sRatio), height: Math.round(84 * sRatio) });
+    $('.D3_leftbtn p').css({ fontSize: Math.round(45 * sRatio), letterSpacing: Math.round(5 * sRatio) });
+    $(".D3_leftbtn .D3_arrow").css({ width: Math.round(34 * sRatio), height: Math.round(19 * sRatio) });
+    $('.D3_month').css({ width: Math.round(276 * sRatio), height: Math.round(90 * sRatio) })
+    $('.D3_moremonth').css({ width: Math.round(276 * sRatio), height: Math.round(356 * sRatio) })
+    $('.D3_monthboxframe p').css({ width: Math.round(60 * sRatio), fontSize: Math.round(45 * sRatio) })
+    $('.D3_monthinsidebox').css({ width: Math.round(242 * sRatio), height: Math.round(59 * sRatio), margin: `${Math.round(11 * sRatio)}px 0` })
+    $('.D3_monthboxframe,.D3_monthboxframeoverhide').css({ width: Math.round(242 * sRatio), height: Math.round(291 * sRatio) })
+    $('.D3_scrollbarmymonth').css({ width: Math.round(30 * sRatio), height: Math.round(300 * sRatio) })
+    $('.D3_monthbar').css({ width: Math.round(10 * sRatio), height: Math.round(100 * sRatio) })
+    $('.D3_month p').css({ fontSize: Math.round(45 * sRatio) });
+    $('.D3_selectedmonth').css({ width: Math.round(120 * sRatio), fontSize: Math.round(45 * sRatio) })
+    $('.D3_arrowdown').css({ width: Math.round(24 * sRatio), height: Math.round(13 * sRatio) });
+    $('.D3_rocyear').css({ width: Math.round(384 * sRatio), height: Math.round(91 * sRatio) })
+    $('.D3_morerocyear').css({ width: Math.round(385 * sRatio), height: Math.round(356 * sRatio) })
+    $('.D3_insideboxframe,.D3_insideboxframeoverhide').css({ width: Math.round(360 * sRatio), height: Math.round(291 * sRatio) })
+    $('.D3_insidebox').css({ width: Math.round(400 * sRatio), height: Math.round(59 * sRatio), margin: `${Math.round(11 * sRatio)}px 0` })
+    $('.D3_insidebox p').css({ width: Math.round(120 * sRatio), fontSize: Math.round(45 * sRatio) })
+    $('.D3_scrollbarmyself').css({ width: Math.round(30 * sRatio), height: Math.round(300 * sRatio) })
+    $('.D3_bar').css({ width: Math.round(10 * sRatio), height: Math.round(100 * sRatio) })
+    $('.D3_rocyear p').css({ fontSize: Math.round(45 * sRatio) });
+    $('.D3_selectedyear').css({ width: Math.round(120 * sRatio), fontSize: Math.round(45 * sRatio) })
+    $('.D3_arrowdown').css({ width: Math.round(24 * sRatio), height: Math.round(13 * sRatio) });
+    $('.D3_bigger_watch').css({ width: Math.round(98 * sRatio), height: Math.round(99 * sRatio) })
+    $('.D3_rocyear').css({ width: Math.round(384 * sRatio), height: Math.round(91 * sRatio) })
+    $('.D3_morerocyear').css({ width: Math.round(385 * sRatio), height: Math.round(356 * sRatio) })
+    $('.D3_insideboxframe,.D3_insideboxframeoverhide').css({ width: Math.round(360 * sRatio), height: Math.round(291 * sRatio) })
+    $('.D3_insidebox').css({ width: Math.round(400 * sRatio), height: Math.round(59 * sRatio), margin: `${Math.round(11 * sRatio)}px 0` })
+    $('.D3_insidebox p').css({ width: Math.round(120 * sRatio), fontSize: Math.round(45 * sRatio) })
+    $('.D3_scrollbarmyself').css({ width: Math.round(30 * sRatio), height: Math.round(300 * sRatio) })
+    $('.D3_bar').css({ width: Math.round(10 * sRatio), height: Math.round(100 * sRatio) })
+    $('.D3_rocyear p').css({ fontSize: Math.round(45 * sRatio) });
+    $('.D3_selectedyear').css({ width: Math.round(120 * sRatio), fontSize: Math.round(45 * sRatio) })
+    $('.D3_arrowdown').css({ width: Math.round(24 * sRatio), height: Math.round(13 * sRatio) });
+    $('.D3_insideframe,.D3_hidden_insideframe').css({ width: Math.round(1097 * sRatio), height: Math.round(687 * sRatio), borderRadius: `${Math.round(30 * sRatio)}px` });
+    $('.D3_month_box').css({ width: Math.round(336 * sRatio), height: Math.round(321 * sRatio) });
+    $('.D3_displaymonth').css({ width: Math.round(100 * sRatio), height: Math.round(100 * sRatio), fontSize: Math.round(110 * sRatio), lineHeight: `${Math.round(113 * sRatio)}px` })
+    $('.D3_dayoftheweek').css({ fontSize: Math.round(18 * sRatio) });
+    $('.D3_box1').css({ fontSize: Math.round(18 * sRatio), height: Math.round(28 * sRatio) });
+
+
+
+
+    $(".D4_leftbtn").css({ width: Math.round(270 * sRatio), height: Math.round(84 * sRatio) });
+    $('.D4_leftbtn p').css({ fontSize: Math.round(45 * sRatio), letterSpacing: Math.round(5 * sRatio) });
+    $(".D4_leftbtn .D4_arrow").css({ width: Math.round(34 * sRatio), height: Math.round(19 * sRatio) });
+    $('.D4_month').css({ width: Math.round(276 * sRatio), height: Math.round(90 * sRatio) })
+    $('.D4_moremonth').css({ width: Math.round(276 * sRatio), height: Math.round(356 * sRatio) })
+    $('.D4_monthboxframe p').css({ width: Math.round(60 * sRatio), fontSize: Math.round(45 * sRatio) })
+    $('.D4_monthinsidebox').css({ width: Math.round(242 * sRatio), height: Math.round(59 * sRatio), margin: `${Math.round(11 * sRatio)}px 0` })
+    $('.D4_monthboxframe,.D4_monthboxframeoverhide').css({ width: Math.round(242 * sRatio), height: Math.round(291 * sRatio) })
+    $('.D4_scrollbarmymonth').css({ width: Math.round(30 * sRatio), height: Math.round(300 * sRatio) })
+    $('.D4_monthbar').css({ width: Math.round(10 * sRatio), height: Math.round(100 * sRatio) })
+    $('.D4_month p').css({ fontSize: Math.round(45 * sRatio) });
+    $('.D4_selectedmonth').css({ width: Math.round(120 * sRatio), fontSize: Math.round(45 * sRatio) })
+    $('.D4_arrowdown').css({ width: Math.round(24 * sRatio), height: Math.round(13 * sRatio) });
+    $('.D4_rocyear').css({ width: Math.round(384 * sRatio), height: Math.round(91 * sRatio) })
+    $('.D4_morerocyear').css({ width: Math.round(385 * sRatio), height: Math.round(356 * sRatio) })
+    $('.D4_insideboxframe,.D4_insideboxframeoverhide').css({ width: Math.round(360 * sRatio), height: Math.round(291 * sRatio) })
+    $('.D4_insidebox').css({ width: Math.round(400 * sRatio), height: Math.round(59 * sRatio), margin: `${Math.round(11 * sRatio)}px 0` })
+    $('.D4_insidebox p').css({ width: Math.round(120 * sRatio), fontSize: Math.round(45 * sRatio) })
+    $('.D4_scrollbarmyself').css({ width: Math.round(30 * sRatio), height: Math.round(300 * sRatio) })
+    $('.D4_bar').css({ width: Math.round(10 * sRatio), height: Math.round(100 * sRatio) })
+    $('.D4_rocyear p').css({ fontSize: Math.round(45 * sRatio) });
+    $('.D4_selectedyear').css({ width: Math.round(120 * sRatio), fontSize: Math.round(45 * sRatio) })
+    $('.D4_arrowdown').css({ width: Math.round(24 * sRatio), height: Math.round(13 * sRatio) });
+    $('.D4_bigger_watch').css({ width: Math.round(98 * sRatio), height: Math.round(99 * sRatio) })
+    $('.D4_rocyear').css({ width: Math.round(384 * sRatio), height: Math.round(91 * sRatio) })
+    $('.D4_morerocyear').css({ width: Math.round(385 * sRatio), height: Math.round(356 * sRatio) })
+    $('.D4_insideframe,.D4_insideframe_hidden').css({ width: Math.round(1097 * sRatio), height: Math.round(687 * sRatio), borderRadius: `${Math.round(30 * sRatio)}px` });
+    $('.D4_insidebox').css({ width: Math.round(400 * sRatio), height: Math.round(59 * sRatio), margin: `${Math.round(11 * sRatio)}px 0` })
+    $('.D4_insidebox p').css({ width: Math.round(120 * sRatio), fontSize: Math.round(45 * sRatio) })
+    $('.D4_scrollbarmyself').css({ width: Math.round(30 * sRatio), height: Math.round(300 * sRatio) })
+    $('.D4_bar').css({ width: Math.round(10 * sRatio), height: Math.round(100 * sRatio) })
+    $('.D4_rocyear p').css({ fontSize: Math.round(45 * sRatio) });
+    $('.D4_selectedyear').css({ width: Math.round(120 * sRatio), fontSize: Math.round(45 * sRatio) })
+    $('.D4_arrowdown').css({ width: Math.round(24 * sRatio), height: Math.round(13 * sRatio) });
+    $('.D4_box').css({ width: Math.round(237 * sRatio), height: Math.round(226 * sRatio) })
+    $('.D4_displaymonth').css({ width: Math.round(100 * sRatio), height: Math.round(100 * sRatio),fontSize: Math.round(75 * sRatio),lineHeight:`${Math.round(75 * sRatio)}px` })
+
 
 
 

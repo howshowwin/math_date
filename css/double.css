@@ -1,0 +1,422 @@
+.D3_leftbtn {
+    background: url(../img/bt1.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.D3_nextweek_btn, .D3_preweek_btn {
+    background: url(../img/bt1-1.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.D3_leftbtn p {
+    color: #fff;
+    font-weight: 600;
+    position: absolute;
+    left: 12%;
+    top: 12%;
+}
+
+.D3_nextweek_btn p, .D3_preweek_btn p {
+    color: #999;
+}
+
+.D3_today_btn p {
+    left: 32%;
+    top: 12%;
+}
+
+.D3_today_btn {
+    top: 8%;
+    left: 2.8%;
+}
+
+.D3_preweek_btn {
+    top: 27.2%;
+    left: 2.8%;
+}
+
+.D3_nextweek_btn {
+    top: 37.1%;
+    left: 2.8%;
+}
+
+.D3_premonth_btn {
+    top: 50.3%;
+    left: 2.8%;
+}
+
+.D3_nextmonth_btn {
+    top: 60%;
+    left: 2.8%;
+}
+
+.D3_preyear_btn {
+    top: 73.4%;
+    left: 2.8%;
+}
+
+.D3_nextyear_btn {
+    top: 83.1%;
+    left: 2.8%;
+}
+
+.D3_pre .D3_arrow {
+    background: url(../img/btU.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.D3_next .D3_arrow {
+    background: url(../img/btD.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.D3_arrow {
+    left: 75%;
+    top: 40%;
+}
+
+.D3_nextweek_btn .D3_arrow {
+    background: url(../img/btDg.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.D3_preweek_btn .D3_arrow {
+    background: url(../img/btUg.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.D3_bigger_watch {
+    background: url(../img/btS.svg);
+    background-size: cover;
+    position: absolute;
+    top: 35%;
+    left: 7.4%;
+}
+
+.D3_month {
+    background: url(../img/bn2.svg);
+    background-size: cover;
+    position: absolute;
+    top: 5.7%;
+    left: 42.9%;
+}
+
+.D3_moremonth {
+    background: url(../img/bn2-1.svg);
+    background-size: cover;
+    position: absolute;
+    top: 15.78%;
+    left: 42.9%;
+    transform: scaleY(0);
+    transition: 0.2s;
+    transform-origin: 50% 0;
+}
+
+.D3_month p {
+    font-weight: 600;
+    position: absolute;
+    color: #F6FFE4;
+}
+
+.D3_month .D3_arrowdown {
+    background: url(../img/bnBtD.svg);
+    background-size: cover;
+    position: absolute;
+    top: 52%;
+    left: 72.5%;
+}
+
+.D3_month .D3_word1 {
+    top: 22%;
+    left: 53%;
+}
+
+.D3_selectedmonth {
+    text-align: right;
+    font-weight: 400 !important;
+    top: 29%;
+    left: 6%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.D3_monthboxframe {
+    /* background: #d88; */
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.D3_monthboxframeoverhide {
+    position: absolute;
+    left: 5%;
+    top: 4%;
+    overflow: hidden;
+}
+
+.D3_monthboxframe::-webkit-scrollbar {
+    width: 0px;
+}
+
+.D3_monthinsidebox {
+    position: relative;
+}
+
+.D3_monthinsidebox p {
+    text-align: center;
+    font-weight: 400 !important;
+    position: absolute;
+    top: 10%;
+    left: 33%;
+    color: #f09c06;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.D3_scrollbarmymonth {
+    position: absolute;
+    /* background: #777; */
+    left: 54.6%;
+    top: 17%;
+    z-index: 99;
+    cursor: pointer;
+    transform: scaleY(0);
+    transition: 0.2s;
+    transform-origin: 50% 0;
+}
+
+.D3_monthbar {
+    position: absolute;
+    background: #ED9D08;
+    left: 35%;
+    border-radius: 10px;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.D3_monthinsidebox .brid {
+    background: url(../img/bnBtU.svg);
+    background-size: cover;
+    position: absolute;
+    top: 25%;
+    left: 15%;
+}
+
+.D3_scrollbarmyself {
+    position: absolute;
+    /* background: #777; */
+    left: 40.2%;
+    top: 17%;
+    z-index: 99;
+    cursor: pointer;
+    transform: scaleY(0);
+    transition: 0.2s;
+    transform-origin: 50% 0;
+}
+
+.D3_bar {
+    position: absolute;
+    background: #EE5E07;
+    left: 35%;
+    border-radius: 10px;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.D3_insideboxframe {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.D3_insideboxframeoverhide {
+    position: absolute;
+    left: 2.9%;
+    top: 4%;
+    overflow: hidden;
+}
+
+.D3_insideboxframe::-webkit-scrollbar-thumb {
+    width: 8px;
+    border-radius: 50px;
+    border: 5px solid #FFBA6B;
+}
+
+.D3_insideboxframe::-webkit-scrollbar-thumb {
+    background: #EE5E07;
+}
+
+.D3_insideboxframe::-webkit-scrollbar {
+    width: 0px;
+}
+
+.D3_insidebox {
+    position: relative;
+}
+
+.D3_insidebox p {
+    text-align: right;
+    font-weight: 400 !important;
+    position: absolute;
+    top: 10%;
+    left: 26%;
+    color: #ec5f07;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.D3_rocyear {
+    background: url(../img/bn1.svg);
+    background-size: cover;
+    position: absolute;
+    top: 5.75%;
+    left: 22.6%;
+}
+
+.D3_morerocyear {
+    background: url(../img/bn1-1.svg);
+    background-size: cover;
+    position: absolute;
+    top: 15.78%;
+    left: 22.6%;
+    transform: scaleY(0);
+    transition: 0.2s;
+    transform-origin: 50% 0;
+}
+
+.D3_rocyear p {
+    font-weight: 600;
+    position: absolute;
+    color: #F6FFE4;
+}
+
+.D3_rocyear .D3_word1 {
+    top: 22%;
+    left: 10.5%;
+}
+
+.D3_rocyear .D3_worD3 {
+    top: 22%;
+    left: 64.7%;
+}
+
+.D3_rocyear .D3_arrowdown {
+    background: url(../img/bnBtD.svg);
+    background-size: cover;
+    position: absolute;
+    top: 52%;
+    left: 82.6%;
+}
+
+.D3_selectedyear {
+    text-align: right;
+    font-weight: 400 !important;
+    top: 29%;
+    left: 30%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.D3_insideframe {
+    position: absolute;
+    top: 0%;
+    overflow: hidden;
+    left: 0%;
+    transform:scale(1)
+}
+.D3_hidden_insideframe{
+    position: absolute;
+    top: 15.8%;
+    overflow: hidden;
+    left: 19%;
+
+}
+.D3_month_box {
+    background: "none";
+    background-size: cover;
+    position: absolute;
+}
+
+.D3_month_box1 {
+    top: 4.5%;
+    left: 2.7%;
+}
+
+.D3_month_box2 {
+    top: 4.5%;
+    left: 35.2%;
+}
+
+.D3_month_box3 {
+    top: 4.5%;
+    left: 67.6%;
+}
+
+.D3_month_box4 {
+    top: 51.5%;
+    left: 2.7%;
+}
+
+.D3_month_box5 {
+    top: 51.5%;
+    left: 35.2%;
+}
+
+.D3_month_box6 {
+    top: 51.5%;
+    left: 67.6%;
+}
+
+.D3_displaymonth {
+    position: absolute;
+    color: #1B9AA9;
+    text-align: center;
+    left: 34.8%;
+    top: 0.7%;
+    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.D3_weekend {
+    display: flex;
+    position: absolute;
+    left: 2%;
+    top: 39%;
+    width: 100%;
+}
+
+.D3_dayoftheweek {
+    width: 13.8%;
+    /* background: #f09c06; */
+    text-align: center;
+}
+
+.D3_month_day_display {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 49%;
+    left: 2.3%;
+}
+
+.D3_box1 {
+    width: 14%;
+    text-align: center;
+}
+.D3_box1:nth-child(7n) p {
+    color: #ee486e;
+}
+
+.D3_box1:nth-child(7n+1) p {
+    color: #ee486e;
+}
+.D3_dayoftheweek1,.D3_dayoftheweek7{
+    color: #ee486e;
+
+}

@@ -1,0 +1,385 @@
+.D2_leftbtn {
+    background: url(../img/bt1.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.D2_nextweek_btn, .D2_preweek_btn {
+    background: url(../img/bt1-1.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.D2_leftbtn p {
+    color: #fff;
+    font-weight: 600;
+    position: absolute;
+    left: 12%;
+    top: 12%;
+}
+
+.D2_nextweek_btn p, .D2_preweek_btn p {
+    color: #999;
+}
+
+.D2_today_btn p {
+    left: 32%;
+    top: 12%;
+}
+
+.D2_today_btn {
+    top: 8%;
+    left: 2.8%;
+}
+
+.D2_preweek_btn {
+    top: 27.2%;
+    left: 2.8%;
+}
+
+.D2_nextweek_btn {
+    top: 37.1%;
+    left: 2.8%;
+}
+
+.D2_premonth_btn {
+    top: 50.3%;
+    left: 2.8%;
+}
+
+.D2_nextmonth_btn {
+    top: 60%;
+    left: 2.8%;
+}
+
+.D2_preyear_btn {
+    top: 73.4%;
+    left: 2.8%;
+}
+
+.D2_nextyear_btn {
+    top: 83.1%;
+    left: 2.8%;
+}
+
+.D2_pre .D2_arrow {
+    background: url(../img/btU.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.D2_next .D2_arrow {
+    background: url(../img/btD.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.D2_arrow {
+    left: 75%;
+    top: 40%;
+}
+
+.D2_nextweek_btn .D2_arrow {
+    background: url(../img/btDg.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.D2_preweek_btn .D2_arrow {
+    background: url(../img/btUg.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+/* scroll */
+
+.D2_month {
+    background: url(../img/bn2.svg);
+    background-size: cover;
+    position: absolute;
+    top: 5.7%;
+    left: 42.9%;
+}
+
+.D2_moremonth {
+    background: url(../img/bn2-1.svg);
+    background-size: cover;
+    position: absolute;
+    top: 15.78%;
+    left: 42.9%;
+    transform: scaleY(0);
+    transition: 0.2s;
+    transform-origin: 50% 0;
+}
+
+.D2_month p {
+    font-weight: 600;
+    position: absolute;
+    color: #F6FFE4;
+}
+
+.D2_month .D2_arrowdown {
+    background: url(../img/bnBtD.svg);
+    background-size: cover;
+    position: absolute;
+    top: 52%;
+    left: 72.5%;
+}
+
+.D2_month .D2_word1 {
+    top: 22%;
+    left: 53%;
+}
+
+.D2_selectedmonth {
+    text-align: right;
+    font-weight: 400 !important;
+    top: 29%;
+    left: 6%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.D2_monthboxframe {
+    /* background: #d88; */
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.D2_monthboxframeoverhide {
+    position: absolute;
+    left: 5%;
+    top: 4%;
+    overflow: hidden;
+}
+
+.D2_monthboxframe::-webkit-scrollbar {
+    width: 0px;
+}
+
+.D2_monthinsidebox {
+    position: relative;
+}
+
+.D2_monthinsidebox p {
+    text-align: center;
+    font-weight: 400 !important;
+    position: absolute;
+    top: 10%;
+    left: 33%;
+    color: #f09c06;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.D2_scrollbarmymonth {
+    position: absolute;
+    /* background: #777; */
+    left: 54.6%;
+    top: 17%;
+    z-index: 99;
+    cursor: pointer;
+    transform: scaleY(0);
+    transition: 0.2s;
+    transform-origin: 50% 0;
+}
+
+.D2_monthbar {
+    position: absolute;
+    background: #ED9D08;
+    left: 35%;
+    border-radius: 10px;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.D2_monthinsidebox .brid {
+    background: url(../img/bnBtU.svg);
+    background-size: cover;
+    position: absolute;
+    top: 25%;
+    left: 15%;
+}
+
+.D2_scrollbarmyself {
+    position: absolute;
+    /* background: #777; */
+    left: 40.2%;
+    top: 17%;
+    z-index: 99;
+    cursor: pointer;
+    transform: scaleY(0);
+    transition: 0.2s;
+    transform-origin: 50% 0;
+}
+
+.D2_bar {
+    position: absolute;
+    background: #EE5E07;
+    left: 35%;
+    border-radius: 10px;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.D2_insideboxframe {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.D2_insideboxframeoverhide {
+    position: absolute;
+    left: 2.9%;
+    top: 4%;
+    overflow: hidden;
+}
+
+.D2_insideboxframe::-webkit-scrollbar-thumb {
+    width: 8px;
+    border-radius: 50px;
+    border: 5px solid #FFBA6B;
+}
+
+.D2_insideboxframe::-webkit-scrollbar-thumb {
+    background: #EE5E07;
+}
+
+.D2_insideboxframe::-webkit-scrollbar {
+    width: 0px;
+}
+
+.D2_insidebox {
+    position: relative;
+}
+
+.D2_insidebox p {
+    text-align: right;
+    font-weight: 400 !important;
+    position: absolute;
+    top: 10%;
+    left: 26%;
+    color: #ec5f07;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.D2_rocyear {
+    background: url(../img/bn1.svg);
+    background-size: cover;
+    position: absolute;
+    top: 5.75%;
+    left: 22.6%;
+}
+
+.D2_morerocyear {
+    background: url(../img/bn1-1.svg);
+    background-size: cover;
+    position: absolute;
+    top: 15.78%;
+    left: 22.6%;
+    transform: scaleY(0);
+    transition: 0.2s;
+    transform-origin: 50% 0;
+}
+
+.D2_rocyear p {
+    font-weight: 600;
+    position: absolute;
+    color: #F6FFE4;
+}
+
+.D2_rocyear .D2_word1 {
+    top: 22%;
+    left: 10.5%;
+}
+
+.D2_rocyear .D2_word2 {
+    top: 22%;
+    left: 64.7%;
+}
+
+.D2_rocyear .D2_arrowdown {
+    background: url(../img/bnBtD.svg);
+    background-size: cover;
+    position: absolute;
+    top: 52%;
+    left: 82.6%;
+}
+
+.D2_selectedyear {
+    text-align: right;
+    font-weight: 400 !important;
+    top: 29%;
+    left: 30%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 中央區域 */
+
+.D2_monthbox1 {
+ 
+    position: absolute;
+    left: 20.6%;
+    top: 19.8%;
+}
+
+.D2_monthbox2 {
+
+    position: absolute;
+    left: 47.6%;
+    top: 19.8%;
+}
+
+.D2_month_display {
+    position: absolute;
+    color: #1B9AA9;
+    text-align: center;
+    left: 29.5%;
+    top: 1%;
+    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.D2_weekday {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    left: 1.5%;
+
+    top: 45%;
+}
+
+.D2_dayoftheweek {
+    text-align: center;
+    width: 13.7%;
+    font-weight: 900 !important;
+    font-family: "微軟正黑體" !important;
+}
+.D2_dayoftheweek1,.D2_dayoftheweek7{
+    color: #ee486e;
+}
+.D2_daybox{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 53%;
+    left: 1.2%;
+}
+.D2_box1{
+    /* border: 1px solid #878522; */
+    text-align: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.D2_box1:nth-child(7n) p {
+    color: #ee486e;
+}
+
+.D2_box1:nth-child(7n+1) p {
+    color: #ee486e;
+}

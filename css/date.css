@@ -16,7 +16,7 @@ body {
 }
 
 .background1 {
-    background: url(../img/page3.jpg);
+    background: url(../img/page6.jpg);
     background-size: cover;
     opacity: 0.5;
     pointer-events: none;
@@ -281,32 +281,8 @@ body {
     left: 19%;
 }
 
-.rocyear {
-    background: url(../img/bn1.svg);
-    background-size: cover;
-    position: absolute;
-    top: 5.75%;
-    left: 22.6%;
-}
 
-.month {
-    background: url(../img/bn3.svg);
-    background-size: cover;
-    position: absolute;
-    top: 5.7%;
-    left: 42.9%;
-}
 
-.moremonth {
-    background: url(../img/bn3-1.svg);
-    background-size: cover;
-    position: absolute;
-    top: 15.78%;
-    left: 42.9%;
-    transform: scaleY(0);
-    transition: 0.2s;
-    transform-origin: 50% 0;
-}
 
 .vids {
     background: url(../img/bn4.svg);
@@ -314,6 +290,13 @@ body {
     position: absolute;
     top: 5.7%;
     left: 55%;
+}
+.rocyear {
+    background: url(../img/bn1.svg);
+    background-size: cover;
+    position: absolute;
+    top: 5.75%;
+    left: 22.6%;
 }
 
 .morerocyear {
@@ -358,7 +341,24 @@ body {
     left: 30%;
     font-family: Arial, Helvetica, sans-serif;
 }
+.month {
+    background: url(../img/bn3.svg);
+    background-size: cover;
+    position: absolute;
+    top: 5.7%;
+    left: 42.9%;
+}
 
+.moremonth {
+    background: url(../img/bn3-1.svg);
+    background-size: cover;
+    position: absolute;
+    top: 15.78%;
+    left: 42.9%;
+    transform: scaleY(0);
+    transition: 0.2s;
+    transform-origin: 50% 0;
+}
 .month p {
     font-weight: 600;
     position: absolute;
@@ -663,6 +663,8 @@ body {
     position: absolute;
     /* background: red; */
     /* opacity: 0.5; */
+   
+
     text-align: center;
     left: 81%;
     top: 77%;

@@ -7,6 +7,9 @@
     <title>數學小工具積木</title>
     <link rel="stylesheet" href="css/date.css">
     <link rel="stylesheet" href="css/day.css">
+    <link rel="stylesheet" href="css/month.css">
+    <link rel="stylesheet" href="css/double.css">
+    <link rel="stylesheet" href="css/years.css">
 </head>
 
 <body>
@@ -14,7 +17,7 @@
     <div class="bigwrapper">
 
 
-        <div class="background-day ooo">
+        <div class="background-day ooo display_none">
             <div class="D1_main"></div>
 
             <div class="D1_today_btn">
@@ -117,12 +120,7 @@
 
             <div class="displaymonth">
                 <div class="setmonthheight month_1"></div>
-                <!-- <div class="setmonthheight month_2"></div>
-            <div class="setmonthheight month_3"></div>
-            <div class="setmonthheight month_4"></div>
-            <div class="setmonthheight month_5"></div>
-            <div class="setmonthheight month_6"></div>
-            <div class="setmonthheight month_7"></div> -->
+
             </div>
 
             <div class="displaymonthex">
@@ -178,10 +176,370 @@
             </div>
             <div class="return_btn"></div>
 
+
+
+
         </div>
-        <div class="background-doublemonth ooo display_none"></div>
-        <div class="background-halfyear ooo display_none"></div>
-        <div class="background-year ooo display_none"></div>
+
+
+
+
+
+        <div class="background-doublemonth ooo display_none">
+            <div class="D2_today_btn D2_leftbtn">
+                <p>本月</p>
+            </div>
+            <div class="D2_preweek_btn D2_leftbtn D2_pre">
+                <p>上星期</p>
+                <div class="D2_arrow"></div>
+            </div>
+            <div class="D2_nextweek_btn D2_leftbtn D2_next">
+                <p>下星期</p>
+                <div class="D2_arrow"></div>
+            </div>
+            <div class="D2_premonth_btn D2_leftbtn D2_pre">
+                <p>上個月</p>
+                <div class="D2_arrow"></div>
+            </div>
+            <div class="D2_nextmonth_btn D2_leftbtn D2_next">
+                <p>下個月</p>
+                <div class="D2_arrow"></div>
+            </div>
+            <div class="D2_preyear_btn D2_leftbtn D2_pre">
+                <p>上一年</p>
+                <div class="D2_arrow"></div>
+            </div>
+            <div class="D2_nextyear_btn D2_leftbtn D2_next">
+                <p>下一年</p>
+                <div class="D2_arrow"></div>
+            </div>
+
+            <!-- 中間區域 -->
+            <div class="main"></div>
+
+            <!-- insidemonth -->
+            <div class="D2_monthbox D2_monthbox1">
+                <div class="D2_month_display">1</div>
+                <div class="D2_weekday"></div>
+                <div class="D2_daybox"></div>
+            </div>
+            <div class="D2_monthbox D2_monthbox2">
+                <div class="D2_month_display">2</div>
+                <div class="D2_weekday"></div>
+                <div class="D2_daybox"></div>
+
+            </div>
+
+            <div class="D2_rocyear">
+                <p class="D2_word1">民國</p>
+                <p class="D2_selectedyear">109</p>
+                <p class="D2_word2">年</p>
+                <div class="D2_arrowdown"></div>
+            </div>
+
+            <div class="D2_morerocyear">
+                <div class="D2_insideboxframeoverhide">
+                    <div class="D2_insideboxframe">
+                    </div>
+                </div>
+            </div>
+
+            <div class="D2_month">
+                <p class="D2_selectedmonth"></p>
+                <p class="D2_word1">月</p>
+                <div class="D2_arrowdown"></div>
+            </div>
+            <div class="D2_moremonth">
+                <div class="D2_monthboxframeoverhide">
+                    <div class="D2_monthboxframe">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- bar -->
+
+            <div class="D2_scrollbarmyself">
+                <div class="D2_bar"></div>
+            </div>
+
+            <div class="D2_scrollbarmymonth">
+                <div class="D2_monthbar"></div>
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="background-halfyear ooo display_none">
+            <div class="D3_today_btn D3_leftbtn">
+                <p>本月</p>
+            </div>
+            <div class="D3_bigger_watch"></div>
+            <div class="D3_premonth_btn D3_leftbtn D3_pre">
+                <p>上個月</p>
+                <div class="D3_arrow"></div>
+            </div>
+            <div class="D3_nextmonth_btn D3_leftbtn D3_next">
+                <p>下個月</p>
+                <div class="D3_arrow"></div>
+            </div>
+            <div class="D3_preyear_btn D3_leftbtn D3_pre">
+                <p>上一年</p>
+                <div class="D3_arrow"></div>
+            </div>
+            <div class="D3_nextyear_btn D3_leftbtn D3_next">
+                <p>下一年</p>
+                <div class="D3_arrow"></div>
+            </div>
+
+            <div class="main"></div>
+            <!-- 中間框框 -->
+            <div class="D3_hidden_insideframe">
+                <div class="D3_insideframe">
+                    <div class="D3_month_box D3_month_box1">
+                        <div class="D3_displaymonth">1</div>
+                        <div class="D3_weekend"></div>
+                        <div class="D3_month_day_display"></div>
+                    </div>
+                    <div class="D3_month_box D3_month_box2">
+                        <div class="D3_displaymonth">2</div>
+                        <div class="D3_weekend"></div>
+                        <div class="D3_month_day_display"></div>
+
+                    </div>
+                    <div class="D3_month_box D3_month_box3">
+                        <div class="D3_displaymonth">3</div>
+                        <div class="D3_weekend"></div>
+                        <div class="D3_month_day_display"></div>
+
+                    </div>
+                    <div class="D3_month_box D3_month_box4">
+                        <div class="D3_displaymonth">4</div>
+                        <div class="D3_weekend"></div>
+                        <div class="D3_month_day_display"></div>
+
+                    </div>
+                    <div class="D3_month_box D3_month_box5">
+                        <div class="D3_displaymonth">5</div>
+                        <div class="D3_weekend"></div>
+                        <div class="D3_month_day_display"></div>
+
+                    </div>
+                    <div class="D3_month_box D3_month_box6">
+                        <div class="D3_displaymonth">6</div>
+                        <div class="D3_weekend"></div>
+                        <div class="D3_month_day_display"></div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- 上方選取霸 -->
+
+            <div class="D3_rocyear">
+                <p class="D3_word1">民國</p>
+                <p class="D3_selectedyear">109</p>
+                <p class="D3_worD3">年</p>
+                <div class="D3_arrowdown"></div>
+            </div>
+
+            <div class="D3_morerocyear">
+                <div class="D3_insideboxframeoverhide">
+                    <div class="D3_insideboxframe">
+                    </div>
+                </div>
+            </div>
+
+            <div class="D3_month">
+                <p class="D3_selectedmonth">1~6</p>
+                <p class="D3_word1">月</p>
+                <div class="D3_arrowdown"></div>
+            </div>
+            <div class="D3_moremonth">
+                <div class="D3_monthboxframeoverhide">
+                    <div class="D3_monthboxframe">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- bar -->
+
+            <div class="D3_scrollbarmyself">
+                <div class="D3_bar"></div>
+            </div>
+
+            <div class="D3_scrollbarmymonth">
+                <div class="D3_monthbar"></div>
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="background-year ooo ">
+
+            <div class="D4_today_btn D4_leftbtn">
+                <p>本月</p>
+            </div>
+            <div class="D4_bigger_watch"></div>
+            <div class="D4_premonth_btn D4_leftbtn D4_pre">
+                <p>上個月</p>
+                <div class="D4_arrow"></div>
+            </div>
+            <div class="D4_nextmonth_btn D4_leftbtn D4_next">
+                <p>下個月</p>
+                <div class="D4_arrow"></div>
+            </div>
+            <div class="D4_preyear_btn D4_leftbtn D4_pre">
+                <p>上一年</p>
+                <div class="D4_arrow"></div>
+            </div>
+            <div class="D4_nextyear_btn D4_leftbtn D4_next">
+                <p>下一年</p>
+                <div class="D4_arrow"></div>
+            </div>
+
+            <div class="main"></div>
+            <!-- 中間框框 -->
+            <div class="D4_insideframe_hidden">
+                <div class="D4_insideframe">
+                    <div class="D4_box D4_box1">
+                        <div class="D4_displaymonth">1</div>
+                        <div class="D4_weekend"></div>
+                        <div class="D4_month_day_display"></div>
+                    </div>
+                    <div class="D4_box D4_box2">
+                        <div class="D4_displaymonth">2</div>
+                        <div class="D4_weekend"></div>
+                        <div class="D4_month_day_display"></div>
+                    </div>
+                    <div class="D4_box D4_box3">
+                        <div class="D4_displaymonth">3</div>
+                        <div class="D4_weekend"></div>
+                        <div class="D4_month_day_display"></div>
+                    </div>
+                    <div class="D4_box D4_box4">
+                        <div class="D4_displaymonth">4</div>
+                        <div class="D4_weekend"></div>
+                        <div class="D4_month_day_display"></div>
+                    </div>
+                    <div class="D4_box D4_box5">
+                        <div class="D4_displaymonth">5</div>
+                        <div class="D4_weekend"></div>
+                        <div class="D4_month_day_display"></div>
+                    </div>
+                    <div class="D4_box D4_box6">
+                        <div class="D4_displaymonth">6</div>
+                        <div class="D4_weekend"></div>
+                        <div class="D4_month_day_display"></div>
+                    </div>
+                    <div class="D4_box D4_box7">
+                        <div class="D4_displaymonth">7</div>
+                        <div class="D4_weekend"></div>
+                        <div class="D4_month_day_display"></div>
+                    </div>
+                    <div class="D4_box D4_box8">
+                        <div class="D4_displaymonth">8</div>
+                        <div class="D4_weekend"></div>
+                        <div class="D4_month_day_display"></div>
+                    </div>
+                    <div class="D4_box D4_box9">
+                        <div class="D4_displaymonth">9</div>
+                        <div class="D4_weekend"></div>
+                        <div class="D4_month_day_display"></div>
+                    </div>
+                    <div class="D4_box D4_box10">
+                        <div class="D4_displaymonth">10</div>
+                        <div class="D4_weekend"></div>
+                        <div class="D4_month_day_display"></div>
+                    </div>
+                    <div class="D4_box D4_box11">
+                        <div class="D4_displaymonth">11</div>
+                        <div class="D4_weekend"></div>
+                        <div class="D4_month_day_display"></div>
+                    </div>
+                    <div class="D4_box D4_box12">
+                        <div class="D4_displaymonth">12</div>
+                        <div class="D4_weekend"></div>
+                        <div class="D4_month_day_display"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+            <div class="D4_rocyear">
+                <p class="D4_word1">民國</p>
+                <p class="D4_selectedyear">109</p>
+                <p class="D4_worD4">年</p>
+                <div class="D4_arrowdown"></div>
+            </div>
+
+            <div class="D4_morerocyear">
+                <div class="D4_insideboxframeoverhide">
+                    <div class="D4_insideboxframe">
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- bar -->
+
+            <div class="D4_scrollbarmyself">
+                <div class="D4_bar"></div>
+            </div>
+
+        </div>
 
 
 
@@ -241,6 +599,9 @@
     <script src="js/appenddatefunction.js"></script>
     <script src="js/view.js"></script>
     <script src="js/clickfunction.js"></script>
+    <script src="js/multmonth.js"></script>
+    <script src="js/double.js"></script>
+    <script src="js/years.js"></script>
 </body>
 
 </html>

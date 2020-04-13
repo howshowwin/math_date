@@ -39,6 +39,15 @@ $('.monthinsidebox').mouseleave(function () {
 
 
 
+
+
+
+
+
+
+
+
+
 // 選擇年分加SCROLLBAR
 
 var clickko = 0
@@ -80,6 +89,7 @@ $('.scrollbarmyself').mousemove(function (e) {
 })
 $('body').mouseup(function (e) {
   clickko = 0
+  D2_clickko = 0
 })
 
 // month scrollbar
@@ -123,6 +133,7 @@ $('.scrollbarmymonth').mousemove(function (e) {
 })
 $('body').mouseup(function (e) {
   clickko = 0
+  D3_clickko = 0
 })
 
 // 監測SCROLLBAR
@@ -136,7 +147,6 @@ setInterval(() => {
   })
 
 
-
   let monthnowscroll = $('.monthboxframe').scrollTop() / Math.round(560 * sRSS)
   monthnowscroll = monthnowscroll.toFixed(2)
   let monthheightscroll = $('.scrollbarmymonth').height() - $('.monthbar').height()
@@ -144,6 +154,45 @@ setInterval(() => {
   $('.monthbar').css({
     top: `${monthsetnowheight}px`
   })
+
+  let D2_nowscroll = $('.D2_insideboxframe').scrollTop() / Math.round(6720 * sRSS)
+  D2_nowscroll = D2_nowscroll.toFixed(2)
+  let D2_heightscroll = $('.D2_scrollbarmyself').height() - $('.D2_bar').height()
+  let D2_setnowheight = D2_heightscroll * D2_nowscroll
+  $('.D2_bar').css({
+    top: `${D2_setnowheight}px`
+  })
+
+
+  let D2_monthnowscroll = $('.D2_monthboxframe').scrollTop() / Math.round(560 * sRSS)
+  D2_monthnowscroll = D2_monthnowscroll.toFixed(2)
+  let D2_monthheightscroll = $('.D2_scrollbarmymonth').height() - $('.D2_monthbar').height()
+  let D2_monthsetnowheight = D2_monthheightscroll * D2_monthnowscroll
+  $('.D2_monthbar').css({
+    top: `${D2_monthsetnowheight}px`
+  })
+
+
+
+  let D3_nowscroll = $('.D3_insideboxframe').scrollTop() / Math.round(6720 * sRSS)
+  D3_nowscroll = D3_nowscroll.toFixed(2)
+  let D3_heightscroll = $('.D3_scrollbarmyself').height() - $('.D3_bar').height()
+  let D3_setnowheight = D3_heightscroll * D3_nowscroll
+  $('.D3_bar').css({
+    top: `${D3_setnowheight}px`
+  })
+
+
+  let D3_monthnowscroll = $('.D3_monthboxframe').scrollTop() / Math.round(560 * sRSS)
+  D3_monthnowscroll = D3_monthnowscroll.toFixed(2)
+  let D3_monthheightscroll = $('.D3_scrollbarmymonth').height() - $('.D3_monthbar').height()
+  let D3_monthsetnowheight = D3_monthheightscroll * D3_monthnowscroll
+  $('.D3_monthbar').css({
+    top: `${D3_monthsetnowheight}px`
+  })
+
+
+  
 }, 50);
 
 // 點擊改變日期消除方塊產生區域

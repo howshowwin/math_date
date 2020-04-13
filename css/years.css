@@ -1,0 +1,437 @@
+.D4_leftbtn {
+    background: url(../img/bt1.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.D4_premonth_btn, .D4_nextmonth_btn {
+    background: url(../img/bt1-1.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.D4_leftbtn p {
+    color: #fff;
+    font-weight: 600;
+    position: absolute;
+    left: 12%;
+    top: 12%;
+}
+
+.D4_nextweek_btn p, .D4_preweek_btn p {
+    color: #999;
+}
+
+.D4_today_btn p {
+    left: 32%;
+    top: 12%;
+}
+
+.D4_today_btn {
+    top: 8%;
+    left: 2.8%;
+}
+
+.D4_preweek_btn {
+    top: 27.2%;
+    left: 2.8%;
+}
+
+.D4_nextweek_btn {
+    top: 37.1%;
+    left: 2.8%;
+}
+
+.D4_premonth_btn {
+    top: 50.3%;
+    left: 2.8%;
+}
+.D4_premonth_btn p{
+    color: #9FA0A0;
+}
+.D4_nextmonth_btn p{
+    color: #9FA0A0;
+}
+.D4_nextmonth_btn {
+    top: 60%;
+    left: 2.8%;
+}
+
+.D4_preyear_btn {
+    top: 73.4%;
+    left: 2.8%;
+}
+
+.D4_nextyear_btn {
+    top: 83.1%;
+    left: 2.8%;
+}
+
+.D4_pre .D4_arrow {
+    background: url(../img/btU.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.D4_next .D4_arrow {
+    background: url(../img/btD.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.D4_arrow {
+    left: 75%;
+    top: 40%;
+}
+
+.D4_premonth_btn .D4_arrow {
+    background: url(../img/btUg.svg);
+
+    background-size: cover;
+    position: absolute;
+}
+
+.D4_nextmonth_btn .D4_arrow {
+    background: url(../img/btDg.svg);
+
+    background-size: cover;
+    position: absolute;
+}
+
+.D4_bigger_watch {
+    background: url(../img/btS.svg);
+    background-size: cover;
+    position: absolute;
+    top: 35%;
+    left: 7.4%;
+}
+
+.D4_month {
+    background: url(../img/bn2.svg);
+    background-size: cover;
+    position: absolute;
+    top: 5.7%;
+    left: 42.9%;
+}
+
+.D4_moremonth {
+    background: url(../img/bn2-1.svg);
+    background-size: cover;
+    position: absolute;
+    top: 15.78%;
+    left: 42.9%;
+    transform: scaleY(0);
+    transition: 0.2s;
+    transform-origin: 50% 0;
+}
+
+.D4_month p {
+    font-weight: 600;
+    position: absolute;
+    color: #F6FFE4;
+}
+
+.D4_month .D4_arrowdown {
+    background: url(../img/bnBtD.svg);
+    background-size: cover;
+    position: absolute;
+    top: 52%;
+    left: 72.5%;
+}
+
+.D4_month .D4_word1 {
+    top: 22%;
+    left: 53%;
+}
+
+.D4_selectedmonth {
+    text-align: right;
+    font-weight: 400 !important;
+    top: 29%;
+    left: 6%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.D4_monthboxframe {
+    /* background: #d88; */
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.D4_monthboxframeoverhide {
+    position: absolute;
+    left: 5%;
+    top: 4%;
+    overflow: hidden;
+}
+
+.D4_monthboxframe::-webkit-scrollbar {
+    width: 0px;
+}
+
+.D4_monthinsidebox {
+    position: relative;
+}
+
+.D4_monthinsidebox p {
+    text-align: center;
+    font-weight: 400 !important;
+    position: absolute;
+    top: 10%;
+    left: 33%;
+    color: #f09c06;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.D4_scrollbarmymonth {
+    position: absolute;
+    /* background: #777; */
+    left: 54.6%;
+    top: 17%;
+    z-index: 99;
+    cursor: pointer;
+    transform: scaleY(0);
+    transition: 0.2s;
+    transform-origin: 50% 0;
+}
+
+.D4_monthbar {
+    position: absolute;
+    background: #ED9D08;
+    left: 35%;
+    border-radius: 10px;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.D4_monthinsidebox .brid {
+    background: url(../img/bnBtU.svg);
+    background-size: cover;
+    position: absolute;
+    top: 25%;
+    left: 15%;
+}
+
+.D4_scrollbarmyself {
+    position: absolute;
+    /* background: #777; */
+    left: 40.2%;
+    top: 17%;
+    z-index: 99;
+    cursor: pointer;
+    transform: scaleY(0);
+    transition: 0.2s;
+    transform-origin: 50% 0;
+}
+
+.D4_bar {
+    position: absolute;
+    background: #EE5E07;
+    left: 35%;
+    border-radius: 10px;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.D4_insideboxframe {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.D4_insideboxframeoverhide {
+    position: absolute;
+    left: 2.9%;
+    top: 4%;
+    overflow: hidden;
+}
+
+.D4_insideboxframe::-webkit-scrollbar-thumb {
+    width: 8px;
+    border-radius: 50px;
+    border: 5px solid #FFBA6B;
+}
+
+.D4_insideboxframe::-webkit-scrollbar-thumb {
+    background: #EE5E07;
+}
+
+.D4_insideboxframe::-webkit-scrollbar {
+    width: 0px;
+}
+
+.D4_insidebox {
+    position: relative;
+}
+
+.D4_insidebox p {
+    text-align: right;
+    font-weight: 400 !important;
+    position: absolute;
+    top: 10%;
+    left: 26%;
+    color: #ec5f07;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.D4_rocyear {
+    background: url(../img/bn1.svg);
+    background-size: cover;
+    position: absolute;
+    top: 5.75%;
+    left: 22.6%;
+}
+
+.D4_morerocyear {
+    background: url(../img/bn1-1.svg);
+    background-size: cover;
+    position: absolute;
+    top: 15.78%;
+    left: 22.6%;
+    transform: scaleY(0);
+    transition: 0.2s;
+    transform-origin: 50% 0;
+}
+
+.D4_rocyear p {
+    font-weight: 600;
+    position: absolute;
+    color: #F6FFE4;
+}
+
+.D4_rocyear .D4_word1 {
+    top: 22%;
+    left: 10.5%;
+}
+
+.D4_rocyear .D4_worD4 {
+    top: 22%;
+    left: 64.7%;
+}
+
+.D4_rocyear .D4_arrowdown {
+    background: url(../img/bnBtD.svg);
+    background-size: cover;
+    position: absolute;
+    top: 52%;
+    left: 82.6%;
+}
+
+.D4_selectedyear {
+    text-align: right;
+    font-weight: 400 !important;
+    top: 29%;
+    left: 30%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.D4_box {
+    background: url(../img/o3.svg);
+    background-size: cover;
+    position: absolute;
+
+}
+
+.D4_insideframe {
+    position: absolute;
+    top: 0%;
+    overflow: hidden;
+    left: 0%;
+}
+.D4_insideframe_hidden{
+    position: absolute;
+    top: 15.8%;
+    overflow: hidden;
+    left: 19%;
+
+}
+.D4_box1 {
+    top: 2.8%;
+    left: 3.9%;
+}
+.D4_box2 {
+    top: 2.8%;
+    left: 27.7%;
+}
+.D4_box3 {
+    top: 2.8%;
+    left: 51.6%;
+}
+.D4_box4 {
+    top: 2.8%;
+    left: 75.4%;
+}
+.D4_box5 {
+    top: 34.8%;
+    left: 3.9%;
+}
+.D4_box6 {
+    top: 34.8%;
+
+    left: 27.7%;
+}
+.D4_box7 {
+    top: 34.8%;
+
+    left: 51.6%;
+}
+.D4_box8 {
+    top: 34.8%;
+
+    left: 75.4%;
+}
+.D4_box9 {
+    top: 67%;
+    left: 3.9%;
+}
+.D4_box10 {
+    top: 67%;
+
+
+    left: 27.7%;
+}
+.D4_box11 {
+    top: 67%;
+
+
+    left: 51.6%;
+}
+.D4_box12 {
+    top: 67%;
+
+
+    left: 75.4%;
+}
+
+.D4_displaymonth{
+   
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    position: absolute;
+    left: 28%;
+    color: #1B9AA9;
+    top: 2.5%;
+
+}
+.D4_weekend{
+    display: flex;
+    width: 100%;
+    position: absolute;
+    left: 3%;
+    top: 38.5%;
+    
+
+}
+.D4_dayoftheweek{
+    width: 13.45%;
+    text-align: center;
+}
+.D4_dayoftheweek1,.D4_dayoftheweek7{
+    color: #ee486e;
+}
