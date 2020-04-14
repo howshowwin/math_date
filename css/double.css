@@ -2,6 +2,7 @@
     background: url(../img/bt1.svg);
     background-size: cover;
     position: absolute;
+    cursor: pointer;
 }
 
 .D3_nextweek_btn, .D3_preweek_btn {
@@ -97,6 +98,7 @@
     position: absolute;
     top: 35%;
     left: 7.4%;
+    cursor: pointer;
 }
 
 .D3_month {
@@ -105,6 +107,8 @@
     position: absolute;
     top: 5.7%;
     left: 42.9%;
+    cursor: pointer;
+
 }
 
 .D3_moremonth {
@@ -167,6 +171,8 @@
 
 .D3_monthinsidebox {
     position: relative;
+    cursor: pointer;
+
 }
 
 .D3_monthinsidebox p {
@@ -260,6 +266,8 @@
 
 .D3_insidebox {
     position: relative;
+    cursor: pointer;
+
 }
 
 .D3_insidebox p {
@@ -278,6 +286,7 @@
     position: absolute;
     top: 5.75%;
     left: 22.6%;
+    cursor: pointer;
 }
 
 .D3_morerocyear {
@@ -341,6 +350,7 @@
     background: "none";
     background-size: cover;
     position: absolute;
+    cursor: pointer;
 }
 
 .D3_month_box1 {

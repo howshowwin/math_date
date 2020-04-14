@@ -31,7 +31,31 @@ body {
 }
 
 /* 434A54 67FE73 */
+.mask-info{
+    background: rgba(0, 0, 0, 0.479);
+    position: absolute;
+    transform: translateY(-1000px);
+    opacity: 0;
+    transition: 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
 
+}
+.infoframe{
+    background: url(../img/window2.png);
+    background-size: cover;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+
+}
+.info-close-btn{
+    background: url(../img/wX.png);
+    background-size: cover;
+    position: absolute;
+    left: 89%;
+    top: 5%;
+    cursor: pointer;
+}
+/* masl\k */
 
 .bigwrapper{
     position: absolute;
@@ -68,6 +92,7 @@ body {
     background: url(../img/bt1.svg);
     background-size: cover;
     position: absolute;
+    cursor: pointer;
 }
 
 .leftbtn p {
@@ -169,6 +194,8 @@ body {
     left: 79%;
     color: #1E99A9;
     font-weight: 600;
+    cursor: pointer;
+
 }
 
 .rightbtn p {
@@ -211,6 +238,7 @@ body {
     background-size: cover;
     position: absolute;
     top: 7.9%;
+    cursor: pointer;
     left: 79%;
 }
 
@@ -246,6 +274,7 @@ body {
     position: absolute;
     top: 66%;
     left: 79.4%;
+    cursor: pointer;
 }
 
 .return_btn {
@@ -254,6 +283,7 @@ body {
     position: absolute;
     top: 88%;
     left: 89.2%;
+    cursor: pointer;
 }
 
 .countnum {
@@ -269,6 +299,7 @@ body {
     position: absolute;
     top: 91.3%;
     left: 96%;
+    cursor: pointer;
 }
 
 /* 中央部分 */
@@ -297,6 +328,7 @@ body {
     position: absolute;
     top: 5.75%;
     left: 22.6%;
+    cursor: pointer;
 }
 
 .morerocyear {
@@ -308,6 +340,7 @@ body {
     transform: scaleY(0);
     transition: 0.2s;
     transform-origin: 50% 0;
+
 }
 
 .rocyear p {
@@ -347,6 +380,8 @@ body {
     position: absolute;
     top: 5.7%;
     left: 42.9%;
+    cursor: pointer;
+
 }
 
 .moremonth {
@@ -358,6 +393,7 @@ body {
     transform: scaleY(0);
     transition: 0.2s;
     transform-origin: 50% 0;
+
 }
 .month p {
     font-weight: 600;
@@ -441,6 +477,8 @@ body {
 
 .insidebox {
     position: relative;
+    cursor: pointer;
+
 }
 
 .insidebox p {
@@ -506,6 +544,8 @@ body {
 
 .monthinsidebox {
     position: relative;
+    cursor: pointer;
+
 }
 
 .monthinsidebox p {
@@ -626,6 +666,7 @@ body {
     width: 147.58px;
     height: 89.5px;
     position: relative;
+    cursor: pointer;
 }
 
 .box1 p {

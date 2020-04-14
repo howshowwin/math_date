@@ -2,12 +2,14 @@
     background: url(../img/bt1.svg);
     background-size: cover;
     position: absolute;
+    cursor: pointer;
 }
 
 .D4_premonth_btn, .D4_nextmonth_btn {
     background: url(../img/bt1-1.svg);
     background-size: cover;
     position: absolute;
+    cursor: not-allowed
 }
 
 .D4_leftbtn p {
@@ -104,6 +106,7 @@
     position: absolute;
     top: 35%;
     left: 7.4%;
+    cursor: pointer;
 }
 
 .D4_month {
@@ -112,6 +115,8 @@
     position: absolute;
     top: 5.7%;
     left: 42.9%;
+    cursor: pointer;
+
 }
 
 .D4_moremonth {
@@ -174,6 +179,8 @@
 
 .D4_monthinsidebox {
     position: relative;
+    cursor: pointer;
+
 }
 
 .D4_monthinsidebox p {
@@ -267,6 +274,8 @@
 
 .D4_insidebox {
     position: relative;
+    cursor: pointer;
+
 }
 
 .D4_insidebox p {
@@ -285,6 +294,7 @@
     position: absolute;
     top: 5.75%;
     left: 22.6%;
+    cursor: pointer;
 }
 
 .D4_morerocyear {
@@ -334,6 +344,7 @@
     background: url(../img/o3.svg);
     background-size: cover;
     position: absolute;
+    cursor: pointer;
 
 }
 
@@ -424,7 +435,7 @@
     width: 100%;
     position: absolute;
     left: 3%;
-    top: 38.5%;
+    top: 34%;
     
 
 }
@@ -433,5 +444,24 @@
     text-align: center;
 }
 .D4_dayoftheweek1,.D4_dayoftheweek7{
+    color: #ee486e;
+}
+
+.D4_month_day_display{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 42%;
+    left: 3%;
+}
+.D4_inbox1{
+    width: 13.9%;
+    text-align: center;
+}
+.D4_inbox1:nth-child(7n) p {
+    color: #ee486e;
+}
+
+.D4_inbox1:nth-child(7n+1) p {
     color: #ee486e;
 }

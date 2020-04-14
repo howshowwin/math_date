@@ -2,12 +2,15 @@
     background: url(../img/bt1.svg);
     background-size: cover;
     position: absolute;
+    cursor: pointer;
 }
 
 .D2_nextweek_btn, .D2_preweek_btn {
     background: url(../img/bt1-1.svg);
     background-size: cover;
     position: absolute;
+    cursor: not-allowed
+    
 }
 
 .D2_leftbtn p {
@@ -17,7 +20,10 @@
     left: 12%;
     top: 12%;
 }
+.D2_monthbox {
+    cursor: pointer;
 
+}
 .D2_nextweek_btn p, .D2_preweek_btn p {
     color: #999;
 }
@@ -99,6 +105,8 @@
     position: absolute;
     top: 5.7%;
     left: 42.9%;
+    cursor: pointer;
+
 }
 
 .D2_moremonth {
@@ -161,6 +169,8 @@
 
 .D2_monthinsidebox {
     position: relative;
+    cursor: pointer;
+
 }
 
 .D2_monthinsidebox p {
@@ -254,6 +264,8 @@
 
 .D2_insidebox {
     position: relative;
+    cursor: pointer;
+
 }
 
 .D2_insidebox p {
@@ -272,6 +284,7 @@
     position: absolute;
     top: 5.75%;
     left: 22.6%;
+    cursor: pointer;
 }
 
 .D2_morerocyear {

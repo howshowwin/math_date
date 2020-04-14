@@ -20,6 +20,7 @@
     position: absolute;
     top: 15%;
     left: 31.8%;
+    cursor: pointer;
 }
 
 .D1_week {
@@ -109,7 +110,6 @@
     -webkit-writing-mode: vertical-rl;
     writing-mode: vertical-rl;
     font-weight: 700;
-    font-size:45px;
     position: absolute;
     top: 49.5%;
     left: 19.8%;
@@ -118,7 +118,6 @@
     -webkit-writing-mode: vertical-rl;
     writing-mode: vertical-rl;
     font-weight: 700;
-    font-size:45px;
     position: absolute;
     top: 60.1%;
     left: 19.8%;
@@ -127,12 +126,16 @@
     background: url(../img/btL.svg);
     background-size: cover;
     position: absolute;
+    cursor: pointer;
+
 
 }
 .D1_next{
     background: url(../img/btR.svg);
     background-size: cover;
     position: absolute;
+    cursor: pointer;
+
 }
 .D1_year_pre{
     top: 26.2%;

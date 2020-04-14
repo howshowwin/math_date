@@ -83,6 +83,7 @@ $('.D4_insidebox').click(function () {
         transform: "scaleY(0)"
     })
     displayyearnow = parseInt(D4_nowclick) + 1911
+    createdatyears()
 })
 
 
@@ -99,3 +100,105 @@ function D4_createdate() {
     convertSizeALL()
 }
 D4_createdate()
+
+
+$('.D4_box').click(function () {
+    if (D4_biggernow == 0) {
+
+        $(this).css({
+            background: " url(img/o3.svg)",
+            backgroundSize: "cover"
+        })
+        $('.D4_box').not(this).css({
+            background: " none",
+            backgroundSize: "cover"
+        })
+        displaymonthnow = $(this).data('monthclick')
+    }
+})
+$('.D4_today_btn').click(function () {
+    var NOW = new Date();
+    displayyearnow = NOW.getFullYear()
+    displaymonthnow = NOW.getMonth()
+
+    createdatyears()
+})
+$('.D4_preyear_btn').click(function () {
+
+    displayyearnow = displayyearnow - 1
+
+    createdatyears()
+
+})
+$('.D4_nextyear_btn ').click(function () {
+
+    displayyearnow = displayyearnow + 1
+
+    createdatyears()
+
+})
+
+var D4_biggernow = 0
+$('.D4_bigger_watch').click(function () {
+    if (D4_biggernow == 0) {
+        D4_biggernow = 1
+        $('.D4_insideframe').css({
+            cursor: 'zoom-in'
+        })
+    } else if (D4_biggernow == 1) {
+        $('.D4_insideframe').css({
+            cursor: "default"
+        })
+        D4_biggernow = 0
+
+    }
+})
+
+$('.D4_insideframe').click(function (e) {
+    if (D4_biggernow == 1) {
+        $('.D4_insideframe').css({
+            cursor: "zoom-out"
+        })
+        let clicknowX = e.originalEvent.clientX - $('.D4_insideframe').offset().left
+        let clicknowY = e.originalEvent.clientY - $('.D4_insideframe').offset().top
+        clicknowX = Math.floor(clicknowX)
+        clicknowY = Math.floor(clicknowY)
+        $('.D4_insideframe').css({
+            transformOrigin: `${clicknowX}px ${clicknowY}px`,
+            transition: "0.1s",
+
+        })
+        setTimeout(function () {
+            $('.D4_insideframe').css({
+
+                transform: "scale(1.5)"
+            })
+        }, 100)
+
+
+
+
+        D4_biggernow = 0
+    } else if (D4_biggernow == 0) {
+        let clicknowX = e.originalEvent.clientX - $('.D4_insideframe').offset().left
+        let clicknowY = e.originalEvent.clientY - $('.D4_insideframe').offset().top
+        clicknowX = Math.floor(clicknowX)
+        clicknowY = Math.floor(clicknowY)
+        $('.D4_insideframe').css({
+            // transformOrigin: `${clicknowX}px ${clicknowY}px`,
+            transition: "0.3s",
+
+        })
+        setTimeout(function () {
+            $('.D4_insideframe').css({
+
+                transform: "scale(1)"
+            })
+        }, 0)
+
+        $('.D4_insideframe').css({
+            cursor: "default"
+        })
+    }
+
+})

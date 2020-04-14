@@ -26,6 +26,11 @@ function convertSizeALL(className) {
     var pRatio = window.devicePixelRatio || 0, xRatio = iw / w, yRatio = ih / h, sRatio = 1;
     sRatio = Math.min(xRatio, yRatio);
     sRSS = sRatio
+    
+    $('.mask-info').css({ width: Math.round(w * sRatio), height: Math.round(h * sRatio) });
+    $('.infoframe').css({width: Math.round(700* sRatio), height: Math.round(470 * sRatio)})
+    $('.info-close-btn').css({width: Math.round(53* sRatio), height: Math.round(53 * sRatio)})
+
     $('.background-img').css({ width: Math.round(w * sRatio), height: Math.round(h * sRatio) });
     $(".background1").css({ width: Math.round(w * sRatio), height: Math.round(h * sRatio) });
     $(".background,.background-day,.background-month,.background-doublemonth,.background-halfyear,.background-year").css({ width: Math.round(w * sRatio), height: Math.round(h * sRatio) });
@@ -213,9 +218,11 @@ function convertSizeALL(className) {
     $('.D4_arrowdown').css({ width: Math.round(24 * sRatio), height: Math.round(13 * sRatio) });
     $('.D4_box').css({ width: Math.round(237 * sRatio), height: Math.round(226 * sRatio) })
     $('.D4_displaymonth').css({ width: Math.round(100 * sRatio), height: Math.round(100 * sRatio),fontSize: Math.round(75 * sRatio),lineHeight:`${Math.round(75 * sRatio)}px` })
+    $('.D4_dayoftheweek').css({ fontSize: Math.round(16 * sRatio),height: Math.round(18 * sRatio) });
+    $('.D4_inbox1').css({ fontSize: Math.round(14 * sRatio),height: Math.round(22 * sRatio)});
+    $('.D1_lunar_month').css({ fontSize: Math.round(45 * sRatio) });
 
-
-
+    $('.D1_lunar_day').css({ fontSize: Math.round(45 * sRatio) });
 
 }
 
