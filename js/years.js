@@ -3,6 +3,9 @@ var D4_togglemonth = 0
 
 $('.D4_rocyear').click(function () {
     if (D4_toggleyear == 0) {
+        let stagemonth =((displayyearnow - 1911)-70)/96
+        $('.D4_insideboxframe').scrollTop(Math.round(6750 * sRSS*stagemonth))
+      
         $('.D4_morerocyear,.D4_scrollbarmyself').css({
             transform: "scale(1)"
         })
@@ -53,7 +56,7 @@ $('.D4_scrollbarmyself').mousedown(function (e) {
     D4_clickko = 1
     let heightscroll = $('.D4_scrollbarmyself').height() - $('.D4_bar').height()
     let nowscroll = positionnow / heightscroll
-    $('.D4_insideboxframe').scrollTop(`${Math.round(6720 * sRSS) * nowscroll}`)
+    $('.D4_insideboxframe').scrollTop(`${Math.round(6750 * sRSS) * nowscroll}`)
 })
 
 $('.D4_scrollbarmyself').mousemove(function (e) {
@@ -70,7 +73,7 @@ $('.D4_scrollbarmyself').mousemove(function (e) {
         $('.D4_bar').css({ top: `${positionnow}px` })
         let heightscroll = $('.D4_scrollbarmyself').height() - $('.D4_bar').height()
         let nowscroll = positionnow / heightscroll
-        $('.D4_insideboxframe').scrollTop(`${Math.round(6720 * sRSS) * nowscroll}`)
+        $('.D4_insideboxframe').scrollTop(`${Math.round(6750 * sRSS) * nowscroll}`)
     }
 
 })
@@ -145,6 +148,10 @@ $('.D4_bigger_watch').click(function () {
         $('.D4_insideframe').css({
             cursor: 'zoom-in'
         })
+        $('.D4_box ').css({
+            cursor: "zoom-in"
+
+        })
     } else if (D4_biggernow == 1) {
         $('.D4_insideframe').css({
             cursor: "default"
@@ -159,21 +166,55 @@ $('.D4_insideframe').click(function (e) {
         $('.D4_insideframe').css({
             cursor: "zoom-out"
         })
+        $('.D4_box ').css({
+            cursor: "zoom-out"
+
+        })
         let clicknowX = e.originalEvent.clientX - $('.D4_insideframe').offset().left
         let clicknowY = e.originalEvent.clientY - $('.D4_insideframe').offset().top
+        
         clicknowX = Math.floor(clicknowX)
         clicknowY = Math.floor(clicknowY)
+     
+        function testX(mainX){
+            if(mainX<=$('.D4_insideframe').width()/4){
+                return 0
+            }else if(mainX>$('.D4_insideframe').width()/4 && mainX<=$('.D4_insideframe').width()/4*2  ){
+                return 33
+            }else if(mainX>$('.D4_insideframe').width()/4*2 && mainX<=$('.D4_insideframe').width()/4*3  ){
+                return 66
+            }else if(mainX>$('.D4_insideframe').width()/4*3 && mainX<=$('.D4_insideframe').width()  ){
+                return 100
+            }
+        }
+
+        function testY(mainY){
+            if(mainY<=$('.D4_insideframe').height()/3){
+                return 0
+            }else if(mainY>$('.D4_insideframe').height()/3 && mainY<=$('.D4_insideframe').height()/3*2  ){
+                return 50
+            }else if(mainY>$('.D4_insideframe').height()/3*2 && mainY<=$('.D4_insideframe').height()  ){
+                return 100
+            }
+        }
+
+
+
+        clicknowX = Math.floor(clicknowX)
+        clicknowY = Math.floor(clicknowY)
+
+
         $('.D4_insideframe').css({
-            transformOrigin: `${clicknowX}px ${clicknowY}px`,
-            transition: "0.1s",
+            transition: "0.2s",
+            transformOrigin: `${testX(clicknowX)}% ${testY(clicknowY)}%`,
 
         })
         setTimeout(function () {
             $('.D4_insideframe').css({
+                transform: `scale(2) `
 
-                transform: "scale(1.5)"
             })
-        }, 100)
+        }, 200)
 
 
 
@@ -192,10 +233,13 @@ $('.D4_insideframe').click(function (e) {
         setTimeout(function () {
             $('.D4_insideframe').css({
 
-                transform: "scale(1)"
+                transform: "scale(1) translate(0px,0px)"
             })
         }, 0)
+        $('.D4_box ').css({
+            cursor: "pointer"
 
+        })
         $('.D4_insideframe').css({
             cursor: "default"
         })

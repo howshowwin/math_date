@@ -1,7 +1,7 @@
 
 // 產出一百年份
 for (i = 0; i < 100; i++) {
-  $('.insideboxframe').append(`<div class="insidebox"><p>${70 + i}</p></div>`)
+  $('.insideboxframe').append(`<div class="insidebox"><p class='one${70 + i}'>${70 + i}</p></div>`)
   $('.D2_insideboxframe').append(`<div class="D2_insidebox"><p>${70 + i}</p></div>`)
   $('.D3_insideboxframe').append(`<div class="D3_insidebox"><p>${70 + i}</p></div>`)
   $('.D4_insideboxframe').append(`<div class="D4_insidebox"><p>${70 + i}</p></div>`)

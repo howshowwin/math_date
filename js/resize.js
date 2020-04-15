@@ -102,7 +102,7 @@ function convertSizeALL(className) {
     $('.D1_roc_word,.D1_rocyear').css({ fontSize: Math.round(60 * sRatio) });
     $('.D1_rocyear').css({ width: Math.round(100 * sRatio) })
     $('.D1_ac_year').css({ fontSize: Math.round(46 * sRatio) });
-    $('.D1_month').css({ width: Math.round(100 * sRatio), height: Math.round(100 * sRatio), fontSize: Math.round(110 * sRatio) })
+    $('.D1_month').css({ width: Math.round(150 * sRatio), height: Math.round(150 * sRatio), fontSize: Math.round(110 * sRatio) })
     $('.D1_mobth_word').css({ fontSize: Math.round(110 * sRatio) });
     $('.D1_lunar').css({ width: Math.round(83 * sRatio), height: Math.round(83 * sRatio), fontSize: Math.round(55 * sRatio), lineHeight: `${Math.round(80 * sRatio)}px` })
 
@@ -136,7 +136,7 @@ function convertSizeALL(className) {
     $('.D2_month_display').css({ width: Math.round(200 * sRatio), height: Math.round(200 * sRatio), fontSize: Math.round(160 * sRatio) })
     $('.D2_dayoftheweek').css({ fontSize: Math.round(28 * sRatio) });
     $('.D2_box1').css({ width: Math.round(71 * sRatio), height: Math.round(44 * sRatio), fontSize: Math.round(26 * sRatio) })
-
+    $('.D2_text').css({ fontSize: Math.round(50 * sRatio) });
 
 
     $(".D3_leftbtn").css({ width: Math.round(270 * sRatio), height: Math.round(84 * sRatio) });
@@ -175,10 +175,10 @@ function convertSizeALL(className) {
     $('.D3_arrowdown').css({ width: Math.round(24 * sRatio), height: Math.round(13 * sRatio) });
     $('.D3_insideframe,.D3_hidden_insideframe').css({ width: Math.round(1097 * sRatio), height: Math.round(687 * sRatio), borderRadius: `${Math.round(30 * sRatio)}px` });
     $('.D3_month_box').css({ width: Math.round(336 * sRatio), height: Math.round(321 * sRatio) });
-    $('.D3_displaymonth').css({ width: Math.round(100 * sRatio), height: Math.round(100 * sRatio), fontSize: Math.round(110 * sRatio), lineHeight: `${Math.round(113 * sRatio)}px` })
+    $('.D3_displaymonth').css({ width: Math.round(150 * sRatio), height: Math.round(100 * sRatio), fontSize: Math.round(110 * sRatio), lineHeight: `${Math.round(113 * sRatio)}px` })
     $('.D3_dayoftheweek').css({ fontSize: Math.round(18 * sRatio) });
     $('.D3_box1').css({ fontSize: Math.round(18 * sRatio), height: Math.round(28 * sRatio) });
-
+    $('.D3_text').css({ fontSize: Math.round(35 * sRatio) });
 
 
 
@@ -220,6 +220,7 @@ function convertSizeALL(className) {
     $('.D4_displaymonth').css({ width: Math.round(100 * sRatio), height: Math.round(100 * sRatio),fontSize: Math.round(75 * sRatio),lineHeight:`${Math.round(75 * sRatio)}px` })
     $('.D4_dayoftheweek').css({ fontSize: Math.round(16 * sRatio),height: Math.round(18 * sRatio) });
     $('.D4_inbox1').css({ fontSize: Math.round(14 * sRatio),height: Math.round(22 * sRatio)});
+    $('.D4_text').css({ fontSize: Math.round(25 * sRatio) });
     $('.D1_lunar_month').css({ fontSize: Math.round(45 * sRatio) });
 
     $('.D1_lunar_day').css({ fontSize: Math.round(45 * sRatio) });

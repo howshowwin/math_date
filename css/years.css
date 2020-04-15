@@ -421,14 +421,21 @@
 
 .D4_displaymonth{
    
-    text-align: center;
+    text-align: right;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 900;
     position: absolute;
-    left: 28%;
+    left: 20%;
     color: #1B9AA9;
     top: 2.5%;
 
+}
+.D4_text{
+    font-weight: 900;
+    position: absolute;
+    left: 63%;
+    color: #1B9AA9;
+    top: 20%;
 }
 .D4_weekend{
     display: flex;

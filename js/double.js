@@ -3,6 +3,9 @@ var D3_togglemonth = 0
 
 $('.D3_rocyear').click(function () {
     if (D3_toggleyear == 0) {
+        let stagemonth = ((displayyearnow - 1911) - 70) / 96
+        $('.D3_insideboxframe').scrollTop(Math.round(6750 * sRSS * stagemonth))
+
         $('.D3_morerocyear,.D3_scrollbarmyself').css({
             transform: "scale(1)"
         })
@@ -77,7 +80,7 @@ $('.D3_scrollbarmyself').mousedown(function (e) {
     D3_clickko = 1
     let heightscroll = $('.D3_scrollbarmyself').height() - $('.D3_bar').height()
     let nowscroll = positionnow / heightscroll
-    $('.D3_insideboxframe').scrollTop(`${Math.round(6720 * sRSS) * nowscroll}`)
+    $('.D3_insideboxframe').scrollTop(`${Math.round(6750 * sRSS) * nowscroll}`)
 })
 
 $('.D3_scrollbarmyself').mousemove(function (e) {
@@ -94,7 +97,7 @@ $('.D3_scrollbarmyself').mousemove(function (e) {
         $('.D3_bar').css({ top: `${positionnow}px` })
         let heightscroll = $('.D3_scrollbarmyself').height() - $('.D3_bar').height()
         let nowscroll = positionnow / heightscroll
-        $('.D3_insideboxframe').scrollTop(`${Math.round(6720 * sRSS) * nowscroll}`)
+        $('.D3_insideboxframe').scrollTop(`${Math.round(6750 * sRSS) * nowscroll}`)
     }
 
 })
@@ -225,6 +228,10 @@ $('.D3_bigger_watch').click(function () {
         $('.D3_insideframe').css({
             cursor: 'zoom-in'
         })
+        $('.D3_month_box').css({
+            cursor: "zoom-in"
+
+        })
     } else if (biggernow == 1) {
         $('.D3_insideframe').css({
             cursor: "default"
@@ -235,25 +242,52 @@ $('.D3_bigger_watch').click(function () {
 })
 $('.D3_insideframe').click(function (e) {
     if (biggernow == 1) {
+
         $('.D3_insideframe').css({
             cursor: "zoom-out"
         })
+        $('.D3_month_box').css({
+            cursor: "zoom-out"
+
+        })
         let clicknowX = e.originalEvent.clientX - $('.D3_insideframe').offset().left
         let clicknowY = e.originalEvent.clientY - $('.D3_insideframe').offset().top
-        clicknowX  =  Math.floor(clicknowX)
+
+        function testX(mainX){
+            if(mainX<=$('.D3_insideframe').width()/3){
+                return 0
+            }else if(mainX>$('.D3_insideframe').width()/3 && mainX<=$('.D3_insideframe').width()/3*2  ){
+                return 50
+            }else if(mainX>$('.D3_insideframe').width()/3*2 && mainX<$('.D3_insideframe').width()  ){
+                return 100
+            }
+        }
+
+        function testY(mainY){
+            if(mainY<=$('.D3_insideframe').height()/2){
+                return 0
+            }else if(mainY>$('.D3_insideframe').height()/2 && mainY<=$('.D3_insideframe').height()  ){
+                return 100
+            }
+        }
+
+
+
+        clicknowX = Math.floor(clicknowX)
         clicknowY = Math.floor(clicknowY)
+
+
         $('.D3_insideframe').css({
-            transformOrigin: `${clicknowX}px ${clicknowY}px`,
-            transition: "0.1s",
+            transition: "0.2s",
+            transformOrigin: `${testX(clicknowX)}% ${testY(clicknowY)}%`,
 
         })
         setTimeout(function () {
             $('.D3_insideframe').css({
+                transform: `scale(1.5) `
 
-                transform: "scale(1.5)"
             })
-        }, 100)
-
+        }, 200)
 
 
 
@@ -261,7 +295,7 @@ $('.D3_insideframe').click(function (e) {
     } else if (biggernow == 0) {
         let clicknowX = e.originalEvent.clientX - $('.D3_insideframe').offset().left
         let clicknowY = e.originalEvent.clientY - $('.D3_insideframe').offset().top
-        clicknowX  =  Math.floor(clicknowX)
+        clicknowX = Math.floor(clicknowX)
         clicknowY = Math.floor(clicknowY)
         $('.D3_insideframe').css({
             // transformOrigin: `${clicknowX}px ${clicknowY}px`,
@@ -271,20 +305,24 @@ $('.D3_insideframe').click(function (e) {
         setTimeout(function () {
             $('.D3_insideframe').css({
 
-                transform: "scale(1)"
+                transform: `scale(1) translate(0px,0px)`
             })
         }, 0)
 
         $('.D3_insideframe').css({
             cursor: "default"
         })
+        $('.D3_month_box').css({
+            cursor: "pointer"
+
+        })
     }
 
 })
 
 
-$('.D3_month_box').click(function(){
-    if(biggernow == 0){
+$('.D3_month_box').click(function () {
+    if (biggernow == 0) {
         $(this).css({
             background: " url(img/o2.svg)",
             backgroundSize: "cover"
@@ -295,6 +333,6 @@ $('.D3_month_box').click(function(){
         })
     }
 })
-$('.halfyear_btn').click(function(){
+$('.halfyear_btn').click(function () {
     createdatemultmonth()
 })

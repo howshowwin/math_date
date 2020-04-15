@@ -3,6 +3,11 @@ var D2_togglemonth = 0
 
 $('.D2_rocyear').click(function () {
     if (D2_toggleyear == 0) {
+
+        let stagemonth = ((displayyearnow - 1911) - 70) / 96
+        $('.D2_insideboxframe').scrollTop(Math.round(6750 * sRSS * stagemonth))
+
+
         $('.D2_morerocyear,.D2_scrollbarmyself').css({
             transform: "scale(1)"
         })
@@ -75,7 +80,7 @@ $('.D2_scrollbarmyself').mousedown(function (e) {
     D2_clickko = 1
     let heightscroll = $('.D2_scrollbarmyself').height() - $('.D2_bar').height()
     let nowscroll = positionnow / heightscroll
-    $('.D2_insideboxframe').scrollTop(`${Math.round(6720 * sRSS) * nowscroll}`)
+    $('.D2_insideboxframe').scrollTop(`${Math.round(6750 * sRSS) * nowscroll}`)
 })
 
 $('.D2_scrollbarmyself').mousemove(function (e) {
@@ -92,7 +97,7 @@ $('.D2_scrollbarmyself').mousemove(function (e) {
         $('.D2_bar').css({ top: `${positionnow}px` })
         let heightscroll = $('.D2_scrollbarmyself').height() - $('.D2_bar').height()
         let nowscroll = positionnow / heightscroll
-        $('.D2_insideboxframe').scrollTop(`${Math.round(6720 * sRSS) * nowscroll}`)
+        $('.D2_insideboxframe').scrollTop(`${Math.round(6750 * sRSS) * nowscroll}`)
     }
 
 })
@@ -223,7 +228,7 @@ $('.D2_today_btn').click(function () {
     createdatemonth()
 })
 
-$('.doublemonth_btn').click(function(){
+$('.doublemonth_btn').click(function () {
     createdatemonth()
 
 })

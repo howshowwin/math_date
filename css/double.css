@@ -337,8 +337,11 @@
     top: 0%;
     overflow: hidden;
     left: 0%;
-    transform:scale(1)
+    transform:scale(1) ; 
+
 }
+
+
 .D3_hidden_insideframe{
     position: absolute;
     top: 15.8%;
@@ -386,13 +389,20 @@
 .D3_displaymonth {
     position: absolute;
     color: #1B9AA9;
-    text-align: center;
-    left: 34.8%;
+    text-align: right;
+    left: 14%;
     top: 0.7%;
     font-weight: 900;
     font-family: Arial, Helvetica, sans-serif;
 }
-
+.D3_text{
+    position: absolute;
+    color: #1B9AA9;
+    font-weight: 900;
+    position: absolute;
+    top: 20%;
+    left: 60%;
+}
 .D3_weekend {
     display: flex;
     position: absolute;

@@ -87,7 +87,7 @@ $('.scrollbarmyself').mousedown(function (e) {
   clickko = 1
   let heightscroll = $('.scrollbarmyself').height() - $('.bar').height()
   let nowscroll = positionnow / heightscroll
-  $('.insideboxframe').scrollTop(`${Math.round(6720 * sRSS) * nowscroll}`)
+  $('.insideboxframe').scrollTop(`${Math.round(6750 * sRSS) * nowscroll}`)
 })
 
 $('.scrollbarmyself').mousemove(function (e) {
@@ -104,13 +104,14 @@ $('.scrollbarmyself').mousemove(function (e) {
     $('.bar').css({ top: `${positionnow}px` })
     let heightscroll = $('.scrollbarmyself').height() - $('.bar').height()
     let nowscroll = positionnow / heightscroll
-    $('.insideboxframe').scrollTop(`${Math.round(6720 * sRSS) * nowscroll}`)
+    $('.insideboxframe').scrollTop(`${Math.round(6750 * sRSS) * nowscroll}`)
   }
 
 })
 $('body').mouseup(function (e) {
   clickko = 0
   D2_clickko = 0
+  D4_clickko = 0
 })
 
 // month scrollbar
@@ -159,13 +160,23 @@ $('body').mouseup(function (e) {
 
 // 監測SCROLLBAR
 setInterval(() => {
-  let nowscroll = $('.insideboxframe').scrollTop() / Math.round(6720 * sRSS)
+  let nowscroll = $('.insideboxframe').scrollTop() / Math.round(6750 * sRSS)
   nowscroll = nowscroll.toFixed(2)
   let heightscroll = $('.scrollbarmyself').height() - $('.bar').height()
   let setnowheight = heightscroll * nowscroll
+
   $('.bar').css({
     top: `${setnowheight}px`
   })
+
+
+
+
+
+
+
+
+
 
 
   let monthnowscroll = $('.monthboxframe').scrollTop() / Math.round(560 * sRSS)
@@ -176,7 +187,7 @@ setInterval(() => {
     top: `${monthsetnowheight}px`
   })
 
-  let D2_nowscroll = $('.D2_insideboxframe').scrollTop() / Math.round(6720 * sRSS)
+  let D2_nowscroll = $('.D2_insideboxframe').scrollTop() / Math.round(6750 * sRSS)
   D2_nowscroll = D2_nowscroll.toFixed(2)
   let D2_heightscroll = $('.D2_scrollbarmyself').height() - $('.D2_bar').height()
   let D2_setnowheight = D2_heightscroll * D2_nowscroll
@@ -195,7 +206,7 @@ setInterval(() => {
 
 
 
-  let D3_nowscroll = $('.D3_insideboxframe').scrollTop() / Math.round(6720 * sRSS)
+  let D3_nowscroll = $('.D3_insideboxframe').scrollTop() / Math.round(6750 * sRSS)
   D3_nowscroll = D3_nowscroll.toFixed(2)
   let D3_heightscroll = $('.D3_scrollbarmyself').height() - $('.D3_bar').height()
   let D3_setnowheight = D3_heightscroll * D3_nowscroll
@@ -212,6 +223,23 @@ setInterval(() => {
     top: `${D3_monthsetnowheight}px`
   })
 
+
+  let D4_nowscroll = $('.D4_insideboxframe').scrollTop() / Math.round(6750 * sRSS)
+  D4_nowscroll = D4_nowscroll.toFixed(2)
+  let D4_heightscroll = $('.D4_scrollbarmyself').height() - $('.D4_bar').height()
+  let D4_setnowheight = D4_heightscroll * D4_nowscroll
+  $('.D4_bar').css({
+    top: `${D4_setnowheight}px`
+  })
+
+
+  let D4_monthnowscroll = $('.D4_monthboxframe').scrollTop() / Math.round(560 * sRSS)
+  D4_monthnowscroll = D4_monthnowscroll.toFixed(2)
+  let D4_monthheightscroll = $('.D4_scrollbarmymonth').height() - $('.D4_monthbar').height()
+  let D4_monthsetnowheight = D4_monthheightscroll * D4_monthnowscroll
+  $('.D4_monthbar').css({
+    top: `${D4_monthsetnowheight}px`
+  })
 
 
 }, 50);
@@ -235,9 +263,15 @@ $('.insidebox').click(function () {
 })
 $('.rocyear').click(function () {
   if (toggleyear == 0) {
+    let stagemonth =((displayyearnow - 1911)-70)/96
+    $('.insideboxframe').scrollTop(Math.round(6750 * sRSS*stagemonth))
+
     $('.morerocyear,.scrollbarmyself').css({
       transform: "scale(1)"
     })
+
+
+
     toggleyear = 1
   } else if (toggleyear == 1) {
     $('.morerocyear,.scrollbarmyself').css({
@@ -377,6 +411,9 @@ $('.today_btn').click(function () {
   displayyearnow = NOW.getFullYear()
   displaymonthnow = NOW.getMonth()
   displaydate = NOW.getDate()
+  countarray = []
+  clearcountarray()
+  $('.countimg').remove()
   setmonthyears()
   resetweekupdown()
   createdateex()
@@ -485,6 +522,9 @@ $('.premonth_btn').click(function () {
   } else {
     displaymonthnow = displaymonthnow - 1
   }
+  countarray = []
+  clearcountarray()
+  $('.countimg').remove()
   setmonthyears()
   resetweekupdown()
   createdateex()
@@ -497,6 +537,10 @@ $('.nextmonth_btn').click(function () {
   } else {
     displaymonthnow = displaymonthnow + 1
   }
+  countarray = []
+  clearcountarray()
+  $('.countimg').remove()
+
   setmonthyears()
   resetweekupdown()
   createdateex()
@@ -504,6 +548,10 @@ $('.nextmonth_btn').click(function () {
 })
 $('.preyear_btn').click(function () {
   displayyearnow = displayyearnow - 1
+  countarray = []
+  clearcountarray()
+  $('.countimg').remove()
+
   setmonthyears()
   resetweekupdown()
   createdateex()
@@ -511,6 +559,10 @@ $('.preyear_btn').click(function () {
 })
 $('.nextyear_btn').click(function () {
   displayyearnow = displayyearnow + 1
+  countarray = []
+  clearcountarray()
+  $('.countimg').remove()
+
   setmonthyears()
   resetweekupdown()
   createdateex()
@@ -683,6 +735,7 @@ $('.D1_today_btn').click(function () {
   displayyearnow = NOW.getFullYear()
   displaymonthnow = NOW.getMonth()
   displaydate = NOW.getDate()
+
   addlistenmonth()
   setweeknow()
 })
@@ -703,3 +756,22 @@ $('.info-close-btn').click(function () {
   })
 
 })
+
+setInterval(function () {
+  let D1_weeknow = $('.D1_week').text()
+  if (D1_weeknow == "星期六" || D1_weeknow == "星期日") {
+    $('.D1_week').css({
+      color: "#ee486e"
+    })
+    $('.D1_day').css({
+      color: "#ee486e"
+    })
+  } else {
+    $('.D1_week').css({
+      color: "#1E99A9"
+    })
+    $('.D1_day').css({
+      color: "#000"
+    })
+  }
+}, 100)

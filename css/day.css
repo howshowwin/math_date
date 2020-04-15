@@ -72,7 +72,7 @@
     left: 62.2%;
     color: #1B9AA9;
     font-weight: 400;
-
+  
 
 }
 .D1_month{
@@ -81,9 +81,10 @@
     position: absolute;
     top: 41.3%;
     color: #1B9AA9;
-    left: 62%;
+    left: 60.9%;
     font-weight: 900;
     text-align: center;
+    pointer-events: none;
 
 }
 .D1_mobth_word{
@@ -104,6 +105,7 @@
     position: absolute;
     top: 39%;
     left: 19.3%;
+    display: none;
 }
 
 .D1_lunar_month{
@@ -113,6 +115,8 @@
     position: absolute;
     top: 49.5%;
     left: 19.8%;
+    display: none;
+
 }
 .D1_lunar_day{
     -webkit-writing-mode: vertical-rl;
@@ -121,6 +125,8 @@
     position: absolute;
     top: 60.1%;
     left: 19.8%;
+    display: none;
+
 }
 .D1_pre{
     background: url(../img/btL.svg);
