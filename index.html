@@ -281,6 +281,8 @@
                 <p>本月</p>
             </div>
             <div class="D3_bigger_watch"></div>
+            <div class="D3_bigger_watch_reback"></div>
+
             <div class="D3_premonth_btn D3_leftbtn D3_pre">
                 <p>上個月</p>
                 <div class="D3_arrow"></div>
@@ -301,7 +303,7 @@
             <div class="main"></div>
             <!-- 中間框框 -->
             <div class="D3_hidden_insideframe">
-                <div class="D3_insideframe">
+                <div class="D3_insideframe drag">
                     <div class="D3_month_box D3_month_box1">
                         <div class="D3_displaymonth">1</div>
                         <div class="D3_text">月</div>
@@ -410,6 +412,7 @@
                 <p>本月</p>
             </div>
             <div class="D4_bigger_watch"></div>
+            <div class="D4_bigger_watch_reback"></div>
             <div class="D4_premonth_btn D4_leftbtn D4_pre">
                 <p>上個月</p>
                 <div class="D4_arrow"></div>
@@ -430,7 +433,7 @@
             <div class="main"></div>
             <!-- 中間框框 -->
             <div class="D4_insideframe_hidden">
-                <div class="D4_insideframe">
+                <div class="D4_insideframe  drag">
                     <div class="D4_box D4_box1" data-monthclick="0">
                         <div class="D4_displaymonth">1</div>
                         <div class="D4_text">月</div>
@@ -603,20 +606,29 @@
         <div class="close_btn"></div>
 
     </div>
-    <div class="mask-info">
-        <div class="infoframe">
-            <div class="info-close-btn"></div>
+
+
+    <div class="mask display_none">
+        <div class="info">
+            <div class="info-page"></div>
+            <div class="info-btn-left display_none"></div>
+            <div class="info-btn-right display_none"></div>
+            <div class="btn_close_inset "></div>
         </div>
     </div>
+
+
     <!-- <div class="background1"> </div> -->
+    <script src="infoset.js"></script>
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/dragscroll.js"></script>
     <script src="js/resize.js"></script>
     <script type="text/javascript" src="js/lunar.js"></script>
     <script>
         // 設定起始網頁
 
         var features = ['day', 'month', 'doublemonth', 'halfyear', 'year']
-        var choose = 1
+        var choose = 2
         $(`.${features[choose]}_btn p`).css({ color: "#f04770" })
         $(`.${features[choose]}_btn .circle`).removeClass('display_none')
         $(`.background-${features[choose]}`).removeClass('display_none')

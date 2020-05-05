@@ -330,12 +330,12 @@ function createdatemultmonth() {
 
     convertSizeALL()
     $('.D3_month_box').css({
-        background: "none",
-        backgroundSize: "cover"
+        background: "#fff",
+        backgroundSize:"cover"
     })
-    $('.D3_month_box1').css({
-        background: " url(img/o2.svg)",
-        backgroundSize: "cover"
+    $(`.D3_month_box1`).css({
+        background: "url(img/o3.svg)",
+        backgroundSize:"cover"
     })
 
     $('.D3_selectedyear').text(displayyearnow - 1911)
@@ -557,12 +557,14 @@ function createdatyears() {
 
     convertSizeALL()
     $('.D4_box').css({
-        background: "none",
+        background: "#fff",
         backgroundSize: "cover"
+
     })
     $(`.D4_box${displaymonthnow+1}`).css({
         background: " url(img/o3.svg)",
-        backgroundSize: "cover"
+        backgroundSize: "cover",
+        zIndex:7
     })
 
     $('.D4_selectedyear').text(displayyearnow - 1911)

@@ -1,0 +1,1 @@
+var set_pic_info =["page1.svg","page2.svg","page3.svg","page4.svg"]

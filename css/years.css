@@ -107,8 +107,20 @@
     top: 35%;
     left: 7.4%;
     cursor: pointer;
+    transition: 0.7s;
 }
+.D4_bigger_watch_reback{
+    background: url(../img/btB.svg);
+    background-size: cover;
+    position: absolute;
+    top: 35%;
+    left: 10.5%;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.7s;
 
+}
 .D4_month {
     background: url(../img/bn2.svg);
     background-size: cover;
@@ -357,29 +369,42 @@
 .D4_insideframe_hidden{
     position: absolute;
     top: 15.8%;
-    overflow: hidden;
+    overflow: auto;
     left: 19%;
 
 }
+.D4_insideframe_hidden::-webkit-scrollbar {
+    display: none;
+}
+
 .D4_box1 {
     top: 2.8%;
     left: 3.9%;
+    transform-origin: 0 0;
 }
 .D4_box2 {
     top: 2.8%;
     left: 27.7%;
+    transform-origin: 33% 0 ;
+
 }
 .D4_box3 {
     top: 2.8%;
     left: 51.6%;
+    transform-origin: 66% 0 ;
+
 }
 .D4_box4 {
     top: 2.8%;
     left: 75.4%;
+    transform-origin: 100% 0 ;
+
 }
 .D4_box5 {
     top: 34.8%;
     left: 3.9%;
+    transform-origin: 0% 50% ;
+
 }
 .D4_box6 {
     top: 34.8%;
@@ -393,30 +418,36 @@
 }
 .D4_box8 {
     top: 34.8%;
-
     left: 75.4%;
+    transform-origin: 100% 50% ;
 }
 .D4_box9 {
     top: 67%;
     left: 3.9%;
+    transform-origin: 0% 100% ;
+
 }
 .D4_box10 {
     top: 67%;
 
 
     left: 27.7%;
+    transform-origin: 33% 100% ;
+
 }
 .D4_box11 {
     top: 67%;
-
-
     left: 51.6%;
+    transform-origin: 66% 100% ;
+
 }
 .D4_box12 {
     top: 67%;
 
 
     left: 75.4%;
+    transform-origin: 100% 100% ;
+
 }
 
 .D4_displaymonth{
@@ -428,7 +459,7 @@
     left: 20%;
     color: #1B9AA9;
     top: 2.5%;
-
+    
 }
 .D4_text{
     font-weight: 900;

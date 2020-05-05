@@ -1,3 +1,36 @@
+if (set_pic_info.length > 1) {
+  $('.info-btn-right').removeClass('display_none')
+}
+var picnowdisplay = 0
+var picenddisplay = set_pic_info.length -1
+$('.info-btn-right').click(function () {
+  picnowdisplay++
+  $('.info-page').css({
+      background: `url(setpic/${set_pic_info[picnowdisplay]})`,
+      backgroundSize: "cover"
+  })
+  if(picnowdisplay==picenddisplay){
+      $('.info-btn-right').addClass('display_none')
+  }
+  if(picnowdisplay!=0){
+      $('.info-btn-left').removeClass('display_none')
+  }
+})
+$('.info-btn-left').click(function () {
+  picnowdisplay--
+  $('.info-page').css({
+      background: `url(setpic/${set_pic_info[picnowdisplay]})`,
+      backgroundSize: "cover"
+  })
+  if(picnowdisplay==0){
+      $('.info-btn-left').addClass('display_none')
+  }
+  if(picnowdisplay!=picenddisplay){
+      $('.info-btn-right').removeClass('display_none')
+  }
+
+})
+
 
 
 // 右邊按鈕選擇
@@ -263,8 +296,8 @@ $('.insidebox').click(function () {
 })
 $('.rocyear').click(function () {
   if (toggleyear == 0) {
-    let stagemonth =((displayyearnow - 1911)-70)/96
-    $('.insideboxframe').scrollTop(Math.round(6750 * sRSS*stagemonth))
+    let stagemonth = ((displayyearnow - 1911) - 70) / 96
+    $('.insideboxframe').scrollTop(Math.round(6750 * sRSS * stagemonth))
 
     $('.morerocyear,.scrollbarmyself').css({
       transform: "scale(1)"
@@ -313,6 +346,7 @@ $('.month').click(function () {
 
 })
 
+
 var pre = 28
 var next = 70
 $('.preweek_btn').click(function () {
@@ -325,29 +359,42 @@ $('.preweek_btn').click(function () {
     for (i = next; i < next + 7; i++) {
       $(`.box1:eq(${i})`).css({ display: "none" })
     }
+    console.log(pre + "前", next + "後")
   }
-  if (pre == 7) {
-    let nowmonthnext = $('.month').children('.selectedmonth').text()
-    nowmonthnext = parseInt(nowmonthnext)
-    let nowyearnext = $('.rocyear').children('.selectedyear').text()
-    nowyearnext = parseInt(nowyearnext)
+  let nowmonthnext = displaymonthnow
+  let nowyearnext = displayyearnow
+  if (pre <= 7) {
+    $('.colordark p').css({ color: "#000" })
+    $('.box1:nth-child(7n+1).colordark p').css({ color: "rgba(238, 72, 111, 1)" })
+    $('.box1:nth-child(7n).colordark p').css({ color: "rgba(238, 72, 111, 1)" })
+    $('.fresh p').css({ color: "rgba(0, 0, 0, 0.35)" })
+    $('.box1:nth-child(7n+1).fresh p').css({ color: "rgba(238, 72, 111, 0.4)" })
+    $('.box1:nth-child(7n).fresh p').css({ color: "rgba(238, 72, 111, 0.4)" })
 
-    if (nowmonthnext == 1) {
+    if (nowmonthnext == 0) {
       nowmonthnext = 12
       nowyearnext = nowyearnext - 1
       $('.rocyear').children('.selectedyear').text(nowyearnext)
       $('.vids').children(".showvidsnow").text(nowyearnext + 1911)
+      $('.month').children('.selectedmonth').text(nowmonthnext)
 
     } else {
-      nowmonthnext = nowmonthnext - 1
+
+      $('.month').children('.selectedmonth').text(nowmonthnext)
+
     }
-    $('.month').children('.selectedmonth').text(nowmonthnext)
+  }
+  if (next < 84 && next >= 70) {
+    $('.month').children('.selectedmonth').text(nowmonthnext + 1)
+    $('.colordark p').css({ color: "rgba(0, 0, 0, 0.35)" })
+    $('.box1:nth-child(7n+1).colordark p').css({ color: "rgba(238, 72, 111, 0.4)" })
+    $('.box1:nth-child(7n).colordark p').css({ color: "rgba(238, 72, 111, 0.4)" })
+    $('.fresh p').css({ color: "#000" })
+    $('.box1:nth-child(7n+1).fresh p').css({ color: "rgba(238, 72, 111, 1)" })
+    $('.box1:nth-child(7n).fresh p').css({ color: "rgba(238, 72, 111, 1)" })
   }
 
-  if (next == 84) {
-    $('.rocyear').children('.selectedyear').text(displayyearnow - 1911)
-    $('.month').children('.selectedmonth').text(displaymonthnow + 1)
-  }
+
 
 })
 
@@ -367,44 +414,133 @@ $('.nextweek_btn').click(function () {
     }
     console.log(next)
   }
-  if (next == 84) {
-    let nowmonthnext = $('.month').children('.selectedmonth').text()
-    nowmonthnext = parseInt(nowmonthnext)
-    let nowyearnext = $('.rocyear').children('.selectedyear').text()
-    nowyearnext = parseInt(nowyearnext)
+  let nowmonthnext = displaymonthnow
+  let nowyearnext = displayyearnow
+  if (next >= 84) {
+    $('.colordark p').css({ color: "#000" })
+    $('.box1:nth-child(7n+1).colordark p').css({ color: "rgba(238, 72, 111, 1)" })
+    $('.box1:nth-child(7n).colordark p').css({ color: "rgba(238, 72, 111, 1)" })
+    $('.fresh p').css({ color: "rgba(0, 0, 0, 0.35)" })
+    $('.box1:nth-child(7n+1).fresh p').css({ color: "rgba(238, 72, 111, 0.4)" })
+    $('.box1:nth-child(7n).fresh p').css({ color: "rgba(238, 72, 111, 0.4)" })
 
-    if (nowmonthnext == 12) {
+    if (nowmonthnext == 11) {
       nowmonthnext = 1
       nowyearnext = nowyearnext + 1
       $('.rocyear').children('.selectedyear').text(nowyearnext)
       $('.vids').children(".showvidsnow").text(nowyearnext + 1911)
 
     } else {
-      nowmonthnext = nowmonthnext + 1
+      nowmonthnext = nowmonthnext + 2
     }
-    $('.month').children('.selectedmonth').text(nowmonthnext)
+  } else {
+    nowmonthnext = nowmonthnext + 1
+
   }
-  if (pre == 14) {
-    $('.rocyear').children('.selectedyear').text(displayyearnow - 1911)
-    $('.month').children('.selectedmonth').text(displaymonthnow + 1)
+  $('.month').children('.selectedmonth').text(nowmonthnext)
+
+  if (pre >= 7 && pre < 28) {
+    $('.month').children('.selectedmonth').text(nowmonthnext - 1)
+    $('.colordark p').css({ color: "rgba(0, 0, 0, 0.35)" })
+    $('.box1:nth-child(7n+1).colordark p').css({ color: "rgba(238, 72, 111, 0.4)" })
+    $('.box1:nth-child(7n).colordark p').css({ color: "rgba(238, 72, 111, 0.4)" })
+    $('.fresh p').css({ color: "#000" })
+    $('.box1:nth-child(7n+1).fresh p').css({ color: "rgba(238, 72, 111, 1)" })
+    $('.box1:nth-child(7n).fresh p').css({ color: "rgba(238, 72, 111, 1)" })
   }
 
 })
+
+function doublemonthchangetoanother() {
+  displaymonthnow = _this[0]
+  displayyearnow = _this[1]
+}
+
+function halfmonthchangetoanother() {
+  displaymonthnow = half_this[0]
+  displayyearnow = half_this[1]
+}
+function resetbigger() {
+  stopBigger = 0
+  D4_biggernow = 0
+
+  $('.D4_box ').css({
+    cursor: "default",
+    transition: ''
+
+  })
+  $('.D4_bigger_watch').css({
+    left: "7.4%"
+  })
+  $('.D4_bigger_watch_reback').css({
+    opacity: 0,
+    pointerEvents: "none"
+  })
+  $('.D4_insideframe').css({
+    transformOrigin: "0 0",
+    transform: 'scale(1)',
+    cursor: "default"
+
+  })
+
+  D3_stopBigger = 0
+  biggernow = 0
+
+  $('.D3_month_box ').css({
+    cursor: "default",
+    transition: ''
+
+  })
+  $('.D3_bigger_watch').css({
+    left: "7.4%"
+  })
+  $('.D3_bigger_watch_reback').css({
+    opacity: 0,
+    pointerEvents: "none"
+  })
+  $('.D3_insideframe').css({
+    transformOrigin: "0 0",
+    transform: 'scale(1)',
+    cursor: "default"
+
+  })
+
+
+}
+
 function resetweekupdown() {
   pre = 28
   next = 70
 }
 $('.month_btn').click(function () {
+  if (choose == 2) {
+    setmonthchangeDou()
+    doublemonthchangetoanother()
+  }
+  if (choose == 3) {
+    setmonthchangeHalf()
+    halfmonthchangetoanother()
+  }
   setmonthyears()
   resetweekupdown()
   createdateex()
   countopenorclose()
   addlistenmonth()
   $(`.fresh:eq(${displaydate - 1})`).css({ background: "#cdf7ed" })
+  choose = 1
 })
 $('.day_btn').click(function () {
+  if (choose == 2) {
+    setmonthchangeDou()
+    doublemonthchangetoanother()
+  }
+  if (choose == 3) {
+    setmonthchangeHalf()
+    halfmonthchangetoanother()
+  }
   addlistenmonth()
   setweeknow()
+  choose = 0
 })
 $('.today_btn').click(function () {
   var NOW = new Date();
@@ -458,9 +594,9 @@ $('.displaymonthex').on("click", ".box1", function () {
     displaydate = thisnum
     addlistenmonth()
     $('.box1').not(this).css({ background: "none" })
-    $('.colordark p').not(this).css({ color: "rgba(0, 0, 0, 0.349)" })
-    $('.box1:nth-child(7n+1).colordark p').not(this).css({ color: "#ee486f6e" })
-    $('.box1:nth-child(7n).colordark p').not(this).css({ color: "#ee486f6e" })
+    // $('.colordark p').not(this).css({ color: "rgba(0, 0, 0, 0.349)" })
+    // $('.box1:nth-child(7n+1).colordark p').not(this).css({ color: "#ee486f6e" })
+    // $('.box1:nth-child(7n).colordark p').not(this).css({ color: "#ee486f6e" })
 
   }
 
@@ -508,6 +644,8 @@ $('.displaymonthex').on("click", ".box1", function () {
 
   }
   clearcountarray()
+  convertSizeALL()
+
 })
 function setmonthyears() {
   $('.selectedmonth').text(displaymonthnow + 1)
@@ -740,14 +878,15 @@ $('.D1_today_btn').click(function () {
   setweeknow()
 })
 
+
 $('.howtouse_btn').click(function () {
-
-  $('.mask-info').css({
-    transform: "translateY(0px)",
-    opacity: 1
-  })
-
+  $('.mask').removeClass('display_none')
 })
+$('.btn_close_inset ').click(function () {
+  $('.mask').addClass('display_none')
+})
+
+
 $('.info-close-btn').click(function () {
 
   $('.mask-info').css({

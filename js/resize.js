@@ -67,7 +67,6 @@ function convertSizeALL(className) {
     $('.vids p ').css({ fontSize: Math.round(45 * sRatio) });
 
 
-
     $('.insideboxframe,.insideboxframeoverhide').css({ width: Math.round(360 * sRatio), height: Math.round(291 * sRatio) })
     $('.insidebox').css({ width: Math.round(400 * sRatio), height: Math.round(59 * sRatio), margin: `${Math.round(11 * sRatio)}px 0` })
     $('.insidebox p').css({ width: Math.round(120 * sRatio), fontSize: Math.round(45 * sRatio) })
@@ -87,7 +86,7 @@ function convertSizeALL(className) {
     $('.daysnow').css({ width: "100%", height: Math.round(90 * sRatio) })
     $('.daysnow p').css({ fontSize: Math.round(40 * sRatio) });
     $('.box1 p').css({ fontSize: Math.round(40 * sRatio), lineHeight: `${Math.round(90 * sRatio)}px` });
-    $('.box1').css({ width: 147.5 * sRatio, height: Math.round(89.5 * sRatio) })
+    $('.box1').css({ width: 147.2 * sRatio, height: 89.8 * sRatio})
     $('.displaymonthex').css({ width: Math.round(1035 * sRatio) })
     $('.countnumber').css({ width: Math.round(200 * sRatio), height: Math.round(150 * sRatio), fontSize: Math.round(120 * sRatio) })
     $('.rightline').css({ width: Math.round(268 * sRatio), height: Math.round(5 * sRatio) })
@@ -179,6 +178,7 @@ function convertSizeALL(className) {
     $('.D3_dayoftheweek').css({ fontSize: Math.round(18 * sRatio) });
     $('.D3_box1').css({ fontSize: Math.round(18 * sRatio), height: Math.round(28 * sRatio) });
     $('.D3_text').css({ fontSize: Math.round(35 * sRatio) });
+    $('.D3_bigger_watch_reback').css({ width: Math.round(98 * sRatio), height: Math.round(99 * sRatio) })
 
 
 
@@ -206,6 +206,9 @@ function convertSizeALL(className) {
     $('.D4_selectedyear').css({ width: Math.round(120 * sRatio), fontSize: Math.round(45 * sRatio) })
     $('.D4_arrowdown').css({ width: Math.round(24 * sRatio), height: Math.round(13 * sRatio) });
     $('.D4_bigger_watch').css({ width: Math.round(98 * sRatio), height: Math.round(99 * sRatio) })
+    $('.D4_bigger_watch_reback').css({ width: Math.round(98 * sRatio), height: Math.round(99 * sRatio) })
+   
+   
     $('.D4_rocyear').css({ width: Math.round(384 * sRatio), height: Math.round(91 * sRatio) })
     $('.D4_morerocyear').css({ width: Math.round(385 * sRatio), height: Math.round(356 * sRatio) })
     $('.D4_insideframe,.D4_insideframe_hidden').css({ width: Math.round(1097 * sRatio), height: Math.round(687 * sRatio), borderRadius: `${Math.round(30 * sRatio)}px` });
@@ -224,6 +227,26 @@ function convertSizeALL(className) {
     $('.D1_lunar_month').css({ fontSize: Math.round(45 * sRatio) });
 
     $('.D1_lunar_day').css({ fontSize: Math.round(45 * sRatio) });
+    $('.countimg p').css({fontSize:Math.round(20 * sRatio),lineHeight: `${Math.round(32 * sRatio)}px`})
+    $('.countimg').css({width: Math.round(35 * sRatio), height: Math.round(37 * sRatio)})
+
+
+
+
+    $('.mask').css({ width: Math.round(w * sRatio), height: Math.round(h * sRatio) });
+    $('.info').css({ width: Math.round(673*1.6  * sRatio), height: Math.round(456 *1.6* sRatio) });
+    $('.info-page').css({ width: Math.round(1039  * sRatio), height: Math.round(687.6* sRatio),borderRadius: Math.round(15 * sRatio) });
+    $('.info-btn-left,.info-btn-right').css({ width: Math.round(35 * sRatio), height: Math.round(35 * sRatio) });
+    $('.btn_close_inset').css({ width: Math.round(53 * sRatio), height: Math.round(53 * sRatio) });
+
+
+
+
+
+
+
+
+
 
 }
 

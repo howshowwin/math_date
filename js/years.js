@@ -3,9 +3,9 @@ var D4_togglemonth = 0
 
 $('.D4_rocyear').click(function () {
     if (D4_toggleyear == 0) {
-        let stagemonth =((displayyearnow - 1911)-70)/96
-        $('.D4_insideboxframe').scrollTop(Math.round(6750 * sRSS*stagemonth))
-      
+        let stagemonth = ((displayyearnow - 1911) - 70) / 96
+        $('.D4_insideboxframe').scrollTop(Math.round(6750 * sRSS * stagemonth))
+
         $('.D4_morerocyear,.D4_scrollbarmyself').css({
             transform: "scale(1)"
         })
@@ -110,11 +110,14 @@ $('.D4_box').click(function () {
 
         $(this).css({
             background: " url(img/o3.svg)",
-            backgroundSize: "cover"
+            backgroundSize: "cover",
+            zIndex: 8
         })
         $('.D4_box').not(this).css({
-            background: " none",
-            backgroundSize: "cover"
+            background: " #fff",
+            backgroundSize: "cover",
+            zIndex: 5
+
         })
         displaymonthnow = $(this).data('monthclick')
     }
@@ -144,6 +147,9 @@ $('.D4_nextyear_btn ').click(function () {
 var D4_biggernow = 0
 $('.D4_bigger_watch').click(function () {
     if (D4_biggernow == 0) {
+        $('.D4_box').css({
+            transition: ' cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.7s'
+        })
         D4_biggernow = 1
         $('.D4_insideframe').css({
             cursor: 'zoom-in'
@@ -152,101 +158,181 @@ $('.D4_bigger_watch').click(function () {
             cursor: "zoom-in"
 
         })
+        D4_move = 1
+
     } else if (D4_biggernow == 1) {
+        $('.D4_box').css({
+            transition: ''
+        })
         $('.D4_insideframe').css({
             cursor: "default"
+        })
+        $('.D4_box ').css({
+            cursor: "default"
+
         })
         D4_biggernow = 0
 
     }
 })
 
-$('.D4_insideframe').click(function (e) {
-    if (D4_biggernow == 1) {
-        $('.D4_insideframe').css({
-            cursor: "zoom-out"
+
+$('.D4_box').mouseenter(function () {
+    if (D4_biggernow == 1 && stopBigger == 0) {
+        $(this).css({
+            transform: "scale(2.5)",
+            zIndex: '88'
         })
-        $('.D4_box ').css({
-            cursor: "zoom-out"
 
-        })
-        let clicknowX = e.originalEvent.clientX - $('.D4_insideframe').offset().left
-        let clicknowY = e.originalEvent.clientY - $('.D4_insideframe').offset().top
-        
-        clicknowX = Math.floor(clicknowX)
-        clicknowY = Math.floor(clicknowY)
-     
-        function testX(mainX){
-            if(mainX<=$('.D4_insideframe').width()/4){
-                return 0
-            }else if(mainX>$('.D4_insideframe').width()/4 && mainX<=$('.D4_insideframe').width()/4*2  ){
-                return 33
-            }else if(mainX>$('.D4_insideframe').width()/4*2 && mainX<=$('.D4_insideframe').width()/4*3  ){
-                return 66
-            }else if(mainX>$('.D4_insideframe').width()/4*3 && mainX<=$('.D4_insideframe').width()  ){
-                return 100
-            }
-        }
-
-        function testY(mainY){
-            if(mainY<=$('.D4_insideframe').height()/3){
-                return 0
-            }else if(mainY>$('.D4_insideframe').height()/3 && mainY<=$('.D4_insideframe').height()/3*2  ){
-                return 50
-            }else if(mainY>$('.D4_insideframe').height()/3*2 && mainY<=$('.D4_insideframe').height()  ){
-                return 100
-            }
-        }
+    }
 
 
 
-        clicknowX = Math.floor(clicknowX)
-        clicknowY = Math.floor(clicknowY)
+})
+var stopBigger = 0
+var D4_move = 0
+$('.D4_box').mouseleave(function () {
+    if (D4_biggernow == 1 && stopBigger == 0) {
 
-
-        $('.D4_insideframe').css({
-            transition: "0.2s",
-            transformOrigin: `${testX(clicknowX)}% ${testY(clicknowY)}%`,
+        $(this).css({
+            transform: "scale(1)",
+            zIndex: '5'
 
         })
-        setTimeout(function () {
-            $('.D4_insideframe').css({
-                transform: `scale(2) `
-
-            })
-        }, 200)
-
-
-
-
-        D4_biggernow = 0
-    } else if (D4_biggernow == 0) {
-        let clicknowX = e.originalEvent.clientX - $('.D4_insideframe').offset().left
-        let clicknowY = e.originalEvent.clientY - $('.D4_insideframe').offset().top
-        clicknowX = Math.floor(clicknowX)
-        clicknowY = Math.floor(clicknowY)
-        $('.D4_insideframe').css({
-            // transformOrigin: `${clicknowX}px ${clicknowY}px`,
-            transition: "0.3s",
-
-        })
-        setTimeout(function () {
-            $('.D4_insideframe').css({
-
-                transform: "scale(1) translate(0px,0px)"
-            })
-        }, 0)
-        $('.D4_box ').css({
-            cursor: "pointer"
-
-        })
-        $('.D4_insideframe').css({
-            cursor: "default"
+        $(`.D4_box${displaymonthnow + 1}`).css({
+            zIndex: 7
         })
     }
 
+
+
 })
-$('.year_btn').click(function(){
+
+
+$('.drag').dragscroll();
+
+
+
+
+$('.D4_box').mouseup(function (e) {
+    // $(this).css({transform:'scale(2)'})
+
+    if (D4_biggernow == 1 && D4_move == 1) {
+        D4_move = 0
+        stopBigger = 1
+        $('.D4_box').css({
+            transform: "scale(1)",
+            zIndex: '5'
+        })
+        $('.D4_insideframe').css({
+            transformOrigin: "0% 0",
+            transform: 'scale(2)'
+        })
+        $(`.D4_box${displaymonthnow + 1}`).css({
+            zIndex: 7
+        })
+
+        $('.D4_bigger_watch').css({
+            left: "4%"
+        })
+        $('.D4_bigger_watch_reback').css({
+            opacity: 1,
+            pointerEvents: "all"
+        })
+
+        let a = $(this).data('monthclick')
+        console.log($('.D4_insideframe').width())
+        console.log($('.D4_insideframe').height())
+
+        let inswidth = Math.round(1097 * sRSS) * 2
+        let insheight = Math.round(687 * sRSS) * 2
+
+        if (a == 0) {
+            $('.D4_insideframe_hidden').scrollLeft(0)
+        }
+        if (a == 1) {
+            $('.D4_insideframe_hidden').scrollLeft(inswidth / 4)
+        }
+        if (a == 2) {
+            $('.D4_insideframe_hidden').scrollLeft(inswidth / 2)
+        }
+        if (a == 3) {
+            $('.D4_insideframe_hidden').scrollLeft(inswidth / 2)
+        }
+        if (a == 4) {
+            $('.D4_insideframe_hidden').scrollLeft(0)
+            $('.D4_insideframe_hidden').scrollTop(insheight / 4)
+        }
+        if (a == 5) {
+            $('.D4_insideframe_hidden').scrollLeft(inswidth / 4)
+            $('.D4_insideframe_hidden').scrollTop(insheight / 4)
+
+        }
+        if (a == 6) {
+            $('.D4_insideframe_hidden').scrollLeft(inswidth / 2)
+            $('.D4_insideframe_hidden').scrollTop(insheight / 4)
+
+        }
+        if (a == 7) {
+            $('.D4_insideframe_hidden').scrollLeft(inswidth / 2)
+            $('.D4_insideframe_hidden').scrollTop(insheight / 4)
+
+        }
+        if (a == 8) {
+            $('.D4_insideframe_hidden').scrollLeft(0)
+            $('.D4_insideframe_hidden').scrollTop(insheight / 2)
+        }
+        if (a == 9) {
+            $('.D4_insideframe_hidden').scrollLeft(inswidth / 4)
+            $('.D4_insideframe_hidden').scrollTop(insheight / 2)
+
+        }
+        if (a == 10) {
+            $('.D4_insideframe_hidden').scrollLeft(inswidth / 2)
+            $('.D4_insideframe_hidden').scrollTop(insheight / 2)
+
+        }
+        if (a == 11) {
+            $('.D4_insideframe_hidden').scrollLeft(inswidth / 2)
+            $('.D4_insideframe_hidden').scrollTop(insheight / 2)
+
+        }
+    }
+
+})
+$('.D4_bigger_watch_reback').click(function () {
+    stopBigger = 0
+    D4_biggernow = 0
+
+    $('.D4_box ').css({
+        cursor: "default",
+        transition: ''
+
+    })
+    $('.D4_bigger_watch').css({
+        left: "7.4%"
+    })
+    $('.D4_bigger_watch_reback').css({
+        opacity: 0,
+        pointerEvents: "none"
+    })
+    $('.D4_insideframe').css({
+        transformOrigin: "0 0",
+        transform: 'scale(1)',
+        cursor: "default"
+
+    })
+})
+$('.year_btn').click(function () {
+    resetbigger()
+    if (choose == 2) {
+        setmonthchangeDou()
+        doublemonthchangetoanother()
+    }
+    if (choose == 3) {
+        setmonthchangeHalf()
+        halfmonthchangetoanother()
+    }
     createdatyears()
-
+    choose = 4
 })

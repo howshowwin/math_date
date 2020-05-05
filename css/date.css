@@ -594,7 +594,9 @@ body {
     background-size: cover;
     position: absolute;
     top: 22%;
-    left: 21%;
+    left: 20.9%;
+    pointer-events: none;
+    z-index: 999;
 }
 
 /* month */
@@ -827,4 +829,53 @@ body {
     position: absolute;
     top: 0%;
     left: 13%;
+}
+
+
+
+
+.mask{
+    position: absolute;
+    top: 0%;
+    background: rgba(102, 102, 102, 0.541);
+    z-index: 99;
+    left: 0%;
+}
+
+.info{
+    background: url(../img/newwindow.svg);
+    background-size: cover;
+    position: absolute;
+    top: 10%;
+    left: 21%;
+}
+.btn_close_inset{
+    background: url(../img/wX.png);
+    background-size: cover;
+    position: absolute;
+    top: 6.5%;
+    left: 91%;
+    cursor: pointer;
+}
+.info-page{
+    background: url(../setpic/page1.svg);
+    background-size: cover;
+    position: absolute;
+    top:2.85%;
+    left: 1.79%;
+}
+.info-btn-left{
+    background: url(../img/wL.png);
+    background-size: cover;
+    position: absolute;
+    top:48%;
+    left: 3.5%;
+
+}
+.info-btn-right{
+    background: url(../img/wR.png);
+    background-size: cover;
+    position: absolute;
+    top:48%;
+    left: 93%;
 }

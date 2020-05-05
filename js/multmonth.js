@@ -172,10 +172,14 @@ function createdate() {
     convertSizeALL()
 }
 createdate()
+var D2_month_seletednow_btn = 0
+var D2_month_seletednow
 
 
 
 $('.D2_monthbox').click(function () {
+
+
     $(this).css({
         background: " url(img/o1.svg)",
         backgroundSize: "cover"
@@ -229,6 +233,19 @@ $('.D2_today_btn').click(function () {
 })
 
 $('.doublemonth_btn').click(function () {
+    if (choose == 2) {
+
+        setmonthchangeDou()
+        doublemonthchangetoanother()
+    }
+    if (choose == 3) {
+        setmonthchangeHalf()
+        halfmonthchangetoanother()
+    }
+    _this = [displaymonthnow, displayyearnow]
     createdatemonth()
 
+
+    choose = 2
 })
+

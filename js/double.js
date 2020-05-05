@@ -220,11 +220,19 @@ $('.D3_nextyear_btn ').click(function () {
 
     createdatemultmonth()
 
+
 })
+
+
+
 var biggernow = 0
 $('.D3_bigger_watch').click(function () {
     if (biggernow == 0) {
+        $('.D3_month_box').css({
+            transition: ' cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.7s'
+        })
         biggernow = 1
+
         $('.D3_insideframe').css({
             cursor: 'zoom-in'
         })
@@ -232,107 +240,232 @@ $('.D3_bigger_watch').click(function () {
             cursor: "zoom-in"
 
         })
+        D3_move = 1
     } else if (biggernow == 1) {
+        $('.D3_month_box').css({
+            transition: ''
+        })
         $('.D3_insideframe').css({
             cursor: "default"
+        })
+        $('.D3_month_box ').css({
+            cursor: "default"
+
         })
         biggernow = 0
 
     }
 })
-$('.D3_insideframe').click(function (e) {
-    if (biggernow == 1) {
-
-        $('.D3_insideframe').css({
-            cursor: "zoom-out"
-        })
-        $('.D3_month_box').css({
-            cursor: "zoom-out"
-
-        })
-        let clicknowX = e.originalEvent.clientX - $('.D3_insideframe').offset().left
-        let clicknowY = e.originalEvent.clientY - $('.D3_insideframe').offset().top
-
-        function testX(mainX){
-            if(mainX<=$('.D3_insideframe').width()/3){
-                return 0
-            }else if(mainX>$('.D3_insideframe').width()/3 && mainX<=$('.D3_insideframe').width()/3*2  ){
-                return 50
-            }else if(mainX>$('.D3_insideframe').width()/3*2 && mainX<$('.D3_insideframe').width()  ){
-                return 100
-            }
-        }
-
-        function testY(mainY){
-            if(mainY<=$('.D3_insideframe').height()/2){
-                return 0
-            }else if(mainY>$('.D3_insideframe').height()/2 && mainY<=$('.D3_insideframe').height()  ){
-                return 100
-            }
-        }
 
 
 
-        clicknowX = Math.floor(clicknowX)
-        clicknowY = Math.floor(clicknowY)
 
-
-        $('.D3_insideframe').css({
-            transition: "0.2s",
-            transformOrigin: `${testX(clicknowX)}% ${testY(clicknowY)}%`,
-
-        })
-        setTimeout(function () {
-            $('.D3_insideframe').css({
-                transform: `scale(1.5) `
-
-            })
-        }, 200)
-
-
-
-        biggernow = 0
-    } else if (biggernow == 0) {
-        let clicknowX = e.originalEvent.clientX - $('.D3_insideframe').offset().left
-        let clicknowY = e.originalEvent.clientY - $('.D3_insideframe').offset().top
-        clicknowX = Math.floor(clicknowX)
-        clicknowY = Math.floor(clicknowY)
-        $('.D3_insideframe').css({
-            // transformOrigin: `${clicknowX}px ${clicknowY}px`,
-            transition: "0.3s",
-
-        })
-        setTimeout(function () {
-            $('.D3_insideframe').css({
-
-                transform: `scale(1) translate(0px,0px)`
-            })
-        }, 0)
-
-        $('.D3_insideframe').css({
-            cursor: "default"
-        })
-        $('.D3_month_box').css({
-            cursor: "pointer"
-
-        })
-    }
-
-})
-
-
-$('.D3_month_box').click(function () {
+$('.D3_month_box ').click(function () {
     if (biggernow == 0) {
+
         $(this).css({
-            background: " url(img/o2.svg)",
-            backgroundSize: "cover"
+            background: " url(img/o3.svg)",
+            backgroundSize: "cover",
+            zIndex: 8
         })
-        $('.D3_month_box').not(this).css({
-            background: " none",
-            backgroundSize: "cover"
+        $('.D3_month_box ').not(this).css({
+            background: " #fff",
+            backgroundSize: "cover",
+            zIndex: 5
+
         })
+
+
     }
 })
+$('.D3_month_box ').mouseenter(function () {
+    console.log(biggernow)
+    if (biggernow == 1 && D3_stopBigger == 0) {
+        $(this).css({
+            transform: "scale(2)",
+            zIndex: '88'
+        })
+
+    }
+
+
+
+})
+var D3_stopBigger = 0
+var D3_move = 0
+
+$('.D3_month_box ').mouseleave(function () {
+    if (biggernow == 1 && D3_stopBigger == 0) {
+
+        $(this).css({
+            transform: "scale(1)",
+            zIndex: '5'
+
+        })
+        $(`.D3_month_box${displaymonthnow + 1}`).css({
+            zIndex: 7
+        })
+    }
+
+
+
+})
+
+
+
+
+
+
+$('.D3_month_box').mouseup(function (e) {
+
+    if (biggernow == 1 && D3_move == 1) {
+        D3_move = 0
+        D3_stopBigger = 1
+        $('.D3_month_box').css({
+            transform: "scale(1)",
+            zIndex: '5'
+        })
+        $('.D3_insideframe').css({
+            transformOrigin: "0% 0",
+            transform: 'scale(1.5)'
+        })
+        $(`.D3_month_box${displaymonthnow + 1}`).css({
+            zIndex: 7
+        })
+
+        $('.D3_bigger_watch').css({
+            left: "4%"
+        })
+        $('.D3_bigger_watch_reback').css({
+            opacity: 1,
+            pointerEvents: "all"
+        })
+
+        let a = $(this)[0].classList[1]
+
+        let inswidth = Math.round(1097 * sRSS) * 2
+        let insheight = Math.round(687 * sRSS) * 2
+
+        if (a == 'D3_month_box1') {
+            $('.D3_hidden_insideframe').scrollLeft(0)
+        }
+        if (a == 'D3_month_box2') {
+
+            $('.D3_hidden_insideframe').scrollLeft(inswidth / 4)
+        }
+        if (a == 'D3_month_box3') {
+
+            $('.D3_hidden_insideframe').scrollLeft(inswidth / 2)
+        }
+        if (a == 'D3_month_box4') {
+            $('.D3_hidden_insideframe').scrollLeft(0)
+            $('.D3_hidden_insideframe').scrollTop(insheight / 2)
+        }
+        if (a == 'D3_month_box5') {
+            $('.D3_hidden_insideframe').scrollLeft(inswidth / 4)
+            $('.D3_hidden_insideframe').scrollTop(insheight / 2)
+        }
+        if (a == 'D3_month_box6') {
+            $('.D3_hidden_insideframe').scrollLeft(inswidth / 2)
+            $('.D3_hidden_insideframe').scrollTop(insheight / 2)
+
+        }
+
+    }
+
+})
+$('.D3_bigger_watch_reback').click(function () {
+    D3_stopBigger = 0
+    biggernow = 0
+
+    $('.D3_month_box ').css({
+        cursor: "default",
+        transition: ''
+
+    })
+    $('.D3_bigger_watch').css({
+        left: "7.4%"
+    })
+    $('.D3_bigger_watch_reback').css({
+        opacity: 0,
+        pointerEvents: "none"
+    })
+    $('.D3_insideframe').css({
+        transformOrigin: "0 0",
+        transform: 'scale(1)',
+        cursor: "default"
+
+    })
+})
+
+
+var _this = []
+
+function setmonthchangeDou() {
+
+    let a = $('.D2_monthbox')
+    let c
+    let d
+    for (i = 0; i < 2; i++) {
+        let b = $(a[i]).css('background')
+        console.log(b)
+
+        b = b.slice(0, 20)
+        console.log(b)
+
+        if (b == 'rgba(0, 0, 0, 0) url') {
+            c = a[i]
+        }
+    }
+    d = $(c).children('.D2_month_display').text()
+    d = parseInt(d)
+    if (displaymonthnow + 1 > d) {
+        _this = [d-1, displayyearnow + 1]
+    } else {
+        _this = [d-1, displayyearnow]
+    }
+}
+
+var half_this = []
+
+
+function setmonthchangeHalf() {
+    let a = $('.D3_month_box')
+    let c
+    let d
+    for (i = 0; i < 6; i++) {
+        let b = $(a[i]).css('background')
+        console.log(b)
+
+        b = b.slice(0, 15)
+
+        if (b == 'rgba(0, 0, 0, 0') {
+            c = a[i]
+        }
+    }
+    d = $(c).children('.D3_displaymonth').text()
+    d = parseInt(d)
+    if (displaymonthnow + 1 > d) {
+        half_this = [d-1, displayyearnow + 1]
+    } else {
+        half_this = [d-1, displayyearnow]
+    }
+}
+
+
 $('.halfyear_btn').click(function () {
+    resetbigger()
+    if (choose == 2) {
+        setmonthchangeDou()
+        doublemonthchangetoanother()
+    }
+    if (choose == 3) {
+        // halfmonthchangetoanother()
+        setmonthchangeHalf()
+        halfmonthchangetoanother()
+
+    }
+    half_this = [displaymonthnow , displayyearnow]
     createdatemultmonth()
+    choose = 3
 })
