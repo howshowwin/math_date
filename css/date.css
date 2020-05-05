@@ -596,7 +596,7 @@ body {
     top: 22%;
     left: 20.9%;
     pointer-events: none;
-    z-index: 999;
+    z-index:19;
 }
 
 /* month */
@@ -848,6 +848,7 @@ body {
     position: absolute;
     top: 10%;
     left: 21%;
+    z-index: 9999;
 }
 .btn_close_inset{
     background: url(../img/wX.png);
