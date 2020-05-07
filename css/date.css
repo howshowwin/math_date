@@ -278,7 +278,7 @@ body {
 }
 
 .return_btn {
-    background: url(../img/tb5.svg);
+    background: url(../img/tb4.svg);
     background-size: cover;
     position: absolute;
     top: 88%;
@@ -340,6 +340,7 @@ body {
     transform: scaleY(0);
     transition: 0.2s;
     transform-origin: 50% 0;
+    z-index: 20;
 
 }
 
@@ -393,6 +394,7 @@ body {
     transform: scaleY(0);
     transition: 0.2s;
     transform-origin: 50% 0;
+    z-index: 20;
 
 }
 .month p {
@@ -596,7 +598,7 @@ body {
     top: 22%;
     left: 20.9%;
     pointer-events: none;
-    z-index:19;
+    z-index:18;
 }
 
 /* month */

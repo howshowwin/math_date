@@ -1,32 +1,48 @@
+
+setInterval(() => {
+  if(countarray.length==0){
+    $('.return_btn').addClass('display_none')
+  }else{
+    $('.return_btn').removeClass('display_none')
+    
+  }
+  
+}, 200);
+
+
+$('.info-page').css({
+  background: `url(setpic/${set_pic_info[0]})`,
+  backgroundSize: "cover"
+})
 if (set_pic_info.length > 1) {
   $('.info-btn-right').removeClass('display_none')
 }
 var picnowdisplay = 0
-var picenddisplay = set_pic_info.length -1
+var picenddisplay = set_pic_info.length - 1
 $('.info-btn-right').click(function () {
   picnowdisplay++
   $('.info-page').css({
-      background: `url(setpic/${set_pic_info[picnowdisplay]})`,
-      backgroundSize: "cover"
+    background: `url(setpic/${set_pic_info[picnowdisplay]})`,
+    backgroundSize: "cover"
   })
-  if(picnowdisplay==picenddisplay){
-      $('.info-btn-right').addClass('display_none')
+  if (picnowdisplay == picenddisplay) {
+    $('.info-btn-right').addClass('display_none')
   }
-  if(picnowdisplay!=0){
-      $('.info-btn-left').removeClass('display_none')
+  if (picnowdisplay != 0) {
+    $('.info-btn-left').removeClass('display_none')
   }
 })
 $('.info-btn-left').click(function () {
   picnowdisplay--
   $('.info-page').css({
-      background: `url(setpic/${set_pic_info[picnowdisplay]})`,
-      backgroundSize: "cover"
+    background: `url(setpic/${set_pic_info[picnowdisplay]})`,
+    backgroundSize: "cover"
   })
-  if(picnowdisplay==0){
-      $('.info-btn-left').addClass('display_none')
+  if (picnowdisplay == 0) {
+    $('.info-btn-left').addClass('display_none')
   }
-  if(picnowdisplay!=picenddisplay){
-      $('.info-btn-right').removeClass('display_none')
+  if (picnowdisplay != picenddisplay) {
+    $('.info-btn-right').removeClass('display_none')
   }
 
 })
@@ -281,6 +297,16 @@ setInterval(() => {
 var toggleyear = 0
 var togglemonth = 0
 $('.insidebox').click(function () {
+
+  let selectedmonth = $('.selectedmonth').text()
+  selectedmonth = parseInt(selectedmonth)
+  let showvidsnow = $('.showvidsnow').text()
+  showvidsnow = parseInt( showvidsnow)
+  displaymonthnow = selectedmonth-1
+  displayyearnow = showvidsnow
+  
+
+
   let nowclick = $(this).children('p').text()
   console.log(nowclick)
   $('.selectedyear').text(nowclick)
@@ -318,6 +344,16 @@ $('.rocyear').click(function () {
 
 
 $('.monthinsidebox').click(function () {
+  let selectedmonth = $('.selectedmonth').text()
+  selectedmonth = parseInt(selectedmonth)
+  let showvidsnow = $('.showvidsnow').text()
+  showvidsnow = parseInt( showvidsnow)
+  displaymonthnow = selectedmonth-1
+  displayyearnow = showvidsnow
+  
+
+
+
   let nowclick = $(this).children('p').text()
   console.log(nowclick)
   $('.selectedmonth').text(nowclick)
@@ -374,8 +410,8 @@ $('.preweek_btn').click(function () {
     if (nowmonthnext == 0) {
       nowmonthnext = 12
       nowyearnext = nowyearnext - 1
-      $('.rocyear').children('.selectedyear').text(nowyearnext)
-      $('.vids').children(".showvidsnow").text(nowyearnext + 1911)
+      $('.rocyear').children('.selectedyear').text(nowyearnext-1911)
+      $('.vids').children(".showvidsnow").text(nowyearnext)
       $('.month').children('.selectedmonth').text(nowmonthnext)
 
     } else {
@@ -394,10 +430,10 @@ $('.preweek_btn').click(function () {
     $('.box1:nth-child(7n).fresh p').css({ color: "rgba(238, 72, 111, 1)" })
   }
 
-
+  displaymonthnow =  nowmonthnext
+  displayyearnow = nowyearnext
 
 })
-
 
 
 
@@ -427,8 +463,8 @@ $('.nextweek_btn').click(function () {
     if (nowmonthnext == 11) {
       nowmonthnext = 1
       nowyearnext = nowyearnext + 1
-      $('.rocyear').children('.selectedyear').text(nowyearnext)
-      $('.vids').children(".showvidsnow").text(nowyearnext + 1911)
+      $('.rocyear').children('.selectedyear').text(nowyearnext-1911)
+      $('.vids').children(".showvidsnow").text(nowyearnext )
 
     } else {
       nowmonthnext = nowmonthnext + 2
@@ -654,12 +690,21 @@ function setmonthyears() {
 }
 
 $('.premonth_btn').click(function () {
+  let selectedmonth = $('.selectedmonth').text()
+  selectedmonth = parseInt(selectedmonth)
+  let showvidsnow = $('.showvidsnow').text()
+  showvidsnow = parseInt( showvidsnow)
+  displaymonthnow = selectedmonth-1
+  displayyearnow = showvidsnow
+
   if (displaymonthnow == 0) {
     displaymonthnow = 11
     displayyearnow = displayyearnow - 1
   } else {
     displaymonthnow = displaymonthnow - 1
   }
+ 
+
   countarray = []
   clearcountarray()
   $('.countimg').remove()
@@ -669,6 +714,14 @@ $('.premonth_btn').click(function () {
   countopenorclose()
 })
 $('.nextmonth_btn').click(function () {
+  let selectedmonth = $('.selectedmonth').text()
+  selectedmonth = parseInt(selectedmonth)
+  let showvidsnow = $('.showvidsnow').text()
+  showvidsnow = parseInt( showvidsnow)
+  displaymonthnow = selectedmonth-1
+  displayyearnow = showvidsnow
+
+
   if (displaymonthnow == 11) {
     displaymonthnow = 0
     displayyearnow = displayyearnow + 1
@@ -685,6 +738,13 @@ $('.nextmonth_btn').click(function () {
   countopenorclose()
 })
 $('.preyear_btn').click(function () {
+  let selectedmonth = $('.selectedmonth').text()
+  selectedmonth = parseInt(selectedmonth)
+  let showvidsnow = $('.showvidsnow').text()
+  showvidsnow = parseInt( showvidsnow)
+  displaymonthnow = selectedmonth-1
+  displayyearnow = showvidsnow
+
   displayyearnow = displayyearnow - 1
   countarray = []
   clearcountarray()
@@ -696,6 +756,14 @@ $('.preyear_btn').click(function () {
   countopenorclose()
 })
 $('.nextyear_btn').click(function () {
+  let selectedmonth = $('.selectedmonth').text()
+  selectedmonth = parseInt(selectedmonth)
+  let showvidsnow = $('.showvidsnow').text()
+  showvidsnow = parseInt( showvidsnow)
+  displaymonthnow = selectedmonth-1
+  displayyearnow = showvidsnow
+
+
   displayyearnow = displayyearnow + 1
   countarray = []
   clearcountarray()
@@ -713,10 +781,10 @@ function countopenorclose() {
       background: "url(img/tb2.svg)",
       backgroundSize: "cover"
     })
-    $('.return_btn').css({
-      background: "url(img/tb5.svg)",
-      backgroundSize: "cover"
-    })
+    // $('.return_btn').css({
+    //   background: "url(img/tb5.svg)",
+    //   backgroundSize: "cover"
+    // })
     countarray = []
     $('.countimg').remove()
     clearcountarray()
@@ -732,10 +800,10 @@ $('.countday_btn').click(function () {
       background: "url(img/tb1.svg)",
       backgroundSize: "cover"
     })
-    $('.return_btn').css({
-      background: "url(img/tb4.svg)",
-      backgroundSize: "cover"
-    })
+    // $('.return_btn').css({
+    //   background: "url(img/tb4.svg)",
+    //   backgroundSize: "cover"
+    // })
     countstart = 1
     $('.countnumber').removeClass('display_none')
 
@@ -745,10 +813,10 @@ $('.countday_btn').click(function () {
       background: "url(img/tb2.svg)",
       backgroundSize: "cover"
     })
-    $('.return_btn').css({
-      background: "url(img/tb5.svg)",
-      backgroundSize: "cover"
-    })
+    // $('.return_btn').css({
+    //   background: "url(img/tb5.svg)",
+    //   backgroundSize: "cover"
+    // })
     countstart = 0
     $('.countnumber').addClass('display_none')
   }
@@ -758,11 +826,9 @@ function clearcountarray() {
 }
 
 $('.return_btn').click(function () {
-  if (countstart == 1) {
     countarray = []
     $('.countimg').remove()
     clearcountarray()
-  }
 
 })
 
